@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let json = {
+			'0' : 'wd',
+			'1' : 'nd',
+			'2' : 'td',
+//			length:3
+		}
+		//Array.from()  好像是转换为数组，查看个数
+		//Array.of()    转为数组
+		//Array.find(value,index,数组名) 查找你想要的    好像并不是什么模糊查找
+		let aa = ['1','2']
+		let arr = Array.from(json);
+		let data = ['1','2','3','6','77','7','我的','我的2'];
+		console.log(json instanceof Object)
+		console.log(arr instanceof Array)
+		let arr2 = Array.of(data);
+		console.log()
+		console.log(arr2[0],'1.1')
+		console.log(data.find(function(value,index,data){
+			return value == '我的'
+		}))
+	</script>
+</html>

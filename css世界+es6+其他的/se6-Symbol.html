@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let f = Symbol('类型');
+		console.log(f)
+		console.log(f.toString(),'Symbol类型')
+		
+		var sy = Symbol();
+		var obj = {
+			[sy] :'类型'
+		}
+		console.log(obj[sy]);
+		obj[sy] = 'lx';
+		console.log(obj[sy])
+		
+		
+		let obj2 = {name:'y',skill:'web'};
+		let age = Symbol();
+		obj2[age] = 18;
+		for(let item in obj2){
+			console.log(obj2[item],'for')
+		}
+		
+		console.log(obj2)
+	</script>
+</html>

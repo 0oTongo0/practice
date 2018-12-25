@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		table{
+			width: 200px;
+			border-collapse:collapse;border-spacing:1;border-spacing:0;
+			margin: 10px auto;
+		}
+		td{
+			border: 1px solid red;
+			position: relative;
+		}
+		.pr{
+			position: relative;
+		}
+		.pr>ul{
+			position: absolute;
+			overflow: hidden;
+			display: none;
+			background: red;
+		}
+		.pr:hover ul{
+			display: block;
+		}
+		.img{
+			width: 100px;
+			height: 20px;
+			border: 1px solid red;
+			margin: 20px auto;
+		}
+		h1{
+			width: 100px;
+			height: 100px;
+			content: url(images/0001.jpg);
+		}
+	</style>
+	<body>
+		<table>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>
+					<select name="">
+						<option value="">1</option>
+						<option value="">2</option>
+					</select>
+				</td>
+				<td>
+					<div class="pr">
+						<p>1111</p>
+						<ul>
+							<li>定位</li>
+							<li>
+								定位
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="img">
+			<img alt="img" src="">
+		</div>
+		<h1>
+			content
+		</h1>
+	</body>
+</html>

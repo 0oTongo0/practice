@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.dw{
+				width: 100px;
+				height: 100px;
+				border: 1px solid;
+				position: relative;
+				padding: 30px;
+				box-sizing: border-box;
+			}
+			.dw > div{
+				position: absolute;
+				right: 30px;
+				top: 30px;
+				width: 30px;
+				height: 30px;
+				background: rosybrown;
+			}
+			.dw2{
+				border: 1rem solid transparent;
+				background: #666666;
+				width: 100px;
+				height: 100px;
+				/*position: relative;*/
+			}
+			.dw2 >div{
+				background: #FF7F50;
+				position: absolute;
+				/*top: 0;
+				right: 0;*/
+				margin-left: 52px;
+			}
+			.ico{
+				width: 15px;
+				height: 15px;
+				position: absolute;
+				background: red;
+				margin-left: -20px;
+			}
+			.placeholder,.inp{
+				border: 1px solid #ccc;
+				line-height: 30px;
+				border-radius: 4px;
+				padding-left: 10px;
+			}
+			.placeholder{
+				position: absolute;
+				border-color: transparent;
+			}
+			.inp{
+				word-spacing: 10px;
+				letter-spacing: 10px;
+			}
+			.box{
+				width: 300px;
+				height: 100px;
+				background-color: #ccc;
+				overflow: auto;
+	/*			position: relative;*/
+			}
+			.box > img{
+				width: 256px;
+				height: 200px;
+				position: absolute;
+			}
+			table{
+				border-spacing: 0px;
+				border-collapse: collapse;
+				height: 66px;
+				overflow-y: auto;
+				margin-top: 21px;
+				table-layout: fixed;
+			}
+			table thead{
+				/*position: absolute;*/
+				/*margin-top: -21px;*/
+			}
+			td{
+				border: 1px solid red;
+			}
+			.auto{
+				width: 300px;
+				height: 300px;
+				background: #FF0000;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			.f{
+				width: 200px;
+				height: auto;
+				background: #ccc;
+			}
+			.c{
+				position: relative;
+				top: 10px;
+				width: 50px;
+				height: 50px;
+				background: #7FFFD4;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="position: relative;">
+			哈哈<big style="font-size: 200%;" >很大</big>字
+			<span style="position: relative;" >第二行</span>
+		</div>
+		<div class="dw" >
+			<div>
+				定位
+			</div>
+		</div>
+		<div  class="dw2" >
+			<div>
+				br定位
+			</div>
+		</div>
+		<div style="margin-left: 50px; line-height: 15px; " >
+			<i class="ico" ></i>定位3
+		</div>
+		<label for="text" class="placeholder" >占位符</label>
+		<input  id="text" class="inp" placeholder="占位符" />
+		<!--父级得有相当定位 才会触发overflow -->
+		<div class="box" >
+			占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符
+			<!--<img src="images/0001.jpg"/>-->
+		</div>
+		<input type="radio" name="" id="" value="" />
+		<table>
+			<thead>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0.0</td>
+					<td>0.0</td>
+					<td>0.0</td>
+				</tr>
+				<tr>
+					<td>0.0</td>
+					<td>0.0</td>
+					<td>0.0</td>
+				</tr>
+				<tr>
+					<td>0.0</td>
+					<td>0.0</td>
+					<td>0.0</td>
+				</tr>
+								<tr>
+					<td>0.0</td>
+					<td>0.0</td>
+					<td>0.0</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="auto">
+			auto
+		</div>
+		<div class="f" >
+			<!--父级木有设置高度   设置top,bottom 百分比无效-->
+			<div class="c">
+				relative
+			</div>
+		</div>
+	</body>
+</html>

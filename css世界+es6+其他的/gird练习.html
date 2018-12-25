@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.grid-max{
+				display: grid;
+				margin: 50px;
+				grid-template-columns:200px 200px 200px 200px;
+				grid-template-rows: 100px 200px 200px;
+				column-gap:10px;
+				row-gap:10px;
+			}
+			.grid-max span{
+				border: 1px solid;
+				border-radius: 4px;
+				text-align: center;
+				display: grid;
+				justify-content: center;
+				align-content: center;
+			}
+			.l-c{
+				display: grid;
+				grid-template-columns:95px 95px auto;
+				grid-column-start:1;
+				grid-column-end:3;
+				column-gap:10px;
+			}
+			/*中间右边*/
+			.r-c{
+				display: grid;
+				grid-column-start:3;
+				grid-column-end:5;
+				grid-template-columns:95px 95px auto 95px;
+				column-gap:10px;
+				row-gap:10px;
+			}
+			.qg{
+				grid-column-start:4;
+				grid-column-end:5;
+				grid-row-start: 1;
+				grid-row-end: 3;
+				
+			}
+			.lu{
+				grid-column-start:2;
+				grid-column-end:4;				
+			}
+			.tw{
+				grid-column-start:1;
+				grid-column-end:3;				
+			}
+			/*底部*/
+			.l-f{
+				display: grid;
+				grid-template-columns:95px  auto 95px;
+				grid-column-start:1;
+				grid-column-end:3;
+				column-gap:10px;
+			}
+			.r-f{
+				display: grid;
+				grid-template-columns: 95px auto auto 95px;
+			    grid-column-start: 3;
+			    grid-column-end: 5;
+			    column-gap:10px;
+			    row-gap:10px;
+			}
+			.nh{
+			    grid-column-start: 1;
+			    grid-column-end: 3;				
+			}
+			.uq{
+			    grid-column-start: 3;
+			    grid-column-end: 5;	
+			    				
+			}
+			.tb{
+				 grid-column-start: 2;
+			    grid-column-end: 4;				
+			}
+			.br{
+				width: 4px;
+				border-right: 2px solid transparent;
+				border-bottom: 16px solid transparent;
+				border-left: 2px solid red;
+				border-top: 16px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grid-max">
+			<span class="lk">lk</span>
+			<span class="lt">lt</span>
+			<span class="ka">ka</span>
+			<span class="pq">pq</span>
+			<div class="l-c">
+				<span>
+					ri
+				</span>
+				<span>
+					es
+				</span>
+				<span>
+					pr
+				</span>
+			</div>
+			<div class="r-c">
+				<span>
+					av
+				</span>
+				<span class="lu">
+					lu
+				</span>
+				<span class="qg">
+					qg
+				</span>
+				<span class="tw">
+					tw
+				</span>
+				<span>
+					er
+				</span>
+			</div>
+			<div class="l-f">
+				<span class="ol">ol</span>
+				<span class="fm">fm</span>
+				<span class="hb">hb</span>
+			</div>
+			<div class="r-f">
+				<span class="nh">
+					nh
+				</span>
+				<span class="uq">
+					uq
+				</span>
+				<span>
+					wi
+				</span>
+				<span class="tb">
+					tb
+				</span>
+				<span>
+					gk
+				</span>
+			</div>
+		</div>
+		<div class="br"></div>
+	</body>
+</html>

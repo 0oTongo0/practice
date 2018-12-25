@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.p{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			border: 1px solid;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+		}
+	</style>
+	<body>
+		<div class="p">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var arr = ["1","2","3","4","5","6"];
+//	slice 截取从索引到索引结束   push向后添加  pop重后删除   头部添加unshift 头部删除shift  反转reverse
+// splice 万能
+	var copy = arr.slice(0,2);
+	var push = arr.push('7');
+	var pop = arr.pop(); 
+//	var reverse = arr.reverse();
+	console.log(copy ,'copy');
+	console.log(arr,'push');
+	console.log(arr,'pop')
+//	console.log(reverse,'reverse反转')
+// spalice 2位数时 下标开始删除第几个
+	arr.splice(2,5)
+	console.log(arr,'spalice')
+	
+var x = 0;
+var i;
+for (i=0; i<99; i++) {
+    x = x + i;
+    console.log(x,'x')
+}
+var a ={
+	a1:1,
+	a2:1
+};
+for(var key in a){
+	console.log(key,'wd');
+}
+</script>

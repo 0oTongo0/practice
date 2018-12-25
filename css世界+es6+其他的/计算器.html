@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				counter-reset: jsq;
+			}
+			.box span::before{
+				content: counter(jsq);
+				counter-increment:jsq;
+			}
+			.reset{
+				padding-left: 10px;
+				counter-reset: jsp;
+				padding-top: 10px;
+			}
+			.counter::before{
+				content: counters(jsp,'-')'.';
+				counter-increment: jsp;
+			}
+			.reset ~ .counter { color: #cd0000; }
+			.max ~ span{
+				color: aquamarine;
+			}
+			.ul{
+				list-style: none;
+				width: 100px;
+				box-sizing: border-box;
+				display: flex;
+				height: 80px;
+				margin: 10px auto;
+				overflow: auto;
+				justify-content: center;
+			}
+			.ul li{
+				width: 10px;
+				background: aqua;
+				height: 100%;
+				margin-left: 16px;
+			}
+		/*~相邻没有必要是 子集*/
+		</style>
+	</head>
+	<body>
+		<div class="box" >
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box" >
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="reset">
+		    <div class="counter">我是王小二</div>
+		    <div class="reset">
+		        <div class="counter">我是王小二的大儿子</div>
+		        <div class="counter">我是王小二的二儿子</div>
+		        <div class="reset">
+		            <div class="counter">我是王小二的二儿子的大孙子</div>
+		            <div class="counter">我是王小二的二儿子的二孙子</div>
+		            <div class="counter">我是王小二的二儿子的小孙子</div>
+		        </div>
+		        <div class="counter">我是王小二的三儿子</div>
+		    </div>
+		    <div class="counter">我是王小三</div>
+		    <div class="counter">我是王小四</div>
+		    <div class="reset">
+		        <div class="counter">我是王小四的大儿子</div>
+		    </div>
+		</div>
+		<div class="max">
+			1
+		</div>
+		<span>2</span>
+		<i>0.0</i>
+		<span>3</span>
+		<span>4</span>
+		<ul class="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+	</body>
+</html>

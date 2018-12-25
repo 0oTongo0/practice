@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+				display: inline;
+			}
+			p[dir='rtl']{
+				direction: rtl;
+			}
+			hr{
+				background: aquamarine;
+			}
+			.rtl{
+				direction: rtl;
+				/*只能设置↑这个才能起作用*/
+				unicode-bidi: bidi-override;
+			}
+			.writing{
+				/*writing-mode: tb-lr;*/
+				writing-mode: vertical-rl;
+				height: 140px;
+				-webkit-text-orientation: upright;
+			}
+		</style>
+	</head>
+	<body>
+		<p dir='rtl' >
+			<img src="images/1.jpg" />
+			<img src="images/001.jpg"/>
+		</p>
+		<p>unicode-bidi</p>
+		<hr />
+		<div class="rtl">
+			一个散发着 <span style="unicode-bidi: embed; color: green;" >绿色气息</span>的男人
+		</div>
+		<p>writing-mode</p>
+		<hr />
+		<div class="writing" >
+			大兄弟 da xiong di
+		</div>
+		<div style="-webkit-text-orientation: upright;" >  abcdefg 到这走就是怎么牛逼</div>
+		<p style="-webkit-text-orientation: mixed;">大兄弟 da xiong di</p>
+	</body>
+</html>
+
+

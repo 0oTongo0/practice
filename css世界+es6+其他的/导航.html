@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			display: flex;
+		}
+		li{
+			padding:6px 10px;
+			position: relative;
+			cursor: pointer;
+		}
+		li::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 0;
+			height: 100%;
+			border-bottom: 2px solid #000;
+			transition: all .3s linear;
+		}
+		li:hover::before{
+			width: 100%;
+			left: 0;
+		}
+		li:hover ~ li::before{
+			left: 0;
+		}
+		h1 ~ p{
+			color: red;
+		}
+		.top{
+			padding: 10px;
+			position: relative;
+			display: inline-block;
+		}
+		.top::before{
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 0;
+			border-bottom: 2px solid red;
+			transition: .2s;
+		}
+		.top:hover::before{
+			width: 100%;
+			left: 0;
+		}
+	</style>
+	<body>
+		<ul>
+			<li>a1</li>
+			<li>a22222</li>
+			<li>a3</li>
+			<li>a422222</li>
+			<li>a5</li>
+			<li>a62222222222</li>
+			<li>a7</li>
+		</ul>
+		<div>
+			<p>333</p>
+			<h1>~~~</h1>
+			<p>1111</p>
+			<div>_________</div>
+			<p>22222</p>
+		</div>
+		<div class="top">
+			向大佬低头
+		</div>
+	</body>
+</html>

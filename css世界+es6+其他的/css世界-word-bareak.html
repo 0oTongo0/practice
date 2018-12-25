@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style style="display: block;" >
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 50px;
+			}
+			.word-wrap{
+				word-wrap: break-word;
+			}
+			.word-break{
+				word-break: break-all;
+			}
+			.white-space{
+				white-space: pre-wrap;
+				width: 50px;
+				background: #ccc;
+			}
+			ul{
+				width: 100px;
+				list-style: none;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+			li{
+				min-width: 30px;
+				background: aquamarine;
+				margin-bottom: 5px;
+			}
+			strong{
+				display: inline-block;
+			}
+			strong::first-letter{
+				color: red;
+			}
+			p{
+				color: blue !important;
+			}
+			p>span{
+				color: red;
+			}
+			.but{
+				display: inline-block;
+				background: currentcolor;
+			}
+			.but:first-line{
+				color: #fff;
+			}
+			.red{
+				color: red;
+			}
+			.sp{
+				padding: 10px 20px;
+				cursor: not-allowed;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="word-break" >欢 迎来到css世界w ww. 55ququ.com</div>
+		<div class="word-wrap" >w ww.55.com css世界</div>
+		<div class="white-space" >
+			white-space      
+			:    pre-wrap</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<strong><span>￥</span>110</strong>
+		<p>
+			<span>red颜色</span>
+		</p>
+		<a class="but red">红色按钮</a>
+		<span class="sp" >内联</span>
+		<br />
+		<span class="sp" >内联</span>
+		<style type="text/css">
+			.max{
+				width: 100px;
+				height: 100px;
+				writing-mode: tb-rl;
+				text-align: center;
+				background: #7FFFD4;
+			}
+			.min{
+				width: 100%;
+				writing-mode: lr-tb;
+				display: inline-block;
+			}
+			.min span{
+				/*display: inline-block;*/
+			}
+		</style>
+		<div class="max">
+			<div class="min">
+				<!--大的设置lr后rl（center）小的设置相反 tb-->
+				<span>1</span>
+			</div>
+		</div>
+	</body>
+</html>

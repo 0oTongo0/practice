@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		.br{
+		    width: 150px;
+		    border: 2px dashed #fff;
+		    background: linear-gradient(to bottom, #34538b, #cd0000);
+		    /*background-origin: border-box;*/
+		   /*background-clip: border-box;*/
+		}
+		.content{
+			height: 150px;
+			background: #fff;
+		}
+		.lx{
+			width: 200px;
+			height: 200px;
+			transform: rotate(45deg);
+		}
+		.lx span{
+			display: block;
+			transform: rotate(-45deg);
+			word-break: break-all;
+		}
+		.box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: red;
+			top: 50%;
+			left: 50%;
+			z-index: 0;
+		}
+		.max{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: gold;
+			top:10%;
+			left: 50%;
+			/*transform: translate(-50%,-50%);*/
+			/*z-index: 2;*/
+		}
+		.max-center{
+			position: absolute;
+			width: 200%;
+			height: 5px;
+			background: green;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: -1;
+		}
+		.max-center2{
+			position: absolute;
+			width: 200%;
+			height: 5px;
+			background: #00FFFF;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: -1;
+		}
+		.a{
+			width: 100%;
+			height: 100%;
+			background: #F4F4F4;
+		}
+	</style>
+	<body>
+		<div class="br">
+			 <div class="content"></div>
+		</div>
+		<div class="lx">
+			<span>111111111111111111111111111111111111111</span>
+		</div>
+		<div class="box">
+			<div class="max">
+				<i class="max-center"></i>
+				<i class="max-center2"></i>
+			</div>
+		</div>
+		<div class="a">
+			
+		</div>
+	</body>
+</html>

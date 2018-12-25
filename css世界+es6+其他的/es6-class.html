@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 要有 return
+		class y{
+			name(val){
+				console.log(val)
+				return val
+			}
+			age(val){
+				console.log(this.name('ct')+":"+ val)
+			}
+		}
+		let ct = new y;
+		ct.age(18)
+		
+		//类的传参
+		class yy{
+			name(val){
+				console.log(val)
+			}
+			//相当于给类添加参数
+			constructor(a,b){
+				this.a = a;
+				this.b = b;
+			}
+			add(){
+			    return this.a+this.b;
+			}
+		}
+		let aa = new yy(1,2);
+		console.log(aa.add())
+	</script>
+</html>
