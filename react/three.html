@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="680" height="500"></canvas>
+	</body>
+		<script id="vert-shader" type="x-shader/x-vertex">
+		  attribute vec3 vertexPos;
+		  uniform mat4 modelViewMatrix;
+		  uniform mat4 projectionMatrix;	
+		  void main() {
+		    gl_Position = projectionMatrix * modelViewMatrix * vec4(vertexPos, 1.0);
+		  }
+		</script>
+		
+		<script id="frag-shader" type="x-shader/x-fragment">
+		  precision mediump float;
+		  void main() {
+		     gl_FragColor = vec4(0.0,1.0,0.0,1.0); 
+		     //gl_FragColor = vec4(coord.x/680.0,coord.y/500.0, 0.0, 1.0);//渐变色
+		  }
+		</script>
+</html>

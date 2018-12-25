@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<!--<div>
+			<button class="but">
+				<span class="text">点赞</span>
+			</button>
+		</div>-->
+		<div id="container" class="wrapper">
+			
+		</div>
+	</body>
+</html>
+<script type="text/babel">
+//	const but = document.querySelector('.but');
+//	const tt = document.querySelector('.text');
+//	let aa = false;
+//	but.addEventListener('click',() => {
+//		aa = !aa
+//		if(aa){
+//			tt.innerHTML = "0.0"
+//		}else{
+//			tt.innerHTML = "点赞"
+//		}
+//	},false)
+	const add = (data) =>{
+		const div = document.createElement('div');
+		div.innerHTML = data
+		return div
+	}
+	class Linkbut{
+		constructor(){
+			this.state = {aa:false}
+		}
+	    setState (state) {
+	      this.state = state
+	      this.el = this.render()
+	      const ol = this.el
+	      this.state = state
+	      this.el = this.render()
+	      if(this.onStateChange) this.onStateChange(ol,this.el)
+	    }
+		changeLikeText (){
+//			const linkeText = this.el.querySelector('.text')
+//			this.state.aa = !this.state.aa
+//			linkeText.innerHTML = this.state.aa ? '取消' : '点赞'
+		     this.setState({
+		        aa: !this.state.aa
+		      })
+			}
+		render(){
+			this.el = add
+			(`
+				<button class="but">
+					<span class="text">${this.state.aa ? '取消' : '点赞'}</span>
+				</button>
+			`)
+			this.el.addEventListener('click', this.changeLikeText.bind(this),false)
+			return this.el
+		}
+	}
+	
+	const wrapper = document.querySelector('.wrapper');
+	const but1 = new Linkbut();
+	wrapper.appendChild(but1.render())
+	but1.onStateChange = (ol,newEl) =>{
+		wrapper.insertBefore(newEl,ol)
+		wrapper.removeChild(ol)
+	}
+	const but2 = new Linkbut();
+	wrapper.appendChild(but2.render())
+</script>

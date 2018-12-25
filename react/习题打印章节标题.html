@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script type="text/babel">
+		const lessons = [
+		  { title: 'Lesson 1: title', description: 'Lesson 1: description' },
+		  { title: 'Lesson 2: title', description: 'Lesson 2: description' },
+		  { title: 'Lesson 3: title', description: 'Lesson 3: description' },
+		  { title: 'Lesson 4: title', description: 'Lesson 4: description' }
+		]
+		class Lesson extends React.Component{
+				wd () {
+					alert("wd")
+				const {lesson} = this.props;
+					console.log(this.props.index)
+				}
+			render(){
+				const {lesson} = this.props;
+				return(
+					<div>
+						<h1 onClick={() => console.log(this.props.index+ "-" +lesson.title)}>{lesson.title}</h1>
+						<p onClick={this.wd.bind(this)}>{lesson.description}</p>
+					</div>
+				)
+			}
+		}
+		
+		class LessonsList extends React.Component{
+			render(){
+				return(
+					 <div>{this.props.lessons.map((lesson, i) => 
+				         <Lesson key={i} index={i} lesson={lesson} />
+				      )}</div>
+				)
+			}
+		}
+		ReactDOM.render(
+			<LessonsList lessons={lessons}/>,
+			 document.getElementById('root')
+		)
+	</script>
+</html>

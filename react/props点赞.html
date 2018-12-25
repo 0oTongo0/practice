@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+		<input type="checkbox" id="a"/>
+		<label for="a">11</label>
+		<input type="date" name="" id="" value="" />
+	</body>
+	<script type="text/babel">
+		class Aa extends React.Component{
+			constructor(){
+				super()
+				this.state = {
+					text: false
+				}
+			}
+			dj(){
+				const tt = this.props.tt ||{
+					t3:'取消',
+					t4:'点赞'
+				}
+			}
+			render(){
+				return(
+					<button onClick={this.dj.bind(this)}>
+						{this.state.text ? tt.t3 : tt.t4}
+					</button>
+				)
+			}
+		}
+	
+		class Max extends React.Component{
+			render(){
+				return(
+					<div>
+						<Aa tt={{t3:'0.0',t4:'1.1'}} />
+					</div>
+				)
+			}
+		}
+
+		ReactDOM.render(
+			<Max/>,
+			document.getElementById('container')
+		)
+	</script>
+</html>

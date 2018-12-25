@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		body{
+			padding: 50px;
+			background-color: #66ccff;
+			font-family: sans-serif;
+		}
+		.todo input{
+			padding: 10px;
+			font-size: 16px;
+			border: 2px solid #fff;
+		}
+		.todo button{
+			padding: 10px;
+			font-size: 16px;
+			margin: 10px;
+			background-color: #0066ff;
+			color: #fff;
+			border: 2px solid #0066FF;
+		}
+		.todo button:hover{
+			background-color: #003399;
+			border-color: #003399;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+		var TodoTems = React.createClass({
+			render:function(){
+				var todoEntries  = this.props.entries;
+				function createTasks(item){
+					return <li key={item.key}>{item.text}</li>
+				}
+				
+				var listItems = todoEntries.map(createTasks);
+				return(
+					<ul className="list">
+						{listItems}
+					</ul>
+				);
+			}
+		});
+		
+		var TodoList = React.createClass({
+			getInitialState:function(){
+				return{
+					items:[]
+				};
+			},
+			addItem:function(e){
+				var itemsArray = this.state.items;
+				itemsArray.push(
+					{
+						text:this._inputElement.value,
+						key:Date.now()
+					}
+				);
+				this.setState({
+					items:itemsArray
+				});
+				this._inputElement.value = "";
+				e.preventDefault();
+				console.log(itemsArray,"0.0")
+			},
+			render:function(){
+				return(
+					<div className="todo">
+						<div className="top">
+								<input placeholder="请输入" ref={(a) => this._inputElement = a}/>
+								<button onClick={this.addItem}>确认</button>
+
+						</div>
+						<TodoTems entries={this.state.items}/>
+					</div>
+				);
+			}
+		})
+		
+		
+		ReactDOM.render(
+			<div>
+				<TodoList/>
+			</div>,
+			document.getElementById("container")
+		)
+	</script>
+</html>

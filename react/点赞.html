@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">
+		var But = React.createClass({
+			  constructor () {
+			    super()
+			    this.state = { isLiked: false }
+			  },
+
+			sj(){
+				 this.setState({
+      			isLiked: !this.state.isLiked
+    			})
+			},
+			
+			render(){
+				const likedText = this.props.likedText  || '取消'
+				const unlikedText = this.props.unlikedText  || '点赞'
+				return(
+					<button onClick ={this.sj.bind(this)}>
+						{this.state.aa ? likedText : unlikedText}
+					</button>
+				);
+			}
+		})
+		
+		var Index = React.createClass({
+			render(){
+				return(
+					<div>
+						<But/>
+					</div>
+				);
+			}
+		})
+		ReactDOM.render(
+			<Index/>,
+			document.getElementById('container')
+		)
+	</script>
+
+</html>

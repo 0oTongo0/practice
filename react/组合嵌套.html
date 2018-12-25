@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<div id="root">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+		class House extends React.Component{
+			render(){
+				return(
+					<div className="house">
+						<Room/>
+						<Bathroom/>
+					</div>
+				)
+			}
+		}
+		
+		class Room extends React.Component{
+			render(){
+				return(
+					<div className="room">room</div>
+				)
+			}
+		}
+		
+		class Bathroom extends React.Component{
+			render(){
+				return(
+					<div classNmae="bathroom">bathroom
+						<Man/>
+						<Dog/>
+						<Dog/>
+					</div>
+				)
+			}
+		}
+		
+		class Man extends React.Component{
+			render(){
+				return(
+					<div className="max">max</div>
+				)
+			}
+		}
+		
+		class Dog extends React.Component{
+			render(){
+				return(
+					<div className="dog">dog</div>
+				)
+			}
+		}
+		ReactDOM.render(
+			<House/>,
+			document.getElementById('root')
+		)
+	</script>
+</html>

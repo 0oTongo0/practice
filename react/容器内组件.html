@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<style type="text/css">
+		div{
+			background: radial-gradient(red,green);
+				
+		}
+	</style>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script type="text/babel">
+		class Card extends React.Component{
+			componentWillMount(){
+				console.log(this.props.children)
+			}
+			render(){
+				return(
+					<div>
+						<p>
+							{this.props.children[0]}
+						</p>
+						<span>
+							{this.props.children[1]}
+						</span>
+					</div>
+				)
+			}
+		}
+		
+		ReactDOM.render(
+			  <Card>
+			    <h2>React.js 小书</h2>
+			    <div>开源、免费、专业、简单</div>
+			    订阅：<input />
+			  </Card>,
+			document.getElementById('root')
+		)
+	</script>
+</html>

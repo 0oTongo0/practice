@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.a1{
+			padding: 10;
+			margin: 20px;
+			display: inline-block;
+			background-color: #f9c240;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">
+		var Yu = React.createClass({
+			render:function(){
+				return(
+					<div className="a1"></div>
+				);
+			}
+		})
+		
+		ReactDOM.render(
+			<div>
+				<Yu/>
+			</div>,
+			document.getElementById("container")
+		)
+	</script>
+</html>

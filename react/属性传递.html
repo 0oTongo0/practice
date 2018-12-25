@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+		var Dis = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<p>{this.props.color}</p>
+						<p>{this.props.num}</p>
+						<p>{this.props.data}</p>
+					</div>
+				);
+			}
+		})
+		
+		var La = React.createClass({
+			render:function(){
+				return(
+					<Dis color={this.props.color} num={this.props.num} data={this.props.data}></Dis>
+				);
+			}
+		})
+		
+		var Sh = React.createClass({
+			render:function(){
+				return(
+					<La color={this.props.color} num={this.props.num} data={this.props.data}></La>
+				);
+			}
+		})
+		
+		ReactDOM.render(
+			<div>
+				<Sh color="red" num="12" data="18"/>
+			</div>,
+			document.getElementById("container")
+		)
+	</script>
+</html>

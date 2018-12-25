@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.cs{
+			font-size: 30px;
+			font-weight: 700;
+			color: #333;
+			padding: 20px 0;
+		}
+		.max{
+			width: 100px;
+			height: 200px;
+			background: #f63;
+			text-align: center;
+		}
+		.but{
+			width: 30px;
+			height: 30px;
+		}
+	</style>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">	
+		var Text = React.createClass({
+			render:function(){
+				return(
+					<div className="cs">
+						{this.props.text}
+					</div>
+				);
+			}
+		})
+		
+		var Max = React.createClass({
+			getInitialState:function(){
+				return { 
+					aa:0
+				}
+//				 不是()而是{}
+			},
+			bb:function(e){
+				var bb = this.state.aa;
+				if(e.shiftKey){
+					bb +=10;
+				}else{
+					bb +=1;
+				}
+				
+				this.setState({
+					aa: bb
+//					aa: this.state.aa + 1;  不能添加“;”
+				})
+				console.log(this)
+			},
+			render:function(){
+				return(
+					<div className="max">
+						<Text text={this.state.aa}/>
+						<button className="but" onClick={this.bb}>+</button>
+					</div>
+				);
+			}
+		})
+
+ 		ReactDOM.render(
+ 			<div>
+ 				<Max/>
+ 			</div>,
+ 			document.getElementById("container")
+ 		)
+	</script>
+</html>

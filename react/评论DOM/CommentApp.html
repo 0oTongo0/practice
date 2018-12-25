@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script type="text/bebel">
+		import CommentInput from '/CommentInput';
+		import CommentList from '/CommentList';
+		class CommentApp extends React.Component{
+			render(){
+				return(
+					<div>
+						<CommentInput/>
+						<CommentList/>
+						<span>1111</span>
+					</div>
+				)
+			}
+		}
+		ReactDOM.render(
+			<CommentApp/>,
+			 document.getElementById('root')
+		)
+	</script>
+</html>

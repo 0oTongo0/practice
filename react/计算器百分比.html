@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script type="text/babel">
+		class Input extends React.Component{
+			handeInput(e){
+				this.props.setnum(e.target.value);
+			}
+			render(){
+				return(
+					<div>
+						<input onChange={this.handeInput.bind(this)}/>
+					</div>
+				)
+			}
+		}
+		
+		class PercentageShower extends React.Component{
+
+		  render() {
+		    let out = this.props.num
+		    return (
+		      <div>
+		        {(out * 100).toFixed(2)}%
+		      </div>
+		    )
+		}
+		}
+		class PercentageApp extends React.Component{
+			constructor(props){
+				super(props);
+				this.state = {
+					value:0
+				};
+			}
+			
+			handleInput(val){
+				this.setState({value:val});
+			}
+			render(){
+				return(
+					<div>
+						<Input setnum={this.handleInput.bind(this)}/>
+						<PercentageShower num={this.state.value}/>
+					</div>
+				)
+			}
+		}
+		
+		ReactDOM.render(
+			<PercentageApp/>,
+			 document.getElementById('root')
+		)
+	</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+//		class LikeButton extends React.Component{
+//			constructor(){
+//				super()
+//				this.state = {
+//					isLiked:false,
+//					count:0
+//				}
+//			}
+//			
+//			handleClickOnLikeButton(){
+//				console.log(this.state.isLiked,'01')
+//				this.setState({
+//					isLiked:!this.state.isLiked
+//				})
+//				console.log(this.state.isLiked,'02')
+//					this.setState({ count:0})
+//					this.setState({ count:this.state.count+1})
+//					this.setState({ count:this.state.count+2})
+//				console.log(this.state.count,'0.0')
+//				
+//			}
+//			
+//			render(){
+//				return(
+//			      <button onClick={this.handleClickOnLikeButton.bind(this)}>
+//			        {this.state.isLiked ? '取消' : '点赞'} 👍
+//			      </button>
+//				)
+//			}
+//		}
+//		
+//		ReactDOM.render(
+//			<LikeButton/>,
+//			document.getElementById("root")
+//		)
+
+
+	class Dog extends React.Component{
+		constructor(){
+			super()
+			this.state = {
+				isRunning:false,
+				isBarking:false
+			}
+		}
+		  bark () {
+		    console.log('bark')
+		    this.setState({ isBarking: true })
+		    setTimeout(() => this.setState({ isBarking: false }), 20)
+		  }
+		run(){
+			console.log('run')
+			this.setState({
+				isRunning:true
+			})
+			  setTimeout(() => this.setState({ isRunning: false }), 20)
+		}
+		add(){
+			this.bark();
+			this.run()
+			console.log(this.state.isBarking + ":" + this.state.isRunning)
+		}
+		render(){
+			return(
+				<div onClick={this.add.bind(this)}>0.0</div>
+			)
+		}
+	}
+		ReactDOM.render(
+			<Dog/>,
+			document.getElementById("root")
+		)
+	</script>
+</html>

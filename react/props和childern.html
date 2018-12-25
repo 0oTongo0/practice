@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">
+//		class Card extends React.Component{
+//			render(){
+//				return(
+//					<div className="a">
+//						<div className='b'>
+//							{this.props.children}
+//						</div>
+//					</div>
+//				)
+//			}
+//		}
+//		ReactDOM.render(
+//			<Card>
+//			 	<div>0.0.0.0</div>
+//			 	<p>a.a</p>
+//			</Card>,
+//			document.getElementById('container')
+//		)
+//		class In extends React.Component{
+//			constructor(){
+//				super()
+//				this.state = {
+//					a:''
+//				}
+//			}
+//			che(e){
+//				this.setState({
+//					a:e.target.value
+//				})
+//				console.log(this.state.a,'0.0')
+//			}
+//			render(){
+//				return(
+//					<input value={this.state.aa} onChange={this.che.bind(this)} />
+//				)
+//			}
+//		}
+// 		class Title extends React.Component{
+// 			render(){
+// 				return(
+// 					<div>
+// 						<In/>
+// 						<h1>{this.props.a}</h1>
+// 					</div>
+// 				)
+// 			}
+// 		}
+// 		ReactDOM.render(
+// 			<Title/>,
+// 			document.getElementById('container')
+// 		)
+
+		
+		class No extends React.Component{
+		
+			render(){
+				const data = -1
+				return(
+					<div>
+						{
+							data > 0 ? '有' :'无'
+						}
+					</div>
+				)
+			}
+		}
+		ReactDOM.render(
+			<No/>,
+			document.getElementById('container')
+		)
+	</script>
+</html>

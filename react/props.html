@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+//		class LikeButton extends React.Component{
+//			constructor(){
+//				super()
+//				this.state = { isLiked:false }
+//			}
+//			
+//			handleClickOnLikeButton(){
+//				this.setState({
+//					isLiked:!this.state.isLiked
+//				})
+//			}
+//			
+//			render(){
+//				const likedText = this.props.likedText || '取消'
+//				const unlikedText = this.props.unlikedText || '点赞'
+//				return(
+//				     <button onClick={this.handleClickOnLikeButton.bind(this)}>
+//			        	{this.state.isLiked ? likedText : unlikedText} 👍
+//			     	 </button>				
+//				)
+//			}
+//		}
+//		
+//		class Index extends React.Component{
+//			render(){
+//				return(
+//					<div>
+//						<LikeButton likedText='已赞' unlikedText="赞"/>
+//						<LikeButton likedText='已赞' unlikedText="赞"/>
+//					</div>
+//				)
+//			}
+//		}
+//		ReactDOM.render(
+//			<Index/>,
+//			document.getElementById('root')
+//		)
+
+		class Computer extends React.Component {
+		  constructor(){
+		    super();
+		    this.state={
+		    	status:'off',
+		    };
+		  }
+		  render () {
+		    return (
+		      <div>
+		        <button onClick={()=>this.setState({status:this.state.status == 'off' ? 'on':'off'})}>开关</button>
+		        <Screen showContent={this.state.status =='off'? '显示器关了':'显示器亮了'} />
+		      </div>
+		    )
+		  }
+		}
+		
+		class Screen extends React.Component {
+//			  static defaultProps ={
+//			    showContent: '无内容'
+//			    
+//			  }
+		  render () {
+		    return (
+		      <div className='screen'>{this.props.showContent}</div>
+		    )
+		  }
+		}
+    
+      	ReactDOM.render(
+			<Computer/>,
+			document.getElementById('root')
+		)
+	</script>
+</html>

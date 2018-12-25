@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.aa{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">
+		var Max = React.createClass({
+			getInitialState:function(){
+				return{
+					tiem:0
+				}
+			},
+			aa:function(){
+				this.setState({
+					tiem:this.state.tiem + 1
+				});
+			},
+			componentDidMount:function(){
+				setInterval(this.aa,1000)
+			},
+			render:function(){
+				var cs = {
+					color:'#fff',
+					fontSize:50
+				}
+				
+				var count = this.state.tiem.toLocaleString();
+				return(
+					<h1 style={cs}>{count}</h1>
+				);
+			}
+		})
+		
+		var Min = React.createClass({
+			render:function(){
+				var cs = {
+					width:50,
+					backgroundColor:"black",
+					padding:40,
+					fontFamily:'sans-serif',
+					color:"#999",
+					borderRadius:10,
+					textAlign:"centr",
+				}
+				return(
+					<div style={cs}>
+						<Max/>
+					</div>
+				);
+			}
+		})
+		ReactDOM.render(
+			<div>
+			<Min/>
+			</div>,
+			document.getElementById("container")
+		)
+	</script>
+</html>

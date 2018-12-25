@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>	
+	</head>
+	<body>
+		<div id="root">
+			
+		</div>
+	</body>
+	<script type="text/babel">
+//		class Title extends React.Component{
+//			handleClickOnTitle(aa,e){
+//				console.log(this,aa)
+//			}
+//			render(){
+//				return(
+//					<span onClick={this.handleClickOnTitle.bind(this,'0.0')}>点我</span>
+//				)
+//			}
+//		}
+//		ReactDOM.render(
+//			<Title/>,
+//			document.getElementById("root")
+//		)
+
+       class Dog extends React.Component{
+       		bark(){
+       			console.log('bark')
+       		}
+       		
+       		run(){
+       			console.log('run')
+       		}
+       		data(){
+       			this.bark();
+       			this.run()
+       		}
+       		render(){
+       			return(
+       				<div onClick={this.data.bind(this)}>dog</div>
+       			)
+       		}
+       }
+       ReactDOM.render(
+       	<Dog/>,
+       	 document.getElementById('root')
+       )
+	</script>
+</html>

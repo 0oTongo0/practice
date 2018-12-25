@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/react.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/react-dom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/browser.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<script type="text/babel">
+		class Post extends React.Component{
+			  constructor(props) {
+			    super(props)
+			    this.state = {
+			      content: '',
+			    }
+			  }
+			  handleRefresh() {
+			    this.setState({content:"正在加载中"})
+			    console.log(this.state.content,'0.0')
+			  }
+			  handleRefresh2() {
+			    this.setState({content:"正在加载中222"})
+			    console.log(this.state.content,'0.02')
+			  }
+		
+//			componentWillMount
+            componentWillMount(){
+            	this.handleRefresh(); 
+            }
+			  
+			componentDidMount(){
+				this.handleRefresh2()
+			}
+			render(){
+				return(
+					<div>
+						<h1>
+							<div clasName="post-content">{this.state.content}</div>
+						</h1>
+					</div>
+				)
+			}
+		}
+			ReactDOM.render(
+				<Post/>,
+				document.getElementById("container")
+			)
+	</script>
+</html>
