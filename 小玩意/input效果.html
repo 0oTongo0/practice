@@ -40,9 +40,20 @@
 			resize: none;
 			width: 100px;
 			height: 100px;
-			border: 1px solid;
+			display: block;
+			/*border: 1px solid;*/
 			border-radius: 3px;
-			padding-bottom: 20px;
+			padding: 4px;
+			border: none;
+			outline-color: transparent;
+		}
+		.textarea{
+			display: inline-block;
+			border: 1px solid red;
+			transition: all .2s;
+		}
+		.textarea:focus-within{
+			border-color: aqua;
 		}
 	</style>
 	<body>
@@ -54,6 +65,10 @@
 			<input type="text" class="" placeholder="测试"/>
 			<label class="label">测试</label>
 		</div>
-		<textarea class="text"></textarea>
+		<div class="textarea">
+			<textarea class="text"></textarea>
+			<label>0/10</label>
+		</div>
+
 	</body>
 </html>
