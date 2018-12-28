@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+		.fill:placeholder-shown::placeholder{
+			color: transparent;
+		}
+		.input{
+			width: 300px;
+			margin: 50px auto;
+			position: relative;
+		}
+		.fill{
+			height: 32px;
+			padding-left: 4px;
+		}
+		.label{
+			position: absolute;
+			left: 16px;
+			top: 9px;
+			pointer-events: none;
+			font-size: 14px;
+			background: #fff;
+			transition: all .25s;
+			padding: 0 4px;
+		}
+		 input:not(:placeholder-shown) ~ .label,
+		.fill:focus ~ .label{
+			color: red;
+			transform: scale(0.75) translate(0,-23px);
+		}
+		.text{
+			resize: none;
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+			border-radius: 3px;
+			padding-bottom: 20px;
+		}
+	</style>
+	<body>
+		<div class="input">
+			<input type="text" class="fill" placeholder="测试"/>
+			<label class="label">测试</label>
+		</div>
+		<div class="input">
+			<input type="text" class="" placeholder="测试"/>
+			<label class="label">测试</label>
+		</div>
+		<textarea class="text"></textarea>
+	</body>
+</html>
