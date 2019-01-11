@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			color: red;
+			position: absolute;
+			clip: rect(0 0 0 0);
+		}
+		.box2{
+			/*width: 120px;*/
+			display: inline-block;
+			color: red;
+			background: #f4f4f4;
+			clip-path: circle(0%);
+			
+		}
+	</style>
+	<body>
+		<div class="box1">
+			怎么说 这玩意
+		</div>
+		<div>
+			我也就看看 上面  clip 不占位置
+		</div>
+		<div class="box2">
+			逼格高一点的 clip-path
+		</div>
+		<div>我也就看看 上面  clip-path 占位置</div>
+	</body>
+</html>

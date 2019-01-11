@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background: radial-gradient(circle  at center,#fff,#fff 50%,#aaa);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			height: 100vh;
+		}
+		.baymax{
+			border-bottom: 1.5em solid #000;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 50%;
+			transform: translate(-50%,-40%);
+		}
+		.baymax::before,.baymax::after{
+			content: "";
+			/*background: #000;*/
+			border-radius: 50%;
+			position: absolute;
+			width: 12em;
+			height: 12em;
+			top: -6em;
+			 animation: blink 6s infinite;
+		}
+		.baymax::before{
+			left: -9em;
+			transform: skew(-4deg);
+			background: linear-gradient(0deg,#000,#000 50%,#f4f4f4 50%, #f4f4f4 100%);
+			background-position: 0 -120%;
+			background-size: 200% 200%;
+		}
+		.baymax::after{
+			right: -9em;
+			transform: skew(4deg);
+			background: linear-gradient(0deg,#000,#000 50%,#f4f4f4 50%, #f4f4f4 100%);
+			background-position: 0 120%;
+			background-size: 200% 200%;
+			 animation: blink 6s 0.1s infinite;
+		}
+		@keyframes blink {
+		  0%, 50% {
+		    background-position: 0 100%;
+		  }
+		  85%, 95% {
+		    background-position: 0 70%;
+		  }
+		  100% {
+		    background-position: 0 100%;
+		  }
+		}
+		/*.zui{
+			position: absolute;
+			width: 150px;
+			height: 220px;
+			border-radius: 50%;
+			border: 10px solid #000;
+		}*/
+		/*.zui:before{
+			content: "";
+			position: absolute;
+			width: 110px;
+			height: 110px;
+			background: #fff;
+			left: -10px;
+			top: 20px;
+			border-radius: 50%;
+		}*/
+	</style>
+	<body>
+		<div class="baymax">
+			
+		</div>
+		<div class="zui">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.search{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 300px;
+			margin: 50px auto;
+			flex-direction: row-reverse;
+		}
+		.ss{
+			position: absolute;
+			clip: rect(0,0,0,0);
+		}
+		.search label{
+			display: block;
+			width: 50px;
+			height: 50px;
+			background: red;
+			border-radius: 50%;
+			cursor: pointer;
+			margin-left: -25px;
+			position: relative;
+			z-index: 1;
+			transform: translateX(25%);
+			transition: all .2s;
+		}
+		.text{
+			width: 160px;
+			height: 32px;
+			padding-left: 6px;
+			border-radius: 32px 0 0 32px;
+			background: #00FFFF;
+			border: none;
+			outline-color: transparent;
+			padding-right: 25px;
+			transform: scaleX(0);
+			transform-origin: right 0; 
+			transition: all .2s;
+		}
+		.text::placeholder{
+			color: #ccc;
+			font-size: 12px;
+		}
+		#che:checked ~ label{
+			transform: translateX(0);
+			background: aquamarine;
+		}
+		#che:checked ~ label ~ .text{
+			transform: scaleX(1);
+		}
+		input{
+			outline-color: transparent;
+		}
+		input[type="number"]:focus:valid {
+		 border: 1px solid green;
+		}
+		input[type="number"]:focus:invalid {
+		 border: 1px solid red;
+		}
+		.t1{
+			caret-color:red;
+		}
+	</style>
+	<body>
+		<div class="search">
+			<input type="checkbox" id="che"  class="ss"/>
+			<label for="che"></label>
+			<input type="text" placeholder="请输入" class="text"/>
+		</div>
+		<input type="number"/>
+		<input type="text" class="t1" />
+	</body>
+	<script type="text/javascript">
+		function sum(...rest) {
+		   let result = 0;
+		   console.log(arguments.length)
+		   for(let i = 0;i<rest.length;i++) {
+		     result += rest[i];
+		   }
+		    console.log(result)
+		}
+		sum(1,2,3,4)
+		function y(r,pi){
+			var a = 0;
+			if(arguments.length<2){
+				a = r*r*3.14
+			}else{
+				a = r*r*pi
+			}
+			console.log(a,"yuan")
+		}
+		y(2,2)
+	</script>
+</html>

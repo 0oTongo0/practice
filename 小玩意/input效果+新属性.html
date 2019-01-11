@@ -55,6 +55,16 @@
 		.textarea:focus-within{
 			border-color: aqua;
 		}
+		.ee{
+			width: 100px;
+		}
+		.ee:placeholder-shown{
+			text-overflow: ellipsis;
+			border: 1px solid red;
+		}
+		.ee::placeholder{
+			color: red;
+		}
 	</style>
 	<body>
 		<div class="input">
@@ -69,6 +79,18 @@
 			<textarea class="text"></textarea>
 			<label>0/10</label>
 		</div>
-
+		<input class="ee" type="" name="" id="" value="" placeholder="很多自知则知之做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做做"/>
+		<!--autofocus 进入获取焦点      | autocomplete 保存提示-->
+		<input type="tel" autocomplete="" name="" id="" value="" autofocus/>
+		<!--多个上传  multiple-->
+		<input type="file" multiple name="" id="" value="" />
+		<fieldset>
+			<legend>怎么说</legend>
+		</fieldset>
+		<input type="text" name="" id="" value="" placeholder="请选择" list="list"/>
+		<datalist id="list">
+			<option value="怎么说" label="还行吧"></option>
+			<option value="怎么说2" label="还行吧2"></option>
+		</datalist>
 	</body>
 </html>
