@@ -1,2 +1,1 @@
-# practice
-css小技巧 + js框架dome。
+给自己看的
