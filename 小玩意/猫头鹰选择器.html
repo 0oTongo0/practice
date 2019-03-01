@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body * + *{
+				margin-top: 10px;
+				/* 禁止复制 */
+				-webkit-user-select: none;
+			}
+			span{
+				display: block;
+				margin: 20px;
+			}
+			.ab{
+				border: 1px solid;
+				width: 150px;
+				height: 150px;
+				background: #F4F4F4;
+				/* position: relative; */
+				/* transform: scale(1); */
+				/* z-index: 2; */
+			}
+			.ab i{
+				position: absolute;
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				line-height: 150px;
+				left: 0;
+				background: #7FFFD4;
+				z-index: -1;
+			}
+			.p-text{
+				margin: 0;
+				font: 16px/16px 'simsun,Microsoft Yahei';
+				letter-spacing: -2em;
+				margin-left: 50%;
+				color: hsla(240,100%,50%, .7);
+			}
+			.mh{
+				width: 100px;
+				max-height: 21px;
+				overflow: hidden;
+				transition: all .25s;
+			}
+			.mh:hover{
+				max-height: 660px;
+			}
+			body{
+				width: 300px;
+				height: 300px;
+				display: flex;
+				
+			}
+			.ct{
+				width: 100px;
+				height: 100px;
+				border: 1px solid;
+				margin: auto;
+			}
+			@supports not (display:flex){
+				.ct{
+					background: gold;
+				}
+			}
+			.max{
+				width: 300px;
+				height: 300px;
+				position: relative;
+				transform-style: preserve-3d;
+				transition: all 0.25s;
+				border: 1px solid;
+			}
+			.one, .two{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+			}
+			.one{
+				background-color: #ccc;
+				backface-visibility: hidden;
+			}
+			.two{
+				background: #7FFFD4;
+				transform: rotateY(180deg);
+			}
+			.max:hover{
+				transform: rotateY(-180deg);
+			}
+		</style>
+	</head>
+	<body>
+<!-- 		<div>怎么说</div>
+		<div>还行吧</div>
+		<p>3级</p>
+		<span>是吗</span>
+		<div class="ab">
+			111
+			<i>子集</i>
+		</div>
+		<p class="p-text">文字怎么说</p>
+		<div class="mh">
+			很顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶
+		</div> -->
+		<div class="ct">
+			1
+		</div>
+		<div class="max">
+			<div class="one">1</div>
+			<div class="two">2</div>
+		</div>
+	</body>
+</html>

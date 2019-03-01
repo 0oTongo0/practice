@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var data = [
+			{id: 1, name: "办公管理", pid: 0 ,
+				children:[
+					{ id: 2, name: "请假申请", pid: 1,
+						children:[
+							{ id: 4, name: "请假记录", pid: 2 },
+						],
+					},
+					{ id: 3, name: "出差申请", pid: 1},
+				]
+			},
+			{id: 5, name: "系统设置", pid: 0 ,
+				children:[
+					{ id: 6, name: "权限管理", pid: 5,
+						children:[
+							{ id: 7, name: "用户角色", pid: 6 },
+							{ id: 8, name: "菜单设置", pid: 6 },
+						]
+					},
+				]
+			},
+		];
+
+		function toTree(data){
+			data.forEach((itme,index) => {
+				delete itme.children
+			})
+			
+			// id
+			var map = {}
+			data.forEach((item) => {
+				map[item.id] = item;
+			})
+			console.log(map, 'id怎么说')
+			
+			var text = [];
+			
+			data.forEach((item,index) => {
+				var parent = map[item.pid];
+				console.log(parent,"parent")
+				if(parent){
+					(parent.children  || (parent.children = [])).push(item);
+				}else{
+					text.push(item)
+				}
+			})
+			console.log(text);
+			return text
+		}
+		
+		toTree(data)
+	</script>
+</html>

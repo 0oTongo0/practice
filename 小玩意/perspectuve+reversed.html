@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.box{
+				perspective: 500px;
+			}
+			.facet{
+				width: 200px;
+				height: 100px;
+				background: #00FFFF;
+				transform: rotate3d(10,0,0,-45deg);
+				margin: 100px auto;
+			}
+			ul{
+				counter-reset: jsq;
+			}
+			ul li{
+				counter-increment: jsp;
+				
+			}
+			ul li:before{
+				content: counter(jsp)'.';
+			}
+			ol{
+				list-style-type:upper-roman;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="facet">怎么说</div>
+		</div>
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+		</ul>
+		<!-- ol起作用了 -->
+		<ol reversed="reversed">
+		  <li>咖啡</li>
+		  <li>牛奶</li>
+		  <li>茶</li>
+		</ol>
+	</body>
+</html>

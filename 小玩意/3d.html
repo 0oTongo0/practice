@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box{
+			list-style: none;
+			width: 300px;
+			height: 150px;
+			margin: 50px auto;
+			display: flex;
+			transform: rotate3D(1,1,0,0deg);
+			transform-style: preserve-3d;
+		}
+		.box li{
+			flex: 1;
+			position: relative;
+			display: flex;
+			transform-style: preserve-3d;
+		}
+		.box li span{
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: hsla(60,100%,50%,0.5);
+		}
+		.box li span:nth-of-type(1){
+			transform: translateZ(75px);
+			background: hsla(60,100%,50%,0.5);
+		}
+		.box li span:nth-of-type(2){
+			transform: translateY(-75px) rotateX(90deg);
+			background: hsla(120,100%,50%,0.5);
+		}
+		.box li span:nth-of-type(3){
+			transform: translateY(75px) rotateX(-90deg);
+			background: hsla(180,100%,50%,0.5);
+		}
+		.box li span:nth-of-type(4){
+			transform: translateZ(-75PX);
+			background: hsla(90,100%,50%,0.5);
+		}
+		.box li:nth-of-type(1){
+			animation: rt 4s infinite;
+		}
+		.box li:nth-of-type(2){
+			animation: rt 4s 2s infinite;
+		}
+		.box li:nth-of-type(3){
+			animation: rt 4s 4s infinite;
+		}
+		@keyframes rt{
+			0%{
+				transform: rotateX(0deg);
+			}
+			25%{
+				transform: rotateX(-90deg);
+			}
+			50%{
+				transform: rotateX(-180deg);
+			}
+			75%{
+				transform: rotateX(-270deg);
+			}
+			100%{
+				transform: rotateX(-360deg);
+			}
+		}
+	</style>
+	<body>
+		<div>
+			<ul class="box">
+				<li>
+					<span>1</span>
+					<span>1</span>
+					<span>1</span>
+					<span>1</span>
+				</li>
+				<li>
+					<span>2</span>
+					<span>2</span>
+					<span>2</span>
+					<span>2</span>
+				</li>
+				<li>
+					<span>3</span>
+					<span>3</span>
+					<span>3</span>
+					<span>3</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

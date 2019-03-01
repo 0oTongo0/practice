@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			.box {
+				width: 300px;
+				height: 300px;
+				border: 1px solid blue;
+				text-align: center;
+				margin: 100px auto;
+			}
+
+			.box:before {
+				content: '';
+				display: inline-block;
+				width: 0px;
+				height: 100%;
+				vertical-align: middle;
+			}
+
+			.box .span {
+				display: inline;
+		/* 		width: 50px;
+				height: 50px; */
+				vertical-align: middle;
+				background: #7FFFD4;
+			}
+			.box2{
+				width: 300px;
+				/* height: 300px; */
+				margin: 20px auto;
+				box-sizing: border-box;
+				display: table;
+				border: 1px solid;
+			}
+			.box2 div{
+				width: 120px;
+				height: 120px;
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.box2 div p{
+				display: inline;
+			}
+			.box3{
+				width: 100px;
+				height: 100px;
+				border: 1px solid;
+				text-align: center;
+			}
+			
+			.box3 p{
+				display: inline-block;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p class="span">怎麼說</p>
+		</div>
+		<div class="box2">
+			<div>
+				<p>還行吧</p>
+			</div>
+		</div>
+		<div class="box3">
+			<p>试试看</p>
+		</div>
+	</body>
+</html>

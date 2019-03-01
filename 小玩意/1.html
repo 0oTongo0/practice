@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+			}
+			.box{
+				background: #FFF;
+				width: 300px;
+				margin: 50px auto;
+				border-radius: 6px;
+			}
+			.top{
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+			}
+			.bot{
+				height: 200px;
+				line-height: 200px;
+				background: #E5AC8E;
+				text-align: center;
+				position: relative;
+			}
+/* 			.bot:before{
+				content: "";
+				position: absolute;
+				left: 50%;
+				border-radius: 6px;
+				bottom: -40px;
+				width: 0;
+				height: 0;
+				transform:translateX(-50%) rotate(-135deg);
+				border-width: 80px;
+				border-color: #000 transparent transparent #000;
+				border-style: solid;
+				border-top-left-radius: 10px;
+			} */
+			.box2{
+				width: 0;
+				height: 0;
+				border: 50px solid transparent;
+/* 				border-top-width: 60px;
+				border-right-width: 60px; */
+				border-top-color: red;
+				border-right-color: red;
+				transform:translateX(50px) rotate(-45deg);
+				border-top-right-radius: 12px;
+			}
+			.max{
+				position:relative;
+				z-index: -1;
+				transform:translateY(-157px) rotateX(70deg);
+			}
+			.box3{
+				width: 216px;
+				height: 216px;
+				background: #e5ac8e;
+				margin: 20px auto;
+				border-radius: 6px;
+				border-top: 1px solid #FFF;
+				border-left: 1px solid #FFF;
+				border-top-left-radius: 30px;
+				transform-origin: 50% 50%;
+				transform:rotate(-135deg);
+				background: repeating-radial-gradient();
+			}
+			p{
+				height:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top">上</div>
+			<div class="bot">
+				<p>111111</p>
+				<p>111111</p>
+				<p>111111</p>
+				<p>111111</p>
+				<p>111111</p>
+			</div>
+		</div>
+<!-- 		<div class="box2"></div> -->
+		<div class="max">
+			<div class="box3"></div>
+		</div>
+	</body>
+</html>
