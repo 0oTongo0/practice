@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.directive 自定义指令</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<style type="text/css">
+		.float-box .left{
+		    float:left;
+		}
+		.float-box .right{
+		    float:right;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div v-zdy='color' >{{num}}</div>
+			<button @click="add">+</button>
+		</div>
+		<div class="float-box">
+		    <div class="left">靠左边浮动</div>
+		    <div class="right">靠右边浮动</div>
+		</div>
+		<div class="bottom-box">
+		    <div>底部box</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.directive('zdy',function(el,binding){
+			el.style='color:'+binding.value
+			console.log(el,'el0.0')
+			console.log(binding,'binding0.0')
+		})
+		var  app = new Vue({
+			el:'#app',
+			data:{
+				num:1,
+				color:'green'
+			},
+			methods:{
+				add(){
+					this.num++
+				}
+			}
+		})
+	</script>
+</html>

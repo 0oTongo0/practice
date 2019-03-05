@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let arr = [0,1,2,3,4];
+		// fill 好像就是替换     第2个数要大于第与个1    当第一个数为负数 就是后面第几个  1为开始     会影响原先的内容
+		let a1 = ['a','b','c','d','e'];
+		arr.fill('我的',-3)
+		console.log(arr,'0.0')
+		// for of   数组.keys() 查看索引
+		for(let item of a1.keys()){
+			console.log(item,'keys查看索引') //0 1 2 3 4
+		}
+		for (let i of a1){
+			console.log(i)  // a……e
+		}
+		//.entries()可以查看下标和值
+		for (let [i,val] of a1.entries()){
+			console.log(i+':'+val,'entries,下标和值')
+		}
+		
+		let list = a1.entries();
+		console.log(list.next().value,'0.0');
+		
+		let arr2 = ['a1','a2','a3'];
+		fun = (a,c) =>{
+			console.log(a,c,'abc')
+		}
+		fun(...arr2)
+		//数组下标是否为空  为空false
+		console.log(2 in arr2,'in')
+	</script>
+</html>

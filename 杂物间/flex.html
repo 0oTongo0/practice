@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box{
+			width: 300px;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			 background: hsla(0,0%,0%,.1);
+			padding: 1em;
+			align-items: center;
+		}
+		.box div{
+			max-width: 100%;
+			background: hsla(0,0%,0%,.1);
+			padding: 1rem;
+			/*word-wrap: break-word;*/
+			word-break: break-word;
+		}
+		.aa{
+			width: 300px;
+			background: #ccc;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div>
+				dadadadadada dasdadadassssssssssdasdadad
+			</div>
+		</div>
+		<div class="aa">
+			哇大大大阿达大大大哇大大大大大大大大哇大大大大哇大大哇大大哇大啊大武当
+		</div>
+	</body>
+	<script type="text/javascript">
+		let [x,z,...y] = ['a'];
+		console.log(z)
+		const [a,b,c,d] = 'abcdef';
+		console.log(a,'1b')
+		console.log(b,'1a')
+		console.log(d,'1d')
+	</script>
+</html>

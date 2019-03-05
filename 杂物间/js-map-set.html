@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.px{
+			width: 100px;
+			margin: 50px auto;
+			padding: 30px 0px;
+			position: relative;
+		}
+		.px:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200%;
+			height: 200%;
+			border: 1px solid green;
+			transform-origin: 0 0;
+			transform: scale(0.5);
+			border-radius: 6px;
+		}
+		.px2{
+			width: 100px;
+			margin: 50px auto;
+			padding: 30px 0px;
+			position: relative;	
+			border: 1px solid red;
+			border-radius: 3px;
+		}
+	</style>
+	<body>
+		<div class="px">
+			缩小1px
+		</div>
+		<div class="px2">
+           1px
+        </div>
+	</body>
+	<script type="text/javascript">
+		var s2 = new Set([1,2,3,2]);
+		s2.add([4,5]);
+		s2.delete(4)
+		console.log(s2,'s2')
+	
+	
+//		in
+		var arr = ['a','b','c'];
+		var i;
+		arr.name="0.0"
+		for(i in arr){
+			console.log(i,'arr')
+		}
+		//of
+		for(i of arr){
+			console.log(i);
+		}
+		var m = new Map([[1, 'x'], [2, 'y'], [3, 'z']]);
+		m.forEach(function (value, key, map) {
+		    console.log(value,key);
+		});
+		
+		var abs = function (x) {
+		    if (x >= 0) {
+		    	console.log(x)
+		        return x;
+		    } else {
+		    	console.log(x)
+		        return -x;
+		    }
+		};
+		abs(-1);
+		
+		
+		function abs2(){
+			if(arguments.length ===0){
+				return 0;
+			}
+			var x = arguments[0];
+			console.log(x)
+			return x>=0 ? x : -x;
+			
+		}
+		abs2(10);
+		
+		
+	function foo(a,b){
+		var i;
+		var rest = [];
+		if(arguments.length > 2){
+			for(i=2;i<arguments.length;i++){
+				rest.push(arguments[i])
+			}
+		}
+		console.log("A=",a);
+		console.log("B=",b);
+		console.log(rest);
+	}
+	foo(1)
+	
+	function s(r,pi){
+		if(arguments.length < 2){
+			pi = 3.14
+		}
+		var s;
+		console.log(arguments.length,"arg")	
+		s = pi*r*r;
+		 console.log(s,'s')
+	}
+	s(1,2);
+	
+	
+	
+	function f(){
+		var x = "wd," + y
+		console.log(x);
+		var y = "  x";
+	}
+	f();
+	</script>
+</html>

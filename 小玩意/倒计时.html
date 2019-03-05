@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			display: flex;
+			list-style: none;
+		}
+		.box li{
+			background: #333;
+			padding: 4px;
+			font-size: 12px;
+			color: #fff;
+			margin-right: 6px;
+		}
+		.box li:nth-child(3n){
+			background: #fff;
+			color: #333;
+		}
+		.box2{
+			width: 300px;
+			list-style: none;
+			padding: 0 10px;
+		}
+		.box2 li{
+			display: flex;
+			border: 1px solid #ccc;
+			margin-top: 10px;
+			justify-content: space-between;
+		}
+		.box2 li span{
+			display: block;
+			width: 33.3333%;
+		}
+		.box2 li span:last-child{
+			text-align: right;
+		}
+	</style>
+	<body>
+		<ul class="box">
+			<li>0</li>
+			<li>0</li>
+			<li>:</li>
+			<li>0</li>
+			<li>0</li>
+			<li>:</li>
+			<li>0</li>
+			<li>0</li>
+		</ul>
+		<ul class="box2">
+			<li>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+			</li>
+			<li>
+				<span>1</span>
+				<span>2111111111</span>
+				<span>311111111</span>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var box = document.querySelector('.box');
+			var lis = box.querySelectorAll('li');
+			var data = 2*60*60;
+			var time = setInterval(function(){
+				data --;
+				var h = Math.floor(data/3600);
+				var m = Math.floor(data/60)%60;
+				var s = data%60;
+				lis[0].innerHTML = Math.floor(h/10);
+				lis[1].innerHTML = h%10;
+				lis[3].innerHTML = Math.floor(m/10);
+				lis[4].innerHTML = m%10;
+				lis[6].innerHTML = Math.floor(s/10);
+				lis[7].innerHTML = s%10;
+				// console.log("h:"+ lis[0].innerHTML + "m:" + m + "s:"+s)
+			},1000)
+		}
+	</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.bx{
+			width: 300px;
+			height: 20px;
+			position: relative;
+		}
+		.bx:before{
+			content: "";
+			position: absolute;
+			height: 1px;
+			background: red;
+			right: 0;
+			bottom: 0;
+			width: 0;
+			transition: all .4s;
+		}
+		.bx:hover::before{
+			left: 0;
+			width: 100%;
+		}
+		.max{
+			/*width: 100px;*/
+			max-width: 110px;
+			position: absolute;
+			top: 50px;
+			left: 50%;
+			transform: translateX(-50%);
+			margin: 0 auto;
+			overflow: auto;
+			display: flex;
+			/*justify-content: center;*/
+		}
+		.max span{
+			/*display: inline-block;*/
+			width: 20px;
+			height: 60px;
+			background: red;
+			margin: 0px 5px;
+		}
+		input{
+			-webkit-appearance: none;
+		}
+	</style>
+	<body>
+		<div class="bx">
+			
+		</div>
+		<div class="max">
+			<span>a1</span>
+			<span>a2</span>
+			<span>a3</span>
+			<span>a4</span>
+			<span>a5</span>
+		</div>
+		<input type="checkbox" name="" id="" value="" />
+		<input type="radio" name="" id="" value="" />
+		<input type="text" name="" id="" value="11" />
+		<input type="submit" name="" id="" value="11" />
+		<input type="button" name="" id="" value="111" />
+		<input type="date" name="" id="" value="" />
+		<input type="time" name="" id="" value="" />
+		<input type="number" name="" id="" value="" />
+		<input type="reset" name="" id="" value="00" />
+		<input type="search" name="" id="" value="" />
+	</body>
+</html>

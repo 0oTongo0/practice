@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.css-cell{
+    			position: relative;
+    			width: 100%;
+    			height: 300px;
+			}
+			/*.sun{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 200px;
+				height: 260px;
+				transform: translate(-50%,-50%);
+				background: #0bf;
+				border-radius: 5px;
+			}*/
+			/*.sun:before{
+				content: '';
+				position: absolute;
+				width: 80px;
+				height: 80px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				border-radius: 50%;
+				background: rgba(255,238,68,1);
+				box-shadow: 0 0 0 15px rgba(255,255,0,.2), 0 0 15px #fff;
+			}
+			.sun:after{
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				height: 160px;
+				width: 160px;
+				transform: translate(-50%,-50%);
+				z-index: -100;
+				background-image:  -webkit-linear-gradient(top,rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%),
+            					   -webkit-linear-gradient(left,red 0%, rgba(255,255,255,0.8) 50%, green 100%);
+                background-size: 20px 100%, 100% 20px;
+                background-repeat: no-repeat;
+    			background-position: center center, center center;
+			}*/
+			.cloudy{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 200px;
+				height: 260px;
+				transform: translate(-50%,-50%);
+				background: #2eb5e5;
+				border-radius: 5px;
+			}
+			.cloudy:before{
+				content: '';
+				text-indent: 23px;
+				font-size: 22px;
+				line-height: 40px;
+				color: #333;
+				position: absolute;
+				height: 50px;
+				width: 50px;
+				background: #fff;
+				left:30%;
+				top: 45%;
+				transform: translate(-50%,-50%);
+				border-radius: 50%;
+				box-shadow: #fff 65px -15px 0 -5px,
+							#fff 28px -25px,
+							#fff 30px 10px,
+							#fff 60px 15px 0 -10px,
+							#FFFFFF 85px 5px 0 -5px;
+				animation: d1 5s  ease-in-out infinite;
+			}
+			.cloudy:after{
+				content: '';
+				position: absolute;
+				top: 80%;
+				left: 50%;
+				height: 15px;
+				width: 120px;
+				background: rgba(0,0,0,.5);
+				border-radius: 50%;
+				transform: translate(-50%, -50%);
+				animation: d2 5s ease-in-out infinite;
+			}
+			
+			@keyframes d1{
+				50%{
+					transform: translate(-50%, -70%);
+				}
+				100%{
+					transform: translate(-50%, -50%);
+				}
+			}
+			
+			@keyframes d2{
+				50%{
+					transform:translate(-50%, -50%) scale(0.8);
+				}
+				100%{
+					transform:translate(-50%, -50%) scale(1);
+				}
+			}
+			/*夜空*/
+			.starry-container{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 200px;
+				height: 260px;
+				transform: translate(-50%,-50%);
+				background: #222333;
+				border-radius: 5px;
+			}
+			.starry{
+				position: absolute;
+				top: 30%;
+				left: 40%;
+				width: 4px;
+				height: 4px;
+				transform: translate(-50%,-50%);
+				border-radius: 50%;
+				box-shadow:  #FFFFFF -26px 77px 0 -1px,
+							rgba(255,255,255,0.1) -36px 59px 0 -1px;
+			}
+			.starry:before{
+				content: '';
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				top: 20%;
+				left: 50%;
+				box-shadow: #fff -25px 0;
+				border-radius: 50%;
+				
+			}
+			
+			/*雷电*/
+			.css2{
+				width: 200px;
+    			height: 260px;
+				background: #444;
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				transform: translateX(-50%);
+				border-radius: 5px;;
+			}
+			.thunder{
+				color: #333;
+				position: absolute;
+				height: 50px;
+				width: 50px;
+				top: 40%;
+				left: 30%;
+				background: #222;
+				transform: translate(-50%,-50%);
+			    border-radius: 50%;
+			    box-shadow:
+			            #222 65px -15px 0 -5px,
+			            #222 28px -25px,
+			            #222 30px 10px,
+			            #222 60px 15px 0 -10px,
+			            #222 85px 5px 0 -5px;
+			}
+			.thunder:before{
+				content: '';
+				position: absolute;
+				top: 60px;
+				left: 60px;
+				border-left: 0px solid transparent;
+				border-right: 8px solid transparent;
+				border-top: 38px solid yellow;
+				box-shadow: yellow -7px -32px;
+				transform-origin: center -50px;
+				transform: rotate(30deg);
+				animation: sd 4s steps(1,end) infinite;
+			}
+			@keyframes sd{
+				0%{
+					transform: rotate(30deg); opacity:1;
+				}
+				5%{
+					transform: rotate(-34deg); opacity: 1;
+				}
+				10%{
+					transform: rotate(0deg); opacity: 1;
+				}
+				15%{
+					transform: rotate(-34deg); opacity: 0;
+				}
+			}
+			.br{
+				position: relative;
+				margin-left: 100px;
+				display: inline-block;
+				border-bottom: 60px solid aquamarine;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				transform-origin: center 64px;
+				animation: sc 5s linear infinite;
+			}
+			.br:before{
+				content: '';
+				position: absolute;
+				top: 60px;
+				left: 5px;
+				border-left: 60px solid aquamarine;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				transform: rotate(30deg);
+				transform-origin: 0px center;
+			}
+			.br:after{
+				content: '';
+				position: absolute;	
+				left: -65px;
+				top: 60px;	
+				border-right: 60px solid aquamarine;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;	
+				transform: rotate(-30deg);
+				transform-origin: 60px center;
+			}
+			@keyframes sc{
+				0{
+					transform: rotate(0);
+				}
+				100%{
+					transform: rotate(360deg);
+				}
+			}
+			.aa{
+				position: relative;
+			}
+			.aa:before{
+				content: '';
+				position: absolute;
+				width: 10px;
+				height: 60px;
+				background: aquamarine;
+				top: 66px;
+				left: 100px;
+			}
+			.ch{
+				width: 70px;
+				height: 70px;
+				border-radius: 100px 0 0 0;
+				transform: rotate(45deg);
+				box-shadow: #f44336 -2px -2px 0 1px,
+							#ff9800 -4px -4px 0 3px
+				;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="css-cell" >
+			<div class="cloudy" >
+				
+			</div>
+		</div>
+		<!--夜空-->
+		<div class="starry-container" >
+			<div class="starry" >
+				
+			</div>
+		</div>
+		<!--雷电-->
+		<div class="css2">
+			<div class="thunder">
+				
+			</div>
+		</div>
+		<!--彩虹-->
+		<div class="ch">
+				
+		</div>
+		<div class="aa">
+			<div class="br">
+			
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+//		var color = "blue";
+//		function changeColor(){
+//			var anoterColor = 'red';
+//			function swapColors(){
+//				var tempColor = anoterColor;
+//				anoterColor = color;
+//				color = tempColor
+//				console.log(color,'color')
+//			}
+//			console.log(color,'color2')
+//			swapColors();
+//			
+//		}
+//		
+//		changeColor();
+
+
+//		function buildUrl(){
+//			var qs = '?debug=true';
+//			with(location){
+//				var url = href + qs
+//			}
+//			console.log(url,'url')
+//		}
+//		buildUrl();
+
+	</script>
+</html>

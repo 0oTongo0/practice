@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.null{
+			display: none;
+			background: red;
+		}
+		ul:empty + .null{
+			display: block;
+		}
+	</style>
+	<body>
+		<ul>
+			<li>0.0</li>
+		</ul>
+		<div class="null">1</div>
+	</body>
+</html>

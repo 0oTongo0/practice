@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 80px;
+			padding: 20px 60px;
+			box-sizing: border-box;
+			background: green;
+		}
+		a{
+			padding: 50%;
+			background: aqua;
+		}
+		h3{
+			line-height: 30px;
+			font-size: 14px;
+			overflow: hidden;
+		}
+		h3 > span{
+			padding-bottom: 50px;
+			background: red;
+		}
+		.p50{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			background: #ccc;
+			font-size: 0;
+		}
+		.ico{
+			display: inline-block;
+			width: 70px;
+			height: 10px;
+			padding: 20px 0;
+			border-bottom: 10px solid;
+			border-top: 10px solid;
+			background: currentcolor;
+			background-clip: content-box;
+		}
+		.father{
+			width: 300px;
+			margin: 20px auto;
+		}
+		.son{
+			margin:0 -20px;
+		}
+		.ul{
+			width: 340px;
+			margin-right: -20px;
+			background: #CCCCCC;
+		}
+		ul{
+			list-style: none;
+		}
+		.ul li{
+			float: left;
+			width: 100px;
+			margin-right: 20px;
+			background: red;
+		}
+	</style>
+	<body>
+		<div class="box">
+			
+		</div>
+		<div class="p50">
+			<a></a>
+		</div>
+		<h3>
+			<span>标题</span>
+		</h3>
+		<!--<i class="ico"></i>-->
+		<div class="father">
+			<div class="son">1</div>
+		</div>
+		<ul class="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<br style="clear: both;" />
+		</ul>
+		<div style="padding-top: 1px;margin-top: 20px;">
+			<div style="margin-top: 80px;">mt</div>
+		</div>
+		<div style="margin-top: 80px;">
+			<div>mt2</div>
+		</div>
+	</body>
+</html>

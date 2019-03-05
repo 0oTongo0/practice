@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		let json = [1]
+		//好像是传进去什么参数的写发也要想同
+		let fun = ([a],b=1) => {console.log(a,b)}
+		fun(json);
+		
+		let js2 = {
+			a:'a1',
+			b:'b1',
+			c:'c1',
+			d:'d1'
+		}
+		let fun2 = ({a,...b}) => {
+			console.log(a,b,'json解析')
+		}
+		fun2(js2)
+		
+		//数组的解析   好像是按照参数的个数解析   
+		let arr2 = ['a','b','c'];
+		function fun3(a1,...c){
+			console.log(a1,c,'数组的解析')
+		}
+		fun3(...arr2)
+		//判断字符串 是否存在
+		let str = {a:"", b:'b2'}
+		console.log("c" in str,'str+length') //true
+		let arr =["a","b","c",]
+		// 判断数组 存不存是否为空  数组的下标
+		console.log(3 in arr,'length')  //false
+		
+		
+//		遍历数组   参数第一个为值，第二个为下标   可以过滤空值
+		let sz = ['a1','b1','c1','',,];
+		sz.forEach((v,i) => {
+			console.log(i,v,'遍历数组forEach')
+		})
+		
+		
+		//map
+		let sz2 = ['b1','b2','b3','',,,];
+		console.log(sz2.map(x => 'web'),'map')
+		
+		
+		//数组转字符串
+		let sz3 = ['c1','c2','c3','',,,];
+		console.log(sz3.join('~'),'join')
+		
+		console.log(sz3.toString(),'tostring')
+	</script>
+</html>

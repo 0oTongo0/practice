@@ -13,6 +13,10 @@
 		}
 		nav{
 			overflow: hidden;
+			position: relative;
+		}
+		ul{
+			list-style: none;
 		}
 		.cent{
 			display: flex;
@@ -24,14 +28,32 @@
 			height: 200px;
 			background: #E5AC8E;
 		}
-		.cent li:nth-child(even){
-			background: #00FFFF;
+		.buts{
+			position: absolute;
+			left: 50%;
+			bottom: 20px;
+			transform: translateX(-50%);
+			display: flex;
 		}
+		.buts li{
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			border: 1px solid #fff;
+			margin-right: 10px;
+		}
+		.buts li.on{
+			background: #FFD700;
+			border-color: #FFD700;
+		}
+/* 		.cent li:nth-child(even){
+			background: #00FFFF;
+		} */
 	</style>
 	<body>
 		<nav>
 			<ul class="cent">
-				<li>8</li>
+				<li>假8</li>
 				<li>1</li>
 				<li>2</li>
 				<li>3</li>
@@ -40,7 +62,17 @@
 				<li>6</li>
 				<li>7</li>
 				<li>8</li>
-				<li>1</li>
+				<li>假1</li>
+			</ul>
+			<ul class="buts">
+				<li class="on"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
 			</ul>
 		</nav>
 	</body>
@@ -48,27 +80,91 @@
 		window.onload = function(){
 			var cent = document.querySelector(".cent");
 			var li = cent.getElementsByTagName('li');
+			var liw = li[0].offsetWidth;
+			console.log(liw,'liw')
 			cent.style.width = (li.length*375) + "px";
+			var buts = document.querySelector('.buts');
+			var lis = buts.querySelectorAll('li');
 			var index = 1
+			// 添加过度
+			var add = function(){
+				cent.style.transition = "all .2s";
+			}
+			// 删除过度
+			var remo = function(){
+				cent.style.transition = 'none'
+			}
+			//设置 位移大小
+			var set = function(a){
+				cent.style.transform = 'translateX('+ a +'px)'
+			}
+			//定时器
 			var time = setInterval(function(){
 				index ++;
-				cent.style.transition = "all .2s";
-				cent.style.transform = 'translateX('+(-index*375)+'px)'
-				
-			},1000)	
-			cent.addEventListener('webkitTransitionEnd', function(){
+				add()
+				set((-index*375))
+			},2000)	
+			//无缝 + 小原点
+			cent.addEventListener('transitionend', function(){
 					if(index >= 9){
 						index = 1
-						cent.style.transition = 'none'
-						cent.style.transform = 'translateX('+(-index*375)+'px)'
+						remo()
+						set((-index*375))
 					}else if(index <= 0){
 						index = 8
-						cent.style.transition = 'none'
-						cent.style.transform = 'translateX('+(-index*375)+'px)'						
+						remo()
+						set(-index*375)				
 					}
+				for(var i=0; i<lis.length; i++){
+					var o = lis[i];
+					o.classList.remove('on')
+				}
+				lis[index-1].classList.add('on');
 			})
-			
+			// 滑动
+			//1. 开始  (点上去)
+			// touches 当前屏幕触摸点
+			// targeTouches 当前对象触摸点
+			// changeTouches 有无触发事件
+			var one = 0; //第一个按下去的位置
+			var two = 0; // 按下去移动的位置
+			var m = 0; // 位移的距离
+			cent.addEventListener('touchstart',function(e){
+				// 先清定时器
+				clearInterval(time);
+				one = e.touches[0].clientX;
+				console.log(e,'touchstart')
+				console.log( one + '点击的位置')
+			})
+			//2. 滑动  (位移)
+			cent.addEventListener('touchmove',function(e){
+				two = e.touches[0].clientX;
+				m = two - one;
+				set(-index*375 + m);
+				console.log(e,'touchmove')
+				console.log( two + '移动的位置')
+				console.log( m + '移动的距离')
+			})
+			//3. 离开
+			cent.addEventListener('touchend',function(e){
+				if(Math.abs(m) < 125){
+					add();
+					set(-index*375);
+				}else{
+					if(m < 0){
+						index ++;
+					}else{
+						index --
+					}
+					set(-index*375);
+				}
+				time = setInterval(function(){
+					index ++;
+					add()
+					set((-index*375))
+				},2000)	
+				console.log(e,'touchend')
+			})
 		}
-
 	</script>
 </html>

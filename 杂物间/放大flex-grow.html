@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		ul{
+			list-style: none;
+			width: 300px;
+			display: flex;
+		}
+		li{
+			flex-grow: 1;
+			background: aqua;
+			height: 20px;
+			line-height: 20px;
+		}
+		li:nth-child(2){
+			flex-grow: 3;
+		}
+		a:after{
+			content: attr(title);
+		}
+	</style>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<a href="我的" title="wd">哈哈</a>
+	</body>
+</html>

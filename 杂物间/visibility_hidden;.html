@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			/*cursor: none;*/
+			outline: none;
+			box-sizing: border-box;
+		}
+		body{
+			/*letter-spacing: -3px;*/
+		}
+		label,button,span,a{
+			width: 50px;
+			height: 40px;
+			display: inline-block;
+			border: 1px solid red;
+			position: relative;
+			vertical-align: middle;
+		}
+		input[type='file']{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			display: block;
+			opacity: 0;
+			visibility: hidden;
+			/*pointer-events: none;*/
+		}
+		.box{
+			list-style: none;
+		}
+		.box li+li{
+			color: red;
+		}
+		.cs{
+			width: 200px;
+			background: #ccc;
+			padding: 20px;
+			position: relative;
+		}
+		.cs button{
+			position: absolute;
+			bottom: 0;
+			display: block;
+			height: 20px;
+			/*width: 100%;*/
+			left: 10px;
+			right: 10px;
+			background: red;
+			/*width: auto;*/
+		}
+		.ll{
+			width: 0;
+			margin: 10px auto;
+			color: #fff;
+		}
+		.ll::before{
+			content: 'll不ll';
+			outline: 2px solid red;
+		}
+	</style>
+	<body>
+		<label>
+			label上传
+			<input type="file"/>
+		</label>
+		<button>
+			button上传
+			<input type="file"/>			
+		</button>
+		<span>
+			span上传
+			<!--title 设置为空-->
+			<input placeholder="111" alt="22" title=" " type="file"/>			
+		</span>
+		<a>
+				a上传
+			<input type="file"/>			
+		</a>
+		<div class="cs">
+			<p>测试</p>
+			<!--but并不能实现-->
+			<button>1</button>
+		</div>
+		<div class="ll">
+		</div>
+	</body>
+</html>

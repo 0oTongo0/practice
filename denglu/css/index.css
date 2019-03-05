@@ -1,0 +1,82 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+li{
+	list-style: none;
+}
+html,body{
+	height: 100%;
+}
+input,bottom{
+	outline: none;
+}
+.max{
+	height: 100%;
+	background: url(../img/loging.png) no-repeat center/ cover;
+}
+.loging{
+	width: 330px;
+	padding: 60px 30px;
+	box-shadow: 0 0 20px #08173e;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 80px;
+	background: #0a172a;
+	
+}
+.loging-top{
+	height: 33px;
+	background: url(../img/log.png) no-repeat center/contain;
+}
+.loging-form {
+	margin-top: 40px;
+}
+.loging-form li label{
+	display: block;
+	color: #fff;
+}
+.loging-form li{
+	margin-bottom: 20px;
+}
+.loging-form li input{
+	background: transparent;
+	display: block;
+	width: 100%;
+	border: none;
+	height: 30px;
+	border-bottom: 1px solid #445162;
+	padding-left: 10px;
+	color: #fff;
+}
+.loging-form li input:focus{
+	border-color: #fff;
+}
+.btns{
+	display: flex;
+	margin-top: 50px;
+}
+.btns button{
+	border: none;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	border-color:transparent;
+	border-radius: 4px;
+	display: block;
+	flex: 1;
+	background: #29b2fa;
+	cursor: pointer;
+	outline: none;
+}
+.btns button:first-child{
+	max-width: 30%;
+	background: #e95a18;
+	margin-right: 10px;
+}
+.btns button:last-child:hover{
+	background: rgba(41, 178, 250, 0.81);
+}

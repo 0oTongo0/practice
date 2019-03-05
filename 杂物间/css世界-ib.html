@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				/*box-sizing: border-box;*/
+			}
+			.ib{
+				width: 200px;
+				padding: 10px;
+				text-align: center;
+				background: aquamarine;
+				color: #FF0000;
+			}
+			.ib p{
+				display: inline-block;
+				text-align: left;
+			}
+			.fw{
+				width: 102px;
+			}
+			.br{
+				border: 1px solid red;
+				padding: 20px;
+			}
+			.max{
+				width: 200px;
+				height: 100px;
+				background: #666;
+				position: relative;
+				/*z-index: 2;*/
+			}
+			.gold{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				z-index: 0;
+				background: gold;
+				top: 0;
+			}
+			.gold:before,.gold:after{
+				content: '';
+				display: block;
+				position: absolute;
+				width: 90%;
+				height: 20%;
+				box-shadow: 0 8px 16px rgba(0,0,0,.3);
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="ib">
+			<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+		</div>
+		<div class="fw ">
+			<p class="br">widht0.0.0.0</p>
+		</div>
+		<div class="max">
+			11
+			<div class="gold"></div>
+		</div>
+	</body>
+</html>

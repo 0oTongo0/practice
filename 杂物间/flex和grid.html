@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.flex{
+				width: 600px;
+				height: 600px;
+				background: aquamarine;
+			}
+			.f1{
+				display: flex;
+				flex-wrap: wrap;
+				width: 200px;
+				height: 200px;
+				background: red;
+/*				justify-content: flex-end;*/
+				/*好像只有设置 align + flex-wrap 间距为父级高度的一半*/
+				align-content: center;
+				/*align-items: center;*/
+			}
+			.f1>div{
+				background: #f4f4f4;
+				flex: 0 1 20px;
+				height: 20px;
+			}
+			.grid{
+				height: 400px;
+				background: #008000;
+			}
+			.g1{
+				width: 300px;
+				height: 300px;
+				background: #2EB5E5;
+				display: grid;
+				/*auto ↓好像是父级剩余的空间*/
+				grid-template-columns:70px 60px 30px;
+				/*如果父级木有设置高度 auto ↓自己占有的高度 */
+				grid-template-rows:40px  40px 40px;
+				row-gap:2px;
+				column-gap:10px;
+				/**-items 相当于flex中的align-self  设置全局子格子位置*/
+				/*justify-items:end;
+				align-items: end;*/
+				/*-content 相当于flex中的 justify-content 和algin-items*/
+				justify-content: end;
+				align-content: end;	
+				/*设置↓ 宽高比还是原来的*/
+				grid-auto-flow:column;
+			}
+			.g1>div{
+				background: #f36;
+			}
+			.f2{
+				width: 400px;
+				height: 400px;
+				background: #7FFFD4;
+				margin-top: 10px;
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+			.f2>div{
+				border: 1px solid red;
+				border-radius: 4px;
+			}
+			.av{
+				min-width: 100px;
+				height: 100px;
+			}
+			.lu{
+				min-width: 140px;
+				height: 100px;
+			}
+			.gg{
+				min-width: 100px;
+				height: 100%;
+			}
+			.tw{
+				min-width: 100px;
+				height: 100px;
+			}
+			.er{
+				flex: 1 1 0;
+			}
+			.g2{
+				width: 400px;
+				display: grid;
+				grid-template-columns:auto 0.25fr 0.25fr 0.25fr;
+			}
+		</style>
+	</head>
+	<body>
+		<p>flex</p>
+		<div class="flex">
+			<div class="f1">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+								<div>1</div>
+				<div>2</div>
+				<div style="align-self: flex-end;">0</div>
+				<div>4</div>
+								<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+			</div>
+			<div class="f2">
+				<div class="av">1</div>
+				<div class="lu">2</div>
+				<div class="gg">3</div>
+				<div class="tw">4</div>
+				<div class="er">5</div>
+			</div>
+		</div>
+		<hr />
+		<p>grid</p>
+		<div class="grid">
+			<div class="g1">
+				<div style="justify-self:end">1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+				<div>7</div>
+				<div>8</div>
+				<div>9</div>
+			</div>
+			<div class="g2">
+				<div>
+					我
+				</div>
+				<div>
+					0.25fr
+				</div>
+				<div>
+					0.25fr
+				</div>
+				<div>
+					0.25fr
+				</div>
+			</div>
+			<span>我</span>
+		</div>
+	</body>
+</html>
