@@ -46,6 +46,19 @@
 			background: #FFD700;
 			border-color: #FFD700;
 		}
+		.dome{
+			color: red;
+		}
+		.rd{
+			margin: 10px auto;
+			width: 300px;
+			height: 150px;         
+/* 			border-top-left-radius:50% 100%;
+			border-top-right-radius:50% 100%; */
+			background: #E5AC8E;
+			border-top-left-radius: 50% 100%;
+			border-bottom-right-radius: 50% 100%;
+		}
 /* 		.cent li:nth-child(even){
 			background: #00FFFF;
 		} */
@@ -75,96 +88,91 @@
 				<li></li>
 			</ul>
 		</nav>
+<!-- 		<div class="rd"> 
+			
+		</div> -->
+		<!-- <iframe src="眼睛.html" width="100%" height="100%" frameborder="0" allowtransparency="true"></iframe> -->
 	</body>
 	<script type="text/javascript">
-		window.onload = function(){
-			var cent = document.querySelector(".cent");
-			var li = cent.getElementsByTagName('li');
-			var liw = li[0].offsetWidth;
-			console.log(liw,'liw')
-			cent.style.width = (li.length*375) + "px";
-			var buts = document.querySelector('.buts');
-			var lis = buts.querySelectorAll('li');
-			var index = 1
-			// 添加过度
-			var add = function(){
-				cent.style.transition = "all .2s";
-			}
-			// 删除过度
-			var remo = function(){
-				cent.style.transition = 'none'
-			}
-			//设置 位移大小
-			var set = function(a){
-				cent.style.transform = 'translateX('+ a +'px)'
-			}
-			//定时器
-			var time = setInterval(function(){
-				index ++;
-				add()
-				set((-index*375))
-			},2000)	
-			//无缝 + 小原点
-			cent.addEventListener('transitionend', function(){
-					if(index >= 9){
-						index = 1
-						remo()
-						set((-index*375))
-					}else if(index <= 0){
-						index = 8
-						remo()
-						set(-index*375)				
-					}
-				for(var i=0; i<lis.length; i++){
-					var o = lis[i];
-					o.classList.remove('on')
-				}
-				lis[index-1].classList.add('on');
-			})
-			// 滑动
-			//1. 开始  (点上去)
-			// touches 当前屏幕触摸点
-			// targeTouches 当前对象触摸点
-			// changeTouches 有无触发事件
-			var one = 0; //第一个按下去的位置
-			var two = 0; // 按下去移动的位置
-			var m = 0; // 位移的距离
-			cent.addEventListener('touchstart',function(e){
-				// 先清定时器
-				clearInterval(time);
-				one = e.touches[0].clientX;
-				console.log(e,'touchstart')
-				console.log( one + '点击的位置')
-			})
-			//2. 滑动  (位移)
-			cent.addEventListener('touchmove',function(e){
-				two = e.touches[0].clientX;
-				m = two - one;
-				set(-index*375 + m);
-				console.log(e,'touchmove')
-				console.log( two + '移动的位置')
-				console.log( m + '移动的距离')
-			})
-			//3. 离开
-			cent.addEventListener('touchend',function(e){
-				if(Math.abs(m) < 125){
-					add();
-					set(-index*375);
-				}else{
-					if(m < 0){
-						index ++;
-					}else{
-						index --
-					}
-					set(-index*375);
-				}
-				time = setInterval(function(){
-					index ++;
-					add()
-					set((-index*375))
-				},2000)	
-				console.log(e,'touchend')
-			})
+		var  cent = document.querySelector(".cent");// 获取UL
+		var  cent_lis = cent.querySelectorAll("li"); // 获取li
+		var  buts = document.querySelector(".buts");
+		var  buts_lis = buts.querySelectorAll("li");
+		var  body = document.querySelector("body").offsetWidth;
+		var  cnode = cent_lis[0].cloneNode(true);
+				// cent.appendChild(cnode);
+		cent.style.width = cent_lis.length * body +'px';
+		// console.log(cent_lis,"克隆第一个")
+		var index = 1;
+		// 添加
+		var add = function(){
+			cent.style.transition = "all .3s"
 		}
+		// 删除
+		var rome = function(){
+			cent.style.transition = "none";
+		}
+		// 设置
+		var set = function(a){
+			cent.style.transform = 'translateX('+ a +'px)'
+		}
+		var time = setInterval(function(){
+			index ++;
+			add();
+			set(-index*body);
+			console.log(index)
+		},1000)
+		
+		cent.addEventListener("transitionend",function(){
+			if(index >= 9){
+				index = 1;
+				rome();
+				set(-index*body);
+			}else if(index <= 0){
+				index = 8;
+				rome();
+				set(-index*body);
+			}
+			for(var i=0; i<buts_lis.length; i++){
+				buts_lis[i].classList.remove('on');
+			}
+			buts_lis[index-1].classList.add("on");
+		})
+		var start = 0;
+		var end = 0;
+		var m = 0;
+		cent.addEventListener("touchstart",function(e){
+			clearInterval(time);
+			console.log(e)
+			start = e.touches[0].clientX;
+		})
+		cent.addEventListener("touchmove",function(e){
+			end = e.touches[0].clientX;
+			m = end - start;
+			rome();
+			set(-index*body + m);
+		})
+		cent.addEventListener("touchend",function(e){
+			if(Math.abs(m) < body/3){
+				add();
+				set(-index*body);
+			}else{
+				if(m > 0){
+					index --;
+					add();
+					set(-index*body);
+				}else{
+					index ++;
+					add();
+					set(-index*body);
+				}
+			}
+			time = setInterval(function(){
+				index ++;
+				add();
+				set(-index*body);
+				console.log(index)
+			},1000)
+		})
 	</script>
 </html>

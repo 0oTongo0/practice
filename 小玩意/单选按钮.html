@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		div{
+			margin: 50px;
+		}
+		.label{
+			position: relative;
+			display: block;
+			width: 80px;
+			height: 30px;
+			color: #AAAAAA;
+			border-radius: 30px;
+			background: #F4F4F4;
+		}
+		.label::before{
+			content: "";
+			position: absolute;
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			background: #fff;
+			top: 1px;
+			left: 1px;
+			transition: all .3s;
+		}
+		#che:checked + label::before{
+			left: 51px;
+		}
+	</style>
+	<body>
+		<div>
+			<input id="che" type="checkbox" hidden="hidden"/>
+			<label for="che" class="label"></label>
+		</div>
+	</body>
+</html>

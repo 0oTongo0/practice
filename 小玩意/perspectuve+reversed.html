@@ -31,6 +31,7 @@
 			}
 			ol{
 				list-style-type:upper-roman;
+				padding-left: 50px;
 			}
 		</style>
 	</head>
@@ -50,4 +51,13 @@
 		  <li>茶</li>
 		</ol>
 	</body>
+	<script type="text/javascript">
+		var ol = document.querySelector("ol");
+		var li = ol.querySelectorAll('li');
+		for(let i=0; i<li.length; i++){
+			li[i].onclick = function(){
+				console.log(i)
+			}
+		}
+	</script>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			.box{
+				pointer-events: none;
+			}
+			.box:hover{
+				/* hover 都不起作用 */
+				color: red;
+				
+			}
+			.mr{
+				height: 50px;
+				margin-top: 10px;
+			}
+			.box{
+				/* border: 1px solid; */
+				padding-top: 1px;
+				display: block;
+			}
+			.test_box {
+				width: 400px; 
+				min-height: 120px; 
+				max-height: 300px;
+				padding: 3px; 
+				outline: 0; 
+				border: 1px solid #a0b3d6; 
+				font-size: 12px; 
+				word-wrap: break-word;
+				overflow-x: hidden;
+				overflow-y: auto;
+				resize: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="1.html" class="box">禁止点击</a>
+		<div class="box">
+			<div class="mr">mr</div>
+		</div>
+		<div class="test_box" contenteditable="true">
+			
+		</div> 
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		box.onclick = function(){
+			alert("wd")
+		}
+	</script>
+</html>

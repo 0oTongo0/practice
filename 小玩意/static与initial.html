@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid;
+		}
+		.box:first-child{
+			position: initial;
+			border-color: red;
+			/* 无 */
+			right: 0;
+		}
+		.box:last-child{
+			position: static;
+			border-color: green;
+			/* 无 */
+			right: 0;
+		}
+		.box2{
+			margin-top: 50px;
+			position: absolute;
+			width: 300px;
+			height: 2000px;
+			border: 1px solid;
+			top: 0;
+			left: 50%;
+			margin-left: -150px;
+		}
+		.sticky{
+			line-height: 40px;
+			background: #00FFFF;
+			text-align: center;
+			/* 还是相当于屏幕 */
+			position:sticky;
+			top: 50px;
+			
+		}
+	</style>
+	<body>
+		<div class="box">
+			
+		</div>
+		<div class="box">
+			
+		</div>
+		<div class="box2">
+			<div class="sticky">sticky</div>
+		</div>
+	</body>
+</html>
