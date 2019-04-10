@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+			p{
+				width: 50px;
+				height: 50px;
+				background: #7FFFD4;
+			}
+			div:empty{
+				background: conic-gradient(aqua 0% 50%, #ccc 0% 100%);
+			}
+			div:blink{
+				background: #9DC852;
+			}
+		</style>
+	</head>
+	<body>
+		<div>  </div>
+		<p></p>
+		<div></div>
+	</body>
+	<script type="text/javascript">
+			var data = new Date;
+			var y = data.getFullYear()
+			var m = data.getMonth()
+			console.log(m,"yue")
+			var d = data.getDate()
+			console.log(d,"天")
+			var day = data.getDay()
+			var h = data.getHours()
+			var m2 = data.getMinutes()
+			console.log(m2,"分")
+			var s = data.getSeconds()
+	</script>
+</html>

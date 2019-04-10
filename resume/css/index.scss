@@ -1,0 +1,137 @@
+@import "reset.css";
+$bg:#0b0f28;
+$mbg:#101638;
+$fc:#1f97fd;
+html,body{
+    height: 100%;
+    background: $bg;
+}
+.resume{
+	height: 100%;
+	display: flex;
+	padding: 0 30px;
+	flex-direction: column;
+}
+// 头部
+.resume-top{
+    height: 72px;
+    background: url(../images/bg_01.png) no-repeat center;
+	background-size: cover;
+	padding-top: 10px;
+	position: relative;
+	h1{
+		text-align: center;
+		color: $fc;
+	}
+	[class$=-bg]{
+		width: 39%;
+		height: 48px;
+		position: absolute;
+		background: $mbg;
+	}
+	.left-bg{
+		left: 0;
+		bottom: 0;
+		&:before{
+			content: "";
+			right: -48px;
+			bottom: 0;
+			position: absolute;
+			border: 24px solid $mbg;
+			border-top-color: transparent;
+			border-right-color: transparent;
+		}
+	}
+	.rgith-bg{
+		right: 0;
+		bottom: 0;
+			&:before{
+			content: "";
+			left: -48px;
+			bottom: 0;
+			position: absolute;
+			border: 24px solid $mbg;
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+	}
+}
+
+// 主体
+.resume-center{
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 4px 0 10px;
+	background: $mbg;
+	&>div{
+		height: 50%;
+		padding: 20px;
+	}
+	// 基本信息
+	.basic{
+		width: 50%;
+		border-right: 2px solid $bg;
+		border-bottom: 4px solid $bg;	
+		ul{
+			color: #fff;
+			font-size: 14px;
+			display: flex;
+			flex-wrap: wrap;
+			li{
+				width: 40%;
+				display: flex;
+				align-items: baseline;
+				i{
+					font-style: normal;
+					display: block;
+					width: 60px;
+					text-align: justify;
+					&:after{
+						content: "";
+						display: inline-block;
+						width: 100%;
+					}
+				}
+			}
+			.fc{
+				color: $fc;
+			}
+		}
+	}
+	// skill
+	.skill{
+		width: 50%;
+		border-left: 2px solid $bg;
+		border-bottom: 4px solid $bg;
+		display: flex;
+		flex-direction: column;
+		#skill{
+			flex: 1;
+		}
+	}
+	// 工作经验
+	.experience{
+		border-right: 2px solid $bg;
+		width: 60%;
+	}
+	// 编程技能
+	.programme-skill{
+		width: 20%;
+		border-right: 2px solid $bg;
+		border-left: 2px solid $bg;
+	}
+	// 求职意愿
+	.intention{
+		width: 20%;
+		border-left: 2px solid $bg;
+	}
+	// 通用头部标题
+	.title{
+		color: $fc;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+		margin-bottom: 16px;
+	}
+}

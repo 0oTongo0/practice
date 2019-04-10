@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 10px solid transparent;
+			background: linear-gradient(45deg, aqua , red);
+			box-decoration-break:clone;
+		}
+	</style>
+	<body>
+		<div class="box">
+			怎么说
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr = [1,2,"2",4,9,"a","a",2,3,5,6,5];
+// 		arr = arr.filter(function(i){
+// 			return i > 2
+// 		})
+// 		console.log(arr)
+		function set(a){
+			var newarr = []
+			for(var i=0; i<a.length; i++){
+				if(newarr.indexOf(a[i]) == -1){
+					newarr.push(a[i])
+				}
+			}
+			return newarr
+		}
+		console.log(set(arr))
+		
+		
+		var boo = new Boolean({});
+		console.log(boo)
+	</script>
+</html>

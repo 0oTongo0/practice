@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>	
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+/* 			table{
+				table-layout: fixed;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			.max{
+				width: 200px;
+				margin: 30px auto;
+				position: relative;
+			}
+			table{
+				border-left: 1px solid red;
+				border-right: 1px solid red;
+			}
+			table td,th{
+				padding: 0 6px;
+				width: 55px;
+				min-width: 55px;
+			}
+			table th{
+				border-top: 1px solid red;
+			}
+			table td + td,table th + th{
+				border-left: 1px solid red;
+			}
+			table tr{
+				border-bottom: 1px solid red;
+			}
+			.table2{
+				position: absolute;
+				top: 0;
+				left: 0;
+			} */
+			.max{
+				height: 300px;
+				width: 500px;
+				overflow: auto;
+			}
+			.max .text{
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="max">
+			<div class="text">
+				11111
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var  text = document.querySelector(".text");
+		var	 h = text.clientHeight;
+		var gd = text.scrollHeight;
+		text.onscroll = function(){
+			console.log(text.scrollTop)
+		}
+		console.log(gd)	 
+	</script>
+</html>

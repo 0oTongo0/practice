@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		@page {
+			size: A4 portrait;
+			margin: 3.7cm 2.6cm 3.5cm; /* 国家标准公文页边距 GB/T 9704-2012 */
+		}
+		
+		@page:right{
+		  @bottom-right {
+			content: counter(page);
+		  }
+		}
+
+		@page:left{
+		  @bottom-left {
+			content: counter(page);
+		  }
+		}
+		
+		.box > p{
+			height: 40pt;
+			margin-bottom: 20pt;
+		}
+	</style>
+	<body>
+		<div>	
+			<h1>打印怎么说</h1>
+			<div class="box">
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+			</div>
+		</div>
+	</body>
+</html>

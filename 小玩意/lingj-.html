@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box {
+			width: 120px;
+			line-height: 120px;
+			background-color: #f0f3f9;
+		}
+		.content {
+			display: inline-block;
+			line-height: 20px;
+			margin: 0 20px;
+			vertical-align: middle;
+		} 
+		.father { 
+			width: 300px; 
+			height: 100px;
+			border: 1px solid;
+			margin: 20px auto;
+		} 
+		.son { 
+			margin: 0 -20px; 
+			height: 50px;
+			border: 1px solid aqua;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="content">基于行高实现的...</div>
+		</div> 
+		<div class="father"> 
+			<div class="son"></div> 
+		</div>
+	</body>
+	<script type="text/javascript">
+// 		var nub = '大佬';
+// 		var srt = `怎么说${nub} \n 0.0`;
+// 		console.log(srt)
+// 		
+// 		
+// 		var foo = ["大佬1","大佬2","大佬3"];
+// 		var [a,...b] = foo;
+// 		console.log(b)
+// 		
+// 		
+// 		
+// 		
+// 		var parames = {
+// 			name : "大佬",
+// 			text : "是的",
+// 			err : "没错"
+// 		}
+// 		// 对象时  名字要一样
+// 		var {name,...b} = parames;
+// 		console.log({...b})
+		
+		
+// 		var str = 'To be, or not to be, that is the question.';
+// 		var nub = 0;
+// 		var cz = str.indexOf('e');
+// 		for(var i=0; i<str.length; i++){
+// 			if(cz !== -1){
+// 				nub ++;
+// 				cz = str.indexOf("e", cz+1);
+// 			}
+// 		}
+// 		console.log(nub)
+
+		
+		var triangle = {
+			a:1,
+			b:2,
+			c:3
+		}
+		function Obj(){
+			this.color = "red";
+		}
+		Obj.prototype.ad = function(){
+			console.log("2.2")
+		};
+		var o = new Obj();
+		for(var i in o){
+			console.log(o[i])
+		}
+		console.log(o)
+		Keys()
+	</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.one{
+			height: 10px;
+		}
+		#dome{
+			width: 100px;
+			height: 100px;
+			margin-top: 30px;
+			border: 2px solid #ccc;
+			overflow: auto;
+		}
+		#box{
+			display: block;
+			height: 120px;
+			margin-top: 10px;
+		}
+		ul{
+			list-style: none;
+			display: flex;
+		}
+		ul li{
+			width: 60px;
+		}
+		ul li:nth-child(-n+6):nth-child(n+2){
+			color: red;
+		}
+	</style>
+	<body>
+		<div class="one"></div>
+		<div id="dome">
+			<span id="box"></span>
+		</div>
+		<ul>
+			<li>1aa</li>
+			<li>2aa</li>
+			<li>3aa</li>
+			<li>4aa</li>
+			<li>5aa</li>
+			<li>6aa</li>
+			<li>7aa</li>
+			<li>8aa</li>
+			<li>9aa</li>
+			<li>10aa</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var  box = document.getElementById('box');
+		var  off = box.offsetTop;
+		console.log(off)
+		
+		
+// 		function outer(){
+// 			inner();
+// 		}
+// 		function inner(){
+// 			console.log(inner.caller);
+// 		}
+// 		outer()
+		
+		
+		
+// 		function aa(x){
+// 			var a = [];
+// 			for(var o=0; o<x.length; o++){
+// 				if(a.indexOf(x[o]) == -1){
+// 					a.push(x[o])
+// 				}
+// 			}
+// 			return a;
+// 		}
+// 		arr = [1,1,2,2,3,6];
+// 		console.log(aa(arr));
+
+
+		var s1 = new String("some text");
+		var s2 = s1.substring(2)
+		s1 = null;
+		console.log(s2)
+		console.log([] == ![])
+	</script>
+</html>

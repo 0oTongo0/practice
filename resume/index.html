@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="js/echarts.common.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <title>前端切图仔</title>
+</head>
+<body>
+	<article class="resume">
+		<header class="resume-top">
+			<h1>前端切图仔</h1>
+			<div class="left-bg"></div>
+			<div class="rgith-bg"></div>
+		</header>
+		<section class="resume-center">
+			<!-- 基本信息 -->
+			<div class="basic">
+				<p class="title">基本信息</p>
+				<ul>
+					<li>
+						<i>大佬</i>：
+						<span class="fc">1111</span>
+					</li>
+					<li>
+						<i>怎么说哦</i>：
+						<span>1111</span>
+					</li>
+					<li>
+						<i>大佬</i>：
+						<span>1111</span>
+					</li>
+					<li>
+						<i>怎么说哦</i>：
+						<span>1111</span>
+					</li>
+				</ul>
+			</div>
+			<!-- 基本信息end -->
+			<!-- 技能分布 -->
+			<div class="skill">
+				<p class="title">技能分布</p>
+				<div id="skill"></div>
+			</div>
+			<!-- 技能分布end -->
+			<!-- 工作经验 -->
+			<div class="experience">
+				<p class="title">工作经验</p>
+			</div>
+			<!-- 工作经验 end -->
+			<!-- 编程技能 -->
+			<div class="programme-skill">
+				<p class="title">编程技能</p>
+			</div>
+			<!-- 编程技能end -->
+			<!-- 求职意愿 -->
+			<div class="intention">
+				<p class="title">求职意愿</p>
+			</div>
+			<!-- 求职意愿end -->
+		</section>
+	</article>
+</body>
+<script type="text/javascript">
+ var skill = echarts.init(document.getElementById('skill'));
+	option = {
+    title: {
+        text: '',
+        left: 'center',
+        top: 20,
+        textStyle: {
+            color: '#ccc'
+        }
+    },
+   legend: {
+	   x: 'center',
+	   y: 'bottom',
+	   data: ['HTML5', 'CSS3', 'JavaScript', 'Vue', 'React', '其他'],
+	   icon: 'circle',
+	   textStyle: {
+		   color: '#fff',
+	   }
+   },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} :({d}%)"
+    },
+    series : [
+        {
+            name:'技能分布',
+            type:'pie',
+			radius : [20, 100],
+            center : ['50%', '50%'],
+            data:[
+				{
+					value:5, 
+					name:'其他',
+					itemStyle: {
+				       normal: {
+				           color: '#f69846'
+				       }
+				   }
+				},
+                {
+					value:6, 
+					name:'React',
+					itemStyle: {
+                       normal: {
+                           color: '#45dbf7'
+                       }
+                   }
+				},
+                {   value:6, 
+					name:'Vue',
+					itemStyle: {
+					    normal: {
+					        color: '#44aff0'
+					    }
+					}
+				},
+                {	value:7,
+					name:'JavaScript',
+					itemStyle: {
+                       normal: {
+                           color: '#09cdce'
+                       }
+                   }
+				},
+                {	value:8, 
+					name:'HTML5',
+					itemStyle: {
+                       normal: {
+                           color: '#ffea00'
+                       }
+                   }
+				},
+                {	value:10, 
+					name:'CSS3',
+					itemStyle: {
+                       normal: {
+                           color: '#5fe708'
+                       }
+                   }
+				}
+            ].sort(function (a, b) { return a.value - b.value}),
+            roseType: 'angle',
+            labelLine: {
+                normal: {
+                    lineStyle: {
+                        color: 'rgba(255, 255, 255, 0.3)'
+                    },
+                    smooth: 0.2,
+                    length: 10,
+                    length2: 20
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#c23531',
+                    shadowBlur: 200,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+skill.setOption(option);
+window.addEventListener("resize",function(){
+    skill.resize();
+});
+
+</script>
+</html>

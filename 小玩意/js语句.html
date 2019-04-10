@@ -5,6 +5,10 @@
 		<title></title>
 	</head>
 	<style type="text/css">
+		body{
+			background: #000;
+			filter: blur(3px) contrast(10);
+		}
 		*{
 			padding: 0;
 			margin: 0;
@@ -22,14 +26,136 @@
 			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical; */
 		}
+		.fire{
+			width: 0;
+			height: 0;
+			box-sizing: border-box;
+			border: 100px solid #000;
+			border-bottom: 100px solid transparent;
+			background-color: #b5932f;
+			transform: scale(.4);
+			border-radius: 45%;
+			filter: blur(20px) contrast(30);
+		}
+		
+.zt {
+    position: relative;
+    width: 640px;
+    height: 106px;
+    color: #fff;
+    font-size: 124px;
+    text-align: center;
+    margin: 100px auto;
+    border-bottom: 10px solid #fff;
+    transform: skewY(5deg);
+}
+    .zt::before {
+        position: absolute;
+        content: "";
+        bottom : -20px;
+        width: 10px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        transform: translate(0, 0);
+        animation: move 7.5s ease-in-out infinite;
+    }
+    
+    
+    .zt::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom : -20px;
+        width: 10px;
+        height: 20px;
+        border-radius: 50%;
+        background: #fff;
+        transform: translate(0, 0);
+        animation: move 7.5s ease-in-out 1s infinite;
+    }
+@keyframes move {
+    80% {        
+        bottom : -30px;
+        transform: translate(623px, 0);
+    } 93% {
+        transform: translate(623px, 3px);
+        opacity: 1;
+    }100% {
+        transform: translate(623px, 150px);
+        opacity: 0;
+    }
+}
 	</style>
 	<body>
-		<p class="p1">怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说</p>
+		<p class="p1">怎么说123怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎么说怎12么说</p>
+		<div class="fire"></div>
+		<div class="zt">MAGICCSS</div>
 	</body>
 	<script type="text/javascript">
 		var arr = ["第1",'第2',['怎么说','咋地']]
 		for(var i in arr){
 			console.log(arr[i])
 		}
+		
+		
+		
+	function displayInfo(args){
+		var output = "";
+		if(typeof args.name == "string"){
+			output += "Name:" + args.name + "\n"; 
+		}
+		if(typeof args.age == 'number'){
+			output += "age:" + args.age + "\n";
+		}
+		console.log(output);
+	}
+	
+	displayInfo({
+		name:"大佬好",
+		age:5
+	})
+	
+	
+	
+	var bg = "bg"
+	var person1 = {
+		toLocaleString : function(){
+			return "toLocaleString";
+		},
+		toString : function(){
+			return "toString";
+		}
+	};
+	
+	var person2 = {
+		toLocaleString : function(){
+			return "person2";
+		},
+		toString : function(){
+			return "person0.0";
+		}
+	};
+	
+	var people = [person1,person2];
+	
+	console.log(people.toLocaleString())
+	
+	// 有无数组
+	if(bg instanceof Array){
+		console.log("有的")
+	}else{
+		console.log("无")
+	}
+	
+	
+	var a = 10;
+	(function(){
+		console.log(a);
+		a = 5;
+		console.log(window.a);
+		var a = 20;
+		console.log(a)
+	})()
 	</script>
 </html>

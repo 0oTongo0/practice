@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		async function text(){
+			const res = await new Promise(resolve => {
+				setTimeout(() =>{
+					resolve ("什么鬼");
+				},1000)
+			});
+			console.log(res);
+		}
+		
+		text()
+	</script>
+</html>

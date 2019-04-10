@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			.sp{
+				display: block;
+				width: 150px;
+				height: 40px;
+				padding: 12px 0;
+				background: #9dc852;
+				text-align: center;
+				color: #fff;
+				position: relative;
+			}
+			.sp::before{
+				content: "";
+				z-index: 2;
+				height: 0;
+				position: absolute;
+				border-top: 5px solid #9dc852;
+				border-left: 75px solid transparent;
+				border-right: 75px solid transparent;
+				border-bottom: 0 solid #fff;
+				top: 100%;
+				left: 0;
+				transition: 0.2s 0.2s border-top ease-out;
+			}
+			.sp::after{
+				content: "";
+				z-index: 2;
+				position: absolute;
+				border-bottom: 0px solid #fff;
+				border-left: 75px solid transparent;
+				border-right: 75px solid transparent;
+				bottom: 0px;
+				left: 0;	
+				transition: 0.2s border-bottom ease-in;
+			}
+			.sp:hover::before{
+				border-top-width: 0;
+				transition: 0.2s border-top-width ease-in;
+			}
+			.sp:hover::after{
+				transition: 0.2s 0.2s border-bottom-width ease-out;
+				border-bottom-width: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<span class="sp">
+			怎么说
+		</span>
+	</body>
+</html>
