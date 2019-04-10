@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script src="js/echarts.common.min.js" type="text/javascript" charset="utf-8"></script>
     <link rel="stylesheet" href="css/index.css">
-    <title>前端切图仔</title>
+    <title>前端</title>
 </head>
 <body>
 	<article class="resume">
 		<header class="resume-top">
-			<h1>前端切图仔</h1>
-			<div class="left-bg"></div>
-			<div class="rgith-bg"></div>
+			<h1>姚畅通在线简历</h1>
 		</header>
 		<section class="resume-center">
 			<!-- 基本信息 -->
@@ -20,20 +18,44 @@
 				<p class="title">基本信息</p>
 				<ul>
 					<li>
-						<i>大佬</i>：
-						<span class="fc">1111</span>
+						<i>姓名</i>：
+						<span class="fc">姚畅通</span>
 					</li>
 					<li>
-						<i>怎么说哦</i>：
-						<span>1111</span>
+						<i>性别</i>：
+						<span>男</span>
 					</li>
 					<li>
-						<i>大佬</i>：
-						<span>1111</span>
+						<i>籍贯</i>：
+						<span>湖南邵阳</span>
 					</li>
 					<li>
-						<i>怎么说哦</i>：
-						<span>1111</span>
+						<i>工作年限</i>：
+						<span>2年</span>
+					</li>
+					<li>
+						<i>年龄</i>：
+						<span>23</span>
+					</li>
+					<li>
+						<i>学历</i>：
+						<span>大专</span>
+					</li>
+					<li>
+						<i>毕业院校</i>：
+						<span>湖南信息学院</span>
+					</li>
+					<li>
+						<i>专业</i>：
+						<span>软件技术</span>
+					</li>
+					<li>
+						<i>联系电话</i>：
+						<span>15576652463</span>
+					</li>
+					<li>
+						<i>电子邮箱</i>：
+						<span>1243949767@qq.com</span>
 					</li>
 				</ul>
 			</div>
@@ -47,24 +69,73 @@
 			<!-- 工作经验 -->
 			<div class="experience">
 				<p class="title">工作经验</p>
+				<ul>
+					<li>
+						<span class="time">2018.3.20 ~ 2019.5</span>
+						<p class="fc">深圳市策维软件技术有限公司</p>
+						<div>
+							<p>1212112</p>
+							<p>1212112</p>
+							<p>1212112</p>
+							<p>1212112</p>
+						</div>
+					</li>
+					<li>
+						<span class="time">2017.11 ~ 2018.3</span>
+						<p class="fc">大道网络有限公司</p>
+						<div>1212112</div>
+					</li>
+					<li>
+						<span class="time">2017.7 ~ 2018.10</span>
+						<p class="fc">动在指间网络有限公司</p>
+						<div>1212112</div>
+					</li>
+				</ul>
 			</div>
 			<!-- 工作经验 end -->
 			<!-- 编程技能 -->
 			<div class="programme-skill">
 				<p class="title">编程技能</p>
+				<div class="programme-title">
+					<span>HTML/HTML5</span>
+					<span>CSS/CSSS3</span>
+					<span>JS/ES6</span>
+					<span>ECharts</span>
+					<span>React</span>
+					<span>Vue</span>
+				</div>
 			</div>
 			<!-- 编程技能end -->
 			<!-- 求职意愿 -->
 			<div class="intention">
 				<p class="title">求职意愿</p>
+				<ul>
+					<li>
+						<span>期望职位：</span>
+						前端工程师
+					</li>
+					<li>
+						<span>目标城市：</span>
+						深圳
+					</li>
+					<li>
+						<span>期望薪资：</span>
+						7K - 10K
+					</li>
+					<li>
+						<span>入职时间：</span>
+						随时入职
+					</li>
+						
+				</ul>
 			</div>
 			<!-- 求职意愿end -->
 		</section>
 	</article>
 </body>
 <script type="text/javascript">
- var skill = echarts.init(document.getElementById('skill'));
-	option = {
+var skill = echarts.init(document.getElementById('skill'));
+option = {
     title: {
         text: '',
         left: 'center',
@@ -119,15 +190,15 @@
 					    }
 					}
 				},
-                {	value:7,
+                {	value:9,
 					name:'JavaScript',
 					itemStyle: {
                        normal: {
-                           color: '#09cdce'
+                           color: '#5045f6'
                        }
                    }
 				},
-                {	value:8, 
+                {	value:9, 
 					name:'HTML5',
 					itemStyle: {
                        normal: {
@@ -169,6 +240,6 @@ skill.setOption(option);
 window.addEventListener("resize",function(){
     skill.resize();
 });
-
+	setA
 </script>
 </html>

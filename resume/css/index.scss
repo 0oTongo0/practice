@@ -6,6 +6,19 @@ html,body{
     height: 100%;
     background: $bg;
 }
+// 边框通用
+.bf_af{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 6px solid transparent;
+	border-image: linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
+}
+// 字体
+.fc{
+	color: $fc;
+}
+
 .resume{
 	height: 100%;
 	display: flex;
@@ -23,38 +36,6 @@ html,body{
 		text-align: center;
 		color: $fc;
 	}
-	[class$=-bg]{
-		width: 39%;
-		height: 48px;
-		position: absolute;
-		background: $mbg;
-	}
-	.left-bg{
-		left: 0;
-		bottom: 0;
-		&:before{
-			content: "";
-			right: -48px;
-			bottom: 0;
-			position: absolute;
-			border: 24px solid $mbg;
-			border-top-color: transparent;
-			border-right-color: transparent;
-		}
-	}
-	.rgith-bg{
-		right: 0;
-		bottom: 0;
-			&:before{
-			content: "";
-			left: -48px;
-			bottom: 0;
-			position: absolute;
-			border: 24px solid $mbg;
-			border-top-color: transparent;
-			border-left-color: transparent;
-		}
-	}
 }
 
 // 主体
@@ -62,22 +43,40 @@ html,body{
 	flex: 1;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 4px 0 10px;
+	margin: 10px 0;
 	background: $mbg;
 	&>div{
 		height: 50%;
 		padding: 20px;
+		position: relative;
+		&:before{
+			content: '';
+			@extend .bf_af;
+			top: 0;
+			left: 0;
+			border-right: none;
+			border-bottom: none;
+		}
+		&:after{
+			content: '';
+			@extend .bf_af;
+			bottom: 0;
+			right: 0;
+			border-left: none;
+			border-top: none;
+		}
 	}
 	// 基本信息
 	.basic{
 		width: 50%;
-		border-right: 2px solid $bg;
-		border-bottom: 4px solid $bg;	
+		border-right: 5px solid $bg;
+		border-bottom: 10px solid $bg;	
 		ul{
 			color: #fff;
 			font-size: 14px;
 			display: flex;
 			flex-wrap: wrap;
+			padding: 16px 26px;
 			li{
 				width: 40%;
 				display: flex;
@@ -94,16 +93,13 @@ html,body{
 					}
 				}
 			}
-			.fc{
-				color: $fc;
-			}
 		}
 	}
 	// skill
 	.skill{
 		width: 50%;
-		border-left: 2px solid $bg;
-		border-bottom: 4px solid $bg;
+		border-left: 5px solid $bg;
+		border-bottom: 10px solid $bg;
 		display: flex;
 		flex-direction: column;
 		#skill{
@@ -112,19 +108,80 @@ html,body{
 	}
 	// 工作经验
 	.experience{
-		border-right: 2px solid $bg;
 		width: 60%;
+		border-right: 5px solid $bg;
+		ul{
+			display: flex;
+			flex-direction: column;
+			color: #fff;
+			margin-left: 156px;
+			padding-left: 32px;
+			border-left: 4px solid #eee9dc;
+			li{
+				position: relative;
+				padding-bottom: 26px;
+				.time{
+					position: absolute;
+					left: -190px;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				&:before{
+					content: "";
+					position: absolute;
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					left: -56px;
+					margin-left: 12px;
+					top: 50%;
+					transform: translateY(-50%);
+					border: 5px solid #eee9dc;
+					background: $mbg;
+					z-index: 2;
+				}
+				&:first-child:before{
+					background: #f98262;
+				}
+			}
+		}
 	}
 	// 编程技能
 	.programme-skill{
 		width: 20%;
-		border-right: 2px solid $bg;
-		border-left: 2px solid $bg;
+		border-left: 5px solid $bg;
+		border-right: 5px solid $bg;
+		.programme-title{
+			padding: 16px 26px;
+			display: flex;
+			flex-wrap: wrap;
+			span{
+				display: block;
+				color: #fff;
+				height: 28px;
+				line-height: 28px;
+				padding: 0 6px;
+				border-radius: 28px;
+				margin: 0 10px 10px 0;
+				border: 1px solid #e27d2c;
+			}
+		}
 	}
 	// 求职意愿
 	.intention{
 		width: 20%;
-		border-left: 2px solid $bg;
+		border-left: 5px solid $bg;
+		ul{
+			color: #fff;
+			font-size: 14px;
+			padding: 16px 26px;
+			li{
+				margin-bottom: 16px;
+				span{
+					color: $fc;
+				}
+			}
+		}
 	}
 	// 通用头部标题
 	.title{

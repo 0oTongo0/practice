@@ -3,6 +3,18 @@ html, body {
   height: 100%;
   background: #0b0f28; }
 
+.bf_af, .resume-center > div:before, .resume-center > div:after {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 6px solid transparent;
+  -webkit-border-image: -webkit-linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
+  -o-border-image: -o-linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
+  border-image: linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round; }
+
+.fc {
+  color: #1f97fd; }
+
 .resume {
   height: 100%;
   display: -webkit-box;
@@ -23,33 +35,6 @@ html, body {
   .resume-top h1 {
     text-align: center;
     color: #1f97fd; }
-  .resume-top [class$=-bg] {
-    width: 39%;
-    height: 48px;
-    position: absolute;
-    background: #101638; }
-  .resume-top .left-bg {
-    left: 0;
-    bottom: 0; }
-    .resume-top .left-bg:before {
-      content: "";
-      right: -48px;
-      bottom: 0;
-      position: absolute;
-      border: 24px solid #101638;
-      border-top-color: transparent;
-      border-right-color: transparent; }
-  .resume-top .rgith-bg {
-    right: 0;
-    bottom: 0; }
-    .resume-top .rgith-bg:before {
-      content: "";
-      left: -48px;
-      bottom: 0;
-      position: absolute;
-      border: 24px solid #101638;
-      border-top-color: transparent;
-      border-left-color: transparent; }
 
 .resume-center {
   -webkit-box-flex: 1;
@@ -60,15 +45,28 @@ html, body {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 4px 0 10px;
+  margin: 10px 0;
   background: #101638; }
   .resume-center > div {
     height: 50%;
-    padding: 20px; }
+    padding: 20px;
+    position: relative; }
+    .resume-center > div:before {
+      content: '';
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none; }
+    .resume-center > div:after {
+      content: '';
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none; }
   .resume-center .basic {
     width: 50%;
-    border-right: 2px solid #0b0f28;
-    border-bottom: 4px solid #0b0f28; }
+    border-right: 5px solid #0b0f28;
+    border-bottom: 10px solid #0b0f28; }
     .resume-center .basic ul {
       color: #fff;
       font-size: 14px;
@@ -76,7 +74,8 @@ html, body {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      padding: 16px 26px; }
       .resume-center .basic ul li {
         width: 40%;
         display: -webkit-box;
@@ -94,12 +93,10 @@ html, body {
             content: "";
             display: inline-block;
             width: 100%; }
-      .resume-center .basic ul .fc {
-        color: #1f97fd; }
   .resume-center .skill {
     width: 50%;
-    border-left: 2px solid #0b0f28;
-    border-bottom: 4px solid #0b0f28;
+    border-left: 5px solid #0b0f28;
+    border-bottom: 10px solid #0b0f28;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -112,15 +109,78 @@ html, body {
       -ms-flex: 1;
       flex: 1; }
   .resume-center .experience {
-    border-right: 2px solid #0b0f28;
-    width: 60%; }
+    width: 60%;
+    border-right: 5px solid #0b0f28; }
+    .resume-center .experience ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      color: #fff;
+      margin-left: 156px;
+      padding-left: 32px;
+      border-left: 4px solid #eee9dc; }
+      .resume-center .experience ul li {
+        position: relative;
+        padding-bottom: 26px; }
+        .resume-center .experience ul li .time {
+          position: absolute;
+          left: -190px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+        .resume-center .experience ul li:before {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          left: -56px;
+          margin-left: 12px;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          border: 5px solid #eee9dc;
+          background: #101638;
+          z-index: 2; }
+        .resume-center .experience ul li:first-child:before {
+          background: #f98262; }
   .resume-center .programme-skill {
     width: 20%;
-    border-right: 2px solid #0b0f28;
-    border-left: 2px solid #0b0f28; }
+    border-left: 5px solid #0b0f28;
+    border-right: 5px solid #0b0f28; }
+    .resume-center .programme-skill .programme-title {
+      padding: 16px 26px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .resume-center .programme-skill .programme-title span {
+        display: block;
+        color: #fff;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 6px;
+        border-radius: 28px;
+        margin: 0 10px 10px 0;
+        border: 1px solid #e27d2c; }
   .resume-center .intention {
     width: 20%;
-    border-left: 2px solid #0b0f28; }
+    border-left: 5px solid #0b0f28; }
+    .resume-center .intention ul {
+      color: #fff;
+      font-size: 14px;
+      padding: 16px 26px; }
+      .resume-center .intention ul li {
+        margin-bottom: 16px; }
+        .resume-center .intention ul li span {
+          color: #1f97fd; }
   .resume-center .title {
     color: #1f97fd;
     height: 20px;
