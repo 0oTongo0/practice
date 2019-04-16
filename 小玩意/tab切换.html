@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>节点</title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			margin: 10px;
+		}
+		.ol{
+			margin: 30px auto;
+		}
+		
+		.top{
+			display: flex;
+		}
+		.top span{
+			padding: 10px;
+			margin: 10px;
+			cursor: pointer;
+		}
+		.top span.on{
+			color: red;
+		}
+		.fot{
+			display: flex;
+		}
+		.fot li{
+			border: 1px solid red;
+			padding: 10px;
+			display: none;
+		}
+		.fot li.show{
+			display: block;
+		}
+	</style>
+	<body>
+		<div class="top">
+			<span class="on">1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+		<ul class="fot">
+			<li class="show">1abc</li>
+			<li>2abc</li>
+			<li>3abc</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var top1 = document.getElementsByClassName("top")[0];
+		var tops = top1.getElementsByTagName("span");
+		var fot = document.getElementsByClassName("fot")[0];
+		var fots = fot.getElementsByTagName("li");
+		for(var i=0; i<tops.length; i++){
+			tops[i].setAttribute("data-index",i);
+			tops[i].onclick = function(){
+				rem(tops);
+				rem(fots);
+				this.className = "on"
+				var index = this.getAttribute("data-index");
+				fots[index].className = "show"
+			}
+		}
+		function rem(elm){
+			for(var j=0; j<elm.length; j++){
+				elm[j].removeAttribute("class");
+			}
+		}
+		
+		
+		var text = "cat,bat,sat, fat";
+		var re = text.replace(/,/g,'-');
+		console.log(re)
+		
+		function rand(min,max){
+			var c = max - min;
+			return  Math.floor(Math.random() * c + min);
+		}
+		var num = rand(2,10);
+		console.log(num);
+		Math.round()
+		Math.ceil()
+		Math.floor()
+		Math.abs()
+	</script>
+</html>

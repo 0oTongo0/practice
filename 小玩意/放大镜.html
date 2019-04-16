@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.left{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			border: 1px solid #ccc;
+			margin: 30px;
+		}
+		.k{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background: #3a3a3a;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<div class="left">
+			<span class="k"></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var k = document.getElementsByClassName("k")[0];
+		var l = document.getElementsByClassName("left")[0];
+		var ll = l.offsetLeft;
+		var kl = k.offsetLeft;
+		var lt = l.offsetTop;
+		var kt = k.offsetTop;
+		k.onmouseover = function(ev){
+			var cx = ev.clientX - ll - kl - 25;
+			var cy = ev.clientY - lt - kt - 25;
+			console.log(cx + '===========' + cy)
+			this.style.left = cx + "px";
+			this.style.top = cx + "px";
+		}
+	</script>
+</html>

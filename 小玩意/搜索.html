@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+		}
+		.box{
+			width: 300px;
+			position: absolute;
+			top: 20%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		.box input{
+			width: 100%;
+		}
+		.dv{
+			border: 1px solid red;
+		}
+		.y{
+			width: 10px;
+			height: 20px;
+			background: pink;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			transform:translate(0,0) rotate(45deg);
+			opacity: 1;
+			position: absolute;
+			display: none;
+			animation: dm 2s linear forwards;
+		}
+		.y:before{
+			content: "";
+			display: block;
+			width: 10px;
+			height: 20px;
+			background: inherit;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			transform: rotate(-90deg);
+			position: absolute;
+			top: 5px;
+			left: -5px;
+		}
+		@keyframes dm{
+			0%{
+				transform:translate(0,0) rotate(45deg);
+				opacity: 1;
+			}
+			50%{
+				transform:translate(0,-100px) rotate(45deg);
+				opacity: 0.4;
+			}
+			75%{
+				transform:translate(0,-100px) rotate(45deg);
+				opacity: 0.8;
+			}
+			100%{
+				transform:translate(0,-100px) rotate(45deg);
+				opacity: 0;
+			}
+		}
+	</style>
+	<body>
+		<div class="box">
+			<input type="text" class="inp">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr = ["大佬","大人","大大大","怎么说","怎么了","a"];
+		var box = document.getElementsByClassName("box")[0];
+		var inp = box.getElementsByClassName("inp")[0];
+		inp.onkeyup = function(e){
+			text = this.value;
+			let newa = [];
+			console.log(e)
+			if(document.getElementsByClassName("dv")[0]){
+				console.log("我进来了")
+				box.removeChild(document.getElementsByClassName("dv")[0]);
+			}
+			for(var i=0; i<arr.length; i++){
+				if(arr[i].indexOf(text) == 0){
+					newa.push(arr[i])
+				}
+			}
+			if(newa.length == 0 || this.value == ""){
+				if(document.getElementsByClassName("dv")[0]){
+					box.removeChild(document.getElementsByClassName("dv")[0]);
+				}
+				return;
+			}
+			var dv = document.createElement("div");
+			dv.className = "dv";
+			box.appendChild(dv);
+			for(var o=0; o<newa.length; o++){
+				var p = document.createElement("p");
+				p.innerHTML = newa[o]
+				dv.appendChild(p);
+			}
+// 			if(e.KeyboardEvent.code = "ArrowUp"){
+// 				p.style.color = "red"
+// 			}
+		}
+	
+		//点击效果
+		//随机颜色
+		document.onclick = function(e){
+			 var y = document.createElement("div");
+			 y.className = "y";
+			 document.body.appendChild(y)
+             var r=Math.floor(Math.random()*256);
+             var g=Math.floor(Math.random()*256);
+             var b=Math.floor(Math.random()*256);
+			 var rgb = "rgb("+ r +","+g+","+ b +")"
+			 y.style.backgroundColor = rgb;
+			 y.style.left = e.clientX + "px";
+			 y.style.top = e.clientY - document.querySelector('.y').offsetHeight + "px";
+			 y.style.display = "block";
+		}
+		setInterval(function(){
+			 if(document.querySelector('.y')){
+				 document.body.removeChild(document.querySelector('.y'))
+			 }
+		},2000)
+	</script>
+</html>

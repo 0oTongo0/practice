@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>节点</title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			margin: 10px;
+		}
+		.ol{
+			margin: 30px auto;
+		}
+		
+		.top{
+			display: flex;
+		}
+		.top span{
+			padding: 10px;
+			margin: 10px;
+			cursor: pointer;
+		}
+		.top span.on{
+			color: red;
+		}
+		.fot{
+			display: flex;
+		}
+		.fot li{
+			border: 1px solid red;
+			padding: 10px;
+			display: none;
+		}
+		.fot li.show{
+			display: block;
+		}
+	</style>
+	<body>
+		<ul class="uu" id="uu">
+			<li>1aa</li>
+			<li>2aa</li>
+			<li>3aa</li>
+			<li class="li">4aa</li>
+			<li>5aa</li>
+			<li>6aa</li>
+			<li>7aa</li>
+		</ul>
+		<ol class="ol">
+			<li>b1</li>
+			<li>b2</li>
+			<li>b3</li>
+			<li>b4</li>
+			<li>b5</li>
+			<li>b6</li>
+			<li>b7</li>
+		</ol>
+		<div class="top">
+			<span class="on">1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+		<ul class="fot">
+			<li class="show">1abc</li>
+			<li>2abc</li>
+			<li>3abc</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var uu = document.getElementById("uu");
+		var li = uu.getElementsByClassName("li")[0];
+		var node = uu.childNodes;
+		// 节点 : 页面所有内容(元素，属性，文本)
+		// 元素 : html 标签
+		//父节点
+		console.log(li.parentNode);
+		//父元素
+		console.log(li.parentElement);
+		// 前一个兄弟节点
+		console.log(li.previousSibling);
+		// 前一个兄弟元素
+		console.log(li.previousElementSibling);
+		// 后一个兄弟节点
+		console.log(li.nextSibling);
+		// 后一个兄弟元素
+		console.log(li.nextElementSibling);
+		// 第一个字节点
+		console.log(uu.firstChild);
+		// 第一个子元素
+		console.log(uu.firstElementChild);
+		// 最后一个子节点
+		console.log(uu.lastChild);
+		// 最后一个子元素
+		console.log(uu.lastElementChild);
+		// 获取子元素集合
+		console.log(uu.children,"集合");
+		var index = 0;
+		for(var i=0; i<node.length; i++){
+			if(node[i].nodeType ==1 && node[i].nodeName == "LI"){
+				index ++;
+				var wd = node[i]
+				wd.style.color = index % 2 ? "red" : 'green'
+			}
+		}
+		
+		function nextsib(nextSibling){
+			if(elm.nextElementSibling)
+			{
+				return elm.nextElementSibling();
+			}else{
+				return elm.nextsib();
+			}
+		}
+		
+		
+		
+		var ol = document.getElementsByClassName("ol")[0];
+		var lis = ol.getElementsByTagName("li");
+		setInterval(function(){
+				var index = parseInt(Math.random()*lis.length);
+				for(var i=0; i<lis.length; i++){
+					lis[i].removeAttribute("style");
+				}
+				lis[index].style.color = "aqua";
+			},2000)
+	
+		var s1 = "aa1bb xx";
+		console.log(s1.substring(2))
+		
+		
+	</script>
+</html>

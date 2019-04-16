@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+/* 		*{
+			margin: 0;
+			
+		} */
+		.box{
+			width: 50px;
+			height: 50px;
+			background: aqua;
+		}
+		.cla{
+			fill:aqua;
+			stroke: blueviolet;
+		}
+		.cla2{
+			stroke: #008000;
+		}
+		.cla3{
+			fill: #ccc;
+			stroke: burlywood;
+		}
+		.cla4{
+			stroke: #70d5dd;
+			fill: #dd524d;
+		}
+		.cla5{
+			fill: #666666;
+		}
+		.heart{
+			width: 10px;
+			height: 10px;
+			position: fixed;
+			background: #f00;
+			transform: rotate(45deg);
+		}
+		.heart:after,.heart:before{
+			content: '';
+			width: inherit;
+			height: inherit;
+			background: inherit;
+			border-radius: 50%;
+			position: fixed;}
+		.heart:after{top: -5px;}
+		.heart:before{left: -5px;}
+		.y{
+			margin-top: 50px;
+			width: 10px;
+			height: 20px;
+			background: pink;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			transform: rotate(45deg);
+			position: relative;
+		}
+		.y:before{
+			content: "";
+			display: block;
+			width: 10px;
+			height: 20px;
+			background: pink;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			transform: rotate(-90deg);
+			position: relative;
+			top: 5px;
+			left: -5px;
+		}
+	</style>
+	<body>
+		<svg width="200px" height="200px" >
+			<circle cx="50" cy="50" r="50" class="cla"/>
+		</svg>
+		<svg width="200px" height="200px" >
+			<!-- 坐标：X 0  坐标：y 0 到  坐标：X2 0  坐标：y2 0  // 最大x2 y2-->
+			<line x1="0" y1="0" x2="50" y2="0" class="cla2"/>
+		</svg>
+		<svg  width="200px" height="200px" >
+			<!-- 坐标点  ->  到坐标点 -->
+			<polyline  points="100 0,200 100,100 200,0 100,0 200," class="cla3"/>
+		</svg>
+		<svg width="200px" height="200">
+			<rect x="10" y="50" height="50"  rx="5" ry="5" width="100" class="cla4"/>
+		</svg>
+		<svg width="200" height="200">
+			<ellipse id="box" cx="60" cy="60"  rx="20" ry="40"  class="cla5"/>
+		</svg>
+		<svg width="200" height="200">
+			<!-- 0,0 100,0 100,100 0,100 0,0, -->
+			<polygon  points="50 50, 100 50,100 100,50 100" class="cla3" />
+		</svg>
+		<svg width="200" height="200">
+			<path d="
+			  M 50 50
+			  L 100 50
+			  L 100 100
+			  L 50 100
+			  Z
+			"
+			id="box2"
+			>
+			111
+			</path>
+			<use href="#box2"  x="0" y="120" fill="pink"/>
+		</svg>
+		<svg width="200" height="200">
+			
+		</svg>
+		<div class="box">
+			
+		</div>
+		<div class="heart"></div>
+		<div class="y"></div>
+	</body>
+</html>
