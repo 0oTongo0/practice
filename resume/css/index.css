@@ -248,8 +248,11 @@ html {
       .resume .resume-center .basic ul li {
         width: 50%;
         font-size: 0.75rem; }
+        .resume .resume-center .basic ul li:not(:nth-child(odd)) {
+          padding-left: 1rem; }
         .resume .resume-center .basic ul li:last-child {
-          width: 100%; }
+          width: 100%;
+          padding-left: 0; }
     .resume .resume-center .experience div {
       overflow: initial; }
     .resume .resume-center .experience ul {

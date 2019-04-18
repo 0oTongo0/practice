@@ -271,8 +271,12 @@ html {
 					li{
 						width: 50%;
 						font-size: 0.75rem;
+						&:not(:nth-child(odd)){
+							padding-left: 1rem;
+						}
 						&:last-child(){
 							width: 100%;
+							padding-left: 0;
 						}
 					}
 				}
