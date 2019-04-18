@@ -6,12 +6,16 @@ html,body{
     height: 100%;
     background: $bg;
 }
+html {
+    font-size: 16px;
+}
+
 // 边框通用
 .bf_af{
 	position: absolute;
-	width: 30px;
-	height: 30px;
-	border: 6px solid transparent;
+	width: 1.875rem;
+	height: 1.875rem;
+	border: 0.375rem solid transparent;
 	border-image: linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
 }
 // 字体
@@ -22,15 +26,15 @@ html,body{
 .resume{
 	height: 100%;
 	display: flex;
-	padding: 0 30px;
+	padding: 0 1.875rem;
 	flex-direction: column;
 }
 // 头部
 .resume-top{
-    height: 72px;
+    height: 4.5rem;
     background: url(../images/bg_01.png) no-repeat center;
 	background-size: cover;
-	padding-top: 10px;
+	padding-top: 0.625rem;
 	position: relative;
 	h1{
 		text-align: center;
@@ -43,11 +47,11 @@ html,body{
 	flex: 1;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 10px 0;
+	margin: 0.625rem 0;
 	background: $mbg;
 	&>div{
 		height: 50%;
-		padding: 20px;
+		padding: 1.25rem;
 		position: relative;
 		&:before{
 			content: '';
@@ -69,27 +73,29 @@ html,body{
 	// 基本信息
 	.basic{
 		width: 50%;
-		border-right: 5px solid $bg;
-		border-bottom: 10px solid $bg;	
+		border-right: 0.3125rem solid $bg;
+		border-bottom: 0.625rem solid $bg;	
 		ul{
 			color: #fff;
-			font-size: 14px;
+			font-size: 0.875rem;
 			display: flex;
 			flex-wrap: wrap;
-			padding: 16px 26px;
+			padding: 1rem 1.625rem;
 			li{
 				width: 40%;
 				display: flex;
 				align-items: baseline;
+				// margin-bottom: 1rem;
 				i{
 					font-style: normal;
 					display: block;
-					width: 60px;
+					width: 3.75rem;
 					text-align: justify;
 					&:after{
 						content: "";
 						display: inline-block;
 						width: 100%;
+						// position: absolute;
 					}
 				}
 			}
@@ -98,8 +104,8 @@ html,body{
 	// skill
 	.skill{
 		width: 50%;
-		border-left: 5px solid $bg;
-		border-bottom: 10px solid $bg;
+		border-left: 0.3125rem solid $bg;
+		border-bottom: 0.625rem solid $bg;
 		display: flex;
 		flex-direction: column;
 		#skill{
@@ -109,39 +115,66 @@ html,body{
 	// 工作经验
 	.experience{
 		width: 60%;
-		border-right: 5px solid $bg;
+		border-right: 0.3125rem solid $bg;
+		display: flex;
+		flex-direction: column;
+		&>div{
+			flex: 1;
+			overflow: auto;
+		}
 		ul{
 			display: flex;
 			flex-direction: column;
 			color: #fff;
-			margin-left: 156px;
-			padding-left: 32px;
-			border-left: 4px solid #eee9dc;
+			margin-left: 9.75rem;
+			padding-left: 2rem;
+			border-left: 0.25rem solid #eee9dc;
 			li{
 				position: relative;
-				padding-bottom: 26px;
+				padding-bottom: 1.6rem;
 				.time{
 					position: absolute;
-					left: -190px;
+					left: -11.875rem;
 					top: 50%;
 					transform: translateY(-50%);
+				}
+				h3{
+					font-size: 1rem;
+					padding-bottom: 0.5rem;
+
+				}
+				.link{
+					span,a{
+						font-size: 0.75rem;
+						padding:0 0.375rem;
+					}
+					span{
+						padding-left: 0;
+						color: #e27d2c;
+					}
 				}
 				&:before{
 					content: "";
 					position: absolute;
-					width: 10px;
-					height: 10px;
+					width: 0.625rem;
+					height: 0.625rem;
 					border-radius: 50%;
-					left: -56px;
-					margin-left: 12px;
+					left: -3.5rem;
+					margin-left: 0.75rem;
 					top: 50%;
 					transform: translateY(-50%);
-					border: 5px solid #eee9dc;
+					border: 0.3125rem solid #eee9dc;
 					background: $mbg;
 					z-index: 2;
 				}
 				&:first-child:before{
 					background: #f98262;
+				}
+				a{
+					color: #fff;
+				}
+				p{
+					padding-bottom: 0.375rem;
 				}
 			}
 		}
@@ -149,34 +182,34 @@ html,body{
 	// 编程技能
 	.programme-skill{
 		width: 20%;
-		border-left: 5px solid $bg;
-		border-right: 5px solid $bg;
+		border-left: 0.3125rem solid $bg;
+		border-right: 0.3125rem solid $bg;
 		.programme-title{
-			padding: 16px 26px;
+			padding: 1rem 1.2rem;
 			display: flex;
 			flex-wrap: wrap;
 			span{
 				display: block;
 				color: #fff;
-				height: 28px;
-				line-height: 28px;
-				padding: 0 6px;
-				border-radius: 28px;
-				margin: 0 10px 10px 0;
-				border: 1px solid #e27d2c;
+				height: 1.75rem;
+				line-height: 1.75rem;
+				padding: 0 0.375rem;
+				border-radius: 1.75rem;
+				margin: 0 0.625rem 0.625rem 0;
+				border: 0.0625rem solid #e27d2c;
 			}
 		}
 	}
 	// 求职意愿
 	.intention{
 		width: 20%;
-		border-left: 5px solid $bg;
+		border-left: 0.3125rem solid $bg;
 		ul{
 			color: #fff;
-			font-size: 14px;
-			padding: 16px 26px;
+			font-size: 0.875rem;
+			padding: 1rem 1.2rem;
 			li{
-				margin-bottom: 16px;
+				margin-bottom: 1rem;
 				span{
 					color: $fc;
 				}
@@ -186,9 +219,77 @@ html,body{
 	// 通用头部标题
 	.title{
 		color: $fc;
-		height: 20px;
-		line-height: 20px;
-		font-size: 16px;
-		margin-bottom: 16px;
+		height: 1.25rem;
+		line-height: 1.25rem;
+		font-size: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
+@media screen and (min-width: 375px) and (max-width: 1030px){
+	.resume{
+		height: auto;
+		padding: 0 1rem;
+		.resume-center{
+			&>div{
+				width:100%;
+				height: auto;
+				background: $mbg;
+				border-right: none;
+				border-left: none;
+				border-bottom: 0.625rem solid #0b0f28; 
+			}
+			.basic {
+				ul{
+					padding: 0;
+					li{
+						width: 50%;
+						font-size: 0.875rem;
+					}
+				}
+			}
+		}	
+	}
+	.resume-top{
+		height: 2.4rem;
+		padding: 0;
+		h1{
+			font-size: 1.2rem;
+		}
+	}
+	#skill{
+		height: 22rem;
+	}
+}
+@media screen and (min-width: 375px) and (max-width: 420px){
+	.resume{
+		height: auto;
+		.resume-center{
+			.basic {
+				ul{
+					padding: 0;
+					li{
+						width: 50%;
+						font-size: 0.75rem;
+						&:last-child(){
+							width: 100%;
+						}
+					}
+				}
+			}
+			 .experience{
+				 div{
+					 overflow: initial;
+				 }
+				 ul{
+					 margin-left: 0;
+					 li{
+						 .time{
+							position: static;
+						 }
+					 }
+				 }
+			 }
+		}	
 	}
 }
