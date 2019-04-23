@@ -258,4 +258,6 @@ html {
     .resume .resume-center .experience ul {
       margin-left: 0; }
       .resume .resume-center .experience ul li .time {
-        position: static; } }
+        position: static; }
+      .resume .resume-center .experience ul li p {
+        color: rgba(255, 255, 255, 0.84); } }
