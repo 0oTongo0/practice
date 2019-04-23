@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		svg{
+			border: 1px solid #ccc;
+		}
+		.round{
+			transition: all 1s ease;
+		}
+		svg:hover .round{
+			stroke-dasharray: 50 0;
+		}
+		.cla{
+			/* 创建虚线 1个参数（虚线长度和间距）2个或多个 2，2，3，3（长度，间距，长度，间距） */
+			stroke-dasharray:20;
+			stroke-linecap:round;
+			/* 转角的样式 ↓ miter(相当于默认) round  bevel(有个斜切|_\)*/
+			stroke-linejoin: round; 
+			stroke-opacity: 0.5;
+		}
+		.cla2{
+			stroke: #00FFFF;
+			stroke-width: 20px;
+			stroke-linecap: round;
+		}
+		.cla3{
+			fill: none;
+			stroke: #DEB887;
+			stroke-width: 6px;
+			stroke-dasharray: 150 400;
+			/* ↓根据 线点起始到末尾 */
+			stroke-dashoffset: -190;
+			transition: all 1s linear;
+			stroke-linejoin : bevel;
+		}
+		svg:hover .cla3{
+			stroke-dasharray: 60 0;
+			stroke-width: 3px;
+			stroke-dashoffset: 0;
+			stroke: #00FFFF;
+		}
+	</style>
+	<body>
+		<svg width="300" height="300">
+			<!-- stroke-linecap: suare(有上下边框) butt(无) round（有圆角） -->
+			<!-- stroke-dasharray:创建虚线 1个参数（虚线长度和间距）2个或多个 2，2，3，3（长度，间距，长度，间距） -->
+			<circle class="round" cx="50%" cy="50%" r="50"  stroke-dasharray="50,50" stroke-linecap="spuare" fill="none"  stroke-width='10' stroke="#ccc"/>
+		</svg>
+		<svg width="300" height="300">
+			<rect x="25%" y="25%" width="50%" class="cla"  height="50%" stroke="red" fill="none" stroke-width="8">
+			</rect>
+		</svg>
+		<svg width="300" height="300">
+			<line  x1="10%" y1="50%" x2="80%" y2="50%" class="cla2"></line>
+		</svg>
+		<svg width="300" height="300">
+			<rect class="cla3" x="20" y="20" width="150" height="40"/>
+		</svg>
+		<svg width="700" height="350" >
+		  <rect
+			x="50" y="50"
+			width="100" height="50"
+			fill="red">
+			<animate attributeType="XML"
+			  attributeName="x"
+			  from="50" to="400"
+			  dur="5s"
+			  fill="remove">
+			</animate>
+		  </rect>
+		  <rect
+			x="160" y="160"
+			width="100" height="50"
+			fill="red">
+			<animate attributeType="XML"
+			  attributeName="x"
+			  from="50" to="400"
+			  dur="5s"
+			  fill="freeze">
+			</animate>
+		  </rect>
+		</svg>
+	</body>
+</html>

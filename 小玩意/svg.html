@@ -109,7 +109,48 @@
 			<use href="#box2"  x="0" y="120" fill="pink"/>
 		</svg>
 		<svg width="200" height="200">
-			
+			<g id="myCircle">
+				<text x="25" y="20">圆</text>
+				<circle cx="50" cy="50" r="20"/>
+			</g>
+			<use href="#myCircle" x="100" y="0" fill="#ccc"/>
+		</svg>
+		<svg width="200" height="200">
+			<defs>
+				<g id="dd">
+					<text x="25" y="25">0.0</text>
+					<circle cx="70" cy="70" r="20"/>
+				</g>
+			</defs>
+			 <use href="#dd" x="0" y="0" />
+		</svg>
+		<svg width="500">
+			<defs>
+				<pattern id="dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse+">
+					<circle fill="#bee9e8" cx="50" cy="50" r="35"/>
+				</pattern>
+			</defs>
+			<rect x="0" y="0" width="100%" fill="url(#dots)"></rect>
+		</svg>
+		<svg width="500px" height="500px">
+			<rect x="0" y="0" width="100" height="100" fill="#feac5e">
+					<!--可以设置XY（其他）轴    起点      终点      时间       循环次数     -->
+				<animate attributeName="x" from="0" to="500" dur="2s" repeatCount="indefinite"/>
+				<animate attributeName="width" from="0" to="200" dur="2s" repeatCount="indefinite"/>
+			</rect>
+		</svg>
+		<svg width="500px" height="500px">
+			<rect x="250" y="250" width="50" height="50" fill="#ccc">
+				<animateTransform  
+				attributeName="transform" 
+				type="rotate" 
+				begin="0s" 
+				dur="10"
+				from="0 200 200"
+				to="360 400 400"
+				repeatCount="indefinite"
+				/>
+			</rect>
 		</svg>
 		<div class="box">
 			
@@ -117,4 +158,10 @@
 		<div class="heart"></div>
 		<div class="y"></div>
 	</body>
+	<script type="text/javascript">
+		var cla = document.querySelector(".cla");
+		cla.addEventListener('click',function(){
+			this.setAttribute("r",60)
+		},false)
+	</script>
 </html>

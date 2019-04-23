@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		svg{
+			width: 300px;
+			height: 200px;
+			border: 1px solid #ccc;
+			margin: 10px;
+		}
+	</style>
+	<body>
+		<svg>
+			<rect id="ant" x="10" y="10" width="50" height="50" fill="aqua"></rect>
+			<!-- 没有动画效果 3秒之后移动到100-->
+			<set xlink:href="#ant" attributeName="x" to="100" begin="3s"  from="0"/>
+		</svg>
+		<svg>
+			<rect  id="ant2" x="10" y="10" width="50" height="50" fill="aqua"></rect>
+			<animate xlink:href="#ant2" attributeName="y" from="10" to="150" dur="2s" repeatCount="indefinite"/>
+		</svg>
+		<svg>
+			<rect  id="ant3" x="10" y="10" width="50" height="50" fill="aqua"></rect>
+			<!-- values: 关键点  begin:可以设置延迟也可以设置click-->
+			<animate xlink:href="#ant3" attributeName="y"  values="10;150;"  begin="click" dur="2s" repeatCount="indefinite"/>
+		</svg>
+		<svg>
+			<rect x="10" y="10" width="50" height="50" fill="pink">
+				<animate attributeName="x" values="10;150;100;50;50;100;40" dur="4s" begin="-1" repeatCount="indefinite"/>
+			</rect>
+		</svg>
+		<svg>
+			<rect x="10" y="10" width="40" height="40" fill="hotpink">
+				<!-- fill: freeze(停留在最后一秒) remove(默认值)-->
+				<animate attributeName="x" values="0;200" dur="4s" id="am" begin="click + 2s" fill="freeze"/>
+			</rect>
+			<rect x="10" y="60" width="40" height="40" fill="#ccc">
+				<!-- begin: 前一个动画延迟1秒之后执行 -->
+				<animate attributeName="x" values="0;200" dur="4s" begin="am.begin + 1s"/>
+			</rect>
+		</svg>
+		<svg>
+			<rect x="10" y="10" width="40" height="40" fill="hotpink">
+				<animate attributeName="x"  values="0;200" dur="4s" repeatCount="4" id="a"/>	
+			</rect>
+			<rect x="10" y="60" width="40" height="40" fill="#464646" >
+				<!-- 前循环2次之后在过2S 执行 -->
+				<animate attributeName="x" values="0;200" dur="4s" begin="a.repeat(2)+2s"/>
+			</rect>
+		</svg>
+		<svg>
+			<rect  x="10" y="10" width="40" height="40" fill="hotpink">
+				<!-- 没有实现 -->
+				<animate attributeName="x" values="0;200" dur="4s" fill="freeze" begin="accessKey(d) + 1s"/>
+			</rect>
+		</svg>
+		<p>==========================分割线 animateTransform========================================================================</p>
+		<svg>
+			<rect x="10" y="10" width="50" height="50" fill="hotpink"> 
+				<animateTransform attributeName="transform" dur="2s" type="scale" form="0.5" to="1" repeatCount="indefinite" begin="click"/>
+			</rect>
+		</svg>
+		<svg>
+			<rect x="50" y="50" width="50" height="50" fill="hotpink">
+				<animateTransform attributeName="transform" dur="2s" type="rotate"  to="360 50 50"  repeatCount="indefinite"/>
+			</rect>
+		</svg>
+		<svg>
+			<rect x="50" y="50" width="50" height="50" fill="hotpink">
+				<animateTransform attributeName="transform" dur="2s" type="translate"  to="50"  repeatCount="indefinite"/>
+			</rect>
+		</svg>
+		<p>==========================分割线 animateMotion========================================================================</p>
+		<svg>
+			<path transform="" 
+				d="M0,0 Q50,60 80,140 T340,100"
+				stroke="hotpink"
+				stroke-width="6"
+				fill="none"
+			/>
+			<animateMotion
+				 xlink:href="#mm"
+				 path="M0,0 Q50,60 80,140 T340,100"
+				 dur="10s"
+				 repeatCount="indefinite"
+			>
+			  </animateMotion> 
+			<g id="mm">
+				<circle fill="red" fill-opacity="0.5" cx="0" xy="0" r="20" />
+				<circle fill="green" cx="0" cy="0" r="3" />
+			</g>
+		</svg>
+		<svg>
+			<path
+				d="M20,20 Q50,60 80,140 T340,100"
+				stroke="red"
+				stroke-width="6"
+				fill="none"
+			/>
+			<animateMotion
+				xlink:href="mm2"
+				d="M20,20 Q50,60 80,140 T340,100"
+				dur="10s"
+				begin="click"
+			>
+			</animateMotion>
+			<g id="mm2">
+				<circle fill="red" fill-opacity="0.5" cx="0" cy="0" r="20" />
+				
+			</g>
+		</svg>
+	</body>
+</html>

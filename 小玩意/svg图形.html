@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		svg{
+			width: 150px;
+			height: 150px;
+			border: 1px dashed #ccc;
+			border-radius: ;
+		}
+		.cz{
+			width: 20px;
+			height: 20px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			transform: translate(21px,20px);
+		}
+	</style>
+	<body>
+		<svg>
+			<rect width="20" height="20" stroke-width="1" stroke="#ccc" fill="none" x="20" y="20">
+				
+			</rect>
+		</svg>
+		<!-- 折线 ↓-->
+		<svg>
+			<polyline points="10 10 ,50 50,10 50,10 10,50 10,50 50" fill="none" stroke-width="1" stroke="red"> s</polyline>
+		</svg>
+		<!-- 多边形 -->
+<!-- 		<svg >
+			<polygon  points="10 10,50 50,10 50,10" fill="none" stroke-width="1.1" stroke="red"></polygon >
+		</svg> -->
+		<svg>
+			<!-- 大写表示绝对坐标（0，0）    小写表示相当坐标（上一个控制点） -->
+			<!-- L:x y 直线 -->
+			<!-- H: x -->
+			<!-- v：y -->
+			
+			<path d="M50,50 h10,L60 60" fill="none" stroke="red"></path>
+		</svg>
+		<svg>
+			<pate d="M10 10 C10 50,100 100,50,100" fill="none" stroke="red" stroke-width="2"/>
+			<!-- <path d="M20,20,Q20 100,100 20" fill="none" stroke="red" stroke-width="2"></path> -->
+		</svg>
+		<svg>
+			<line x1="10" y1="10" x2="10" y2="100"  stroke="#666" stroke-width="4"/>
+		</svg>
+		<svg>
+			<!-- 一个字 代表X或者Y 的位置-->
+			<text x="10 40" y="30" dx="10 20 40" dy="10 30">大佬怎么说</text>
+		</svg>
+		<svg>
+			<text x="20" y="20" rotate="20">
+				<tspan>低头1</tspan>
+				<tspan>低头2</tspan>
+			</text>
+		</svg>
+		<svg width="400" height="200">
+			<defs>
+				<path 
+					id="myTextPath"
+				   d="M20,20
+				   L100,20
+				   L100,100
+				   L20 100"
+				/>
+			</defs>
+		  <text  x="20" y="-10">
+			<textPath xlink:href="#myTextPath">
+			  看着里，文字还能怎么玩怕不怕
+			</textPath>
+		  </text>
+		</svg>
+		<div class="cz"></div>
+		<style>
+			.text{
+				  color: red;
+				  writing-mode: vertical-rl;
+				  text-orientation:upright
+				}
+		</style>
+		<div class="text">
+			211110
+			</br>
+			666666
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr = [
+			{
+				a:"1"
+			},
+			{
+				b:"2"
+			}
+		]
+		console.log(arr[0].a)
+		console.log()
+	</script>
+</html>
