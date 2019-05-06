@@ -18,19 +18,40 @@
 	<body>
 		<svg>
 			<defs>
-				<linearGradient 
-					id="linear"
-					gradientUnits="objectBoundingBox"
-					x1="0" 
-					y1="0"
-					x2="1"
-					y2="0"
+				<linearGradient id="zms"
+					gradientUnits = "objectBoundingBox"
+					x1 = "0.4"
+					y1 = "0"
+					x2 = "0.5"
+					y2 = "0"
+					gradientTransform="rotate(0)"
 				>
-					<stop offset="0" stop-color="aqua" />
-					<stop offset="1" stop-color="hotpink"/>
-				</linearGradient>
+					<stop offset="0%" stop-color="aqua" />
+					<stop offset="100%" stop-color="hotpink"/>
+					<!-- <stop offset="100%" stop-color="#ccc" /> -->
+ 				</linearGradient>
 			</defs>
-			<rect x="10" y="10" width="200" height="50" fill="url(#linear)">
+			<circle cx="50%" cy="50%" r="50"  fill="url(#zms)">
+			</circle>
+			<rect width="60" height="30" fill="url(#zms)"></rect>
+		</svg>
+		<p>=====================================</p>
+		<svg>
+			<defs>
+				<radialGradient
+					id="rad"
+					fx = "50%"
+					fy = "50%"
+					cx = "50%"
+					cy = "10%"
+					c="50%"
+				>
+					<stop offset="50%"  stop-color="aqua" stop-opacity="1"/>
+					<stop offset="50%"  stop-color="pink" />
+				</radialGradient>
+			</defs>
+			<circle cx="50%"  cy="50%" r="50" fill="url(#rad)"/>
+			<rect width="60" height="30" fill="url(#rad)">
 		</svg>
 	</body>
 </html>
