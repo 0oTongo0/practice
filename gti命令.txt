@@ -1,0 +1,19 @@
+git add 文件   ==把文件添加到暂存区
+git commit -m “注释”   ==把文件从暂存区提取出来提交到分支   
+git status  ==查看状态(是否有修改)
+git diff  ==查看修改内容
+cat 文件  ==查看文件内容
+git log   ==历史记录
+git reset --hard HEAD^   ==回退上一个版本
+git reset --hard 版本号   
+git reflog   ==所有版本号
+git checkout 文件   ==修改的全部撤销 （在暂存区也是可以撤销的）
+git reset HEAD 文件  ==当文件已经在【暂存区】时想撤销使用 在使用 git checkout 文件
+git checkout -b dev  ==创建并切换到dev分支  相当于下面2段命令
+git baranch dev	   ==创建分支	
+git checkout dev   == 切换分支
+git branch  ==查看当前分支
+git merge dev  ==在master 合并dev
+git merge --no-f -m "注释" dev  ==在master 合并dev
+git branch -d dev  ==删除dev分支
+                                                                                                                                                                                                                                                                                                  
