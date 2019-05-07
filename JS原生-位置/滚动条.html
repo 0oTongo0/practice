@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			border: 1px dashed;
+			overflow: hidden;
+			display: flex;
+			margin-top: 100px;
+		}
+		.text{
+			flex: 1;
+		}
+		.right{
+			width: 40px;
+			position: relative;
+			border-left: 1px solid red;
+		}
+		.bar{
+			display: block;
+			height: 100px;
+			background: #00FFFF;
+			border-radius: 40px;
+			position: absolute;
+			width: 100%;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="text">
+				<p>0.0</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>1</p>
+				<p>怎么说</p>
+			</div>
+			<div class="right">
+				<span class="bar"></span>
+			</div>
+		</div>
+		<div>
+			<span></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		var text = document.querySelector(".text");
+		var right = document.querySelector(".right");
+		var bar = document.querySelector(".bar");
+		var h = parseInt(box.offsetHeight*right.offsetHeight/text.scrollHeight);
+		bar.style.height = h + "px";
+		var y = null;
+		bar.onmousedown = function(e){
+			var t = e.clientY - bar.offsetTop;
+			console.log(t,"t======")
+			document.onmousemove = function(e){
+				y = e.clientY - t;
+				console.log(e.clientY,"y=====")
+				y = y <=0 ? y=0 : y;
+				y = y >=right.offsetHeight-bar.offsetHeight ? right.offsetHeight-bar.offsetHeight : y;
+				bar.style.top = y + "px";
+				var a = y*(text.scrollHeight-box.offsetHeight)/(right.offsetHeight-bar.offsetHeight);
+				text.style.marginTop = - a + "px";
+				
+			}
+		}
+		bar.onmouseup = function(){
+			document.onmousemove = null;
+		}
+// 		document.onmousewheel = function(e){
+// 			console.log(e,"eee===");
+// 			console.log("鼠标滚动");
+// 		}
+		document.onkeydown = function(e){
+			console.log(e)
+		}
+	</script>
+</html>

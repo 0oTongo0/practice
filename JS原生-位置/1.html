@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.p{
+			width: 200px;
+			height: 200px;
+			padding: 5px;
+			margin: 10px;
+			border: 10px solid #f4f4f4;
+			/* box-sizing: border-box; */
+			position: relative;
+		}
+		.c{
+			width: 2000px;
+			height: 20px;
+			padding: 2px;
+			border: 2px solid aqua;
+			margin-left: 10px;
+			position: relative;
+			/* left: 0px; */
+		}
+	</style>
+	<body>
+		<div class="p">
+			<!-- <div class="c"></div> -->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var p = document.querySelector(".p"); 
+		var c = document.querySelector(".c");
+		// console.log(p.clientLeft)   计算border
+		console.log(p.clientWidth)   //内容+padding    当设置box-sizing 减去border
+		// console.log(c.offsetLeft)    //父级margin+padding+border+本身的margin   定位时absolute只有本身marging + left   当父级定位relative  父级padding + 自身margin
+		
+		console.log(p.scrollWidth) // 实际内容长度 算border
+		console.log()
+// 		document.onmousemove = function(e){
+// 			console.log(e)
+// 		}
+
+		var x = 1;
+		function foo(x, y){
+			x = 3;
+			// y();
+			console.log(x)
+		}
+		foo();
+		console.log(x)
+		var i = 1;    
+		var a = i++ + ++i + --i + i--;
+		console.log(a)
+		console.log(i)
+	</script>
+</html>

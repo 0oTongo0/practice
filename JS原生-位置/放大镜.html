@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 350px;
+			height: 350px;
+			/* overflow: hidden; */
+			position: relative;
+			border: 1px solid;
+			margin: 100px;
+			cursor: move;
+		}
+		img{
+			display: block;
+		}
+		.sm_box{
+			height: 100%;
+		}
+		.sm{
+			position: absolute;
+			width: 175px;
+			height: 175px;
+			background: rgba(0, 255, 186, 0.25);
+		}
+		.sm,.max_img{
+			display: none;
+		}
+		.right{
+			width: 400px;
+			height: 400px;
+			border: 1px solid;
+			position: absolute;
+			left: 400px;
+			top: 20px;
+			overflow: hidden;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="sm_box">
+				<span class="sm"></span>
+				<img src="imgs/sm.jpg" class="sm_img">
+			</div>
+			<div class="right">
+				<img src="imgs/max.jpg" class="max_img">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let box = document.querySelector(".box");
+		let sm_box = document.querySelector(".sm_box")
+		let sm = document.querySelector(".sm");
+		let sm_img = document.querySelector(".sm_img");
+		let right = document.querySelector(".right");
+		let max_img = document.querySelector(".max_img");
+		sm_box.addEventListener("mouseover", ()=>{
+			sm.style.display = "block"; 
+			max_img.style.display = "block"; 
+		})
+		sm_box.addEventListener("mousemove", (e)=>{
+			let x1 = e.clientX - box.offsetLeft - sm.offsetWidth/2;
+			let y1 = e.clientY - box.offsetTop - sm.offsetHeight/2;
+			x1 = x1 <=0 ? x1=0 : x1;
+			x1 = x1 >= sm_box.offsetWidth - sm.offsetWidth  ? sm_box.offsetWidth - sm.offsetWidth : x1;
+			y1 = y1 <=0 ? y1=0 : y1;
+			y1 = y1 >= sm_box.offsetHeight - sm.offsetHeight  ? sm_box.offsetHeight - sm.offsetHeight : y1;
+			sm.style.left = x1 + "px";
+			sm.style.top = y1 + "px";
+			let x,y;
+			x = x1*(max_img.offsetWidth-right.offsetWidth)/(sm_box.offsetWidth - sm.offsetWidth);
+			y = y1*(max_img.offsetHeight-right.offsetHeight)/(sm_box.offsetHeight - sm.offsetHeight);
+			max_img.style.marginLeft = -x + "px";
+			max_img.style.marginTop = -y + "px";
+		})
+		sm_box.addEventListener("mouseout", () =>{
+			sm.style.display = "none"; 
+			max_img.style.display = "none"; 
+		})
+	</script>
+</html>

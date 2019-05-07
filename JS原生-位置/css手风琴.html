@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.uu{
+			width: 400px;
+			display: flex;
+			margin: 20px auto;
+			list-style: none;
+		}
+		.uu li{
+			flex: 1 1 auto;
+			height: 50px;
+			min-width: 0px;
+			text-align: center;
+			line-height: 50px;
+			border: 1px solid;
+			transition: all .4s;
+		}
+		.uu li:hover{
+			min-width: 200px;
+			background-image: linear-gradient(45deg,aqua,hotpink),
+							  radial-gradient(10px 10px at 50% 50%, aqua, hotpink);
+/* 			background-size: 50% 100%;
+			background-repeat: no-repeat;
+			background-position: 0 0,calc(99% + 1px) 0;
+			background-clip: padding-box; */
+		}
+	</style>
+	<body>
+		<ul class="uu">
+			<li>1a</li>
+			<li>2a</li>
+			<li>3a</li>
+			<li>4a</li>
+		</ul>
+	</body>
+</html>
