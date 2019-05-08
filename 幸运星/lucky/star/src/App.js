@@ -3,10 +3,10 @@ import Banner from "./page/Banner/Banner"
 import Head from "./page/Head/Head"
 function App() {
   return (
-      <article>
+      <h1>
         <Head/>
         <Banner/>
-      </article>
+      </h1>
   );
 }
 

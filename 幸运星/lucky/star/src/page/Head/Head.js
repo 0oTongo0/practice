@@ -1,10 +1,12 @@
-import React from 'react';
-function Head() {
-    return (
-        <header>
-            头部
-        </header>
-    );
-  }
+import React, { Component } from 'react';
+export default class Head extends Component {
+    constructor(props){
+        super(props)
+    }
+    render(){
+        return(
+            <header>11</header>
+        )
+    }
+}
   
-  export default Head;
