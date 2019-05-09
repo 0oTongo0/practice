@@ -59,9 +59,9 @@ export default class Login extends Component{
     
     // 判断
     sub(){
-        // let y =  data.map((item,index)=>{
-        //     return item
-        // })
+        let y =  data.map((item,index)=>{
+            return item
+        })
         // console.log(y,"yyy");
       
         if(this.state.valueName === "" || this.state.valueName === null){
