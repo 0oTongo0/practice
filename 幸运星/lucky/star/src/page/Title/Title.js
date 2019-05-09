@@ -5,7 +5,7 @@ export default class Title extends Component{
         super(props)
         this.state ={
             err : this.props.err,
-            show : this.props.show
+            show:true
         } 
     }
     componentWillReceiveProps(nextProps){
@@ -26,8 +26,8 @@ export default class Title extends Component{
     }
     render(){
         return(
-            <div className="err" style={{display : this.state.show ? "block" : "none"}}>
-                {this.state.err}
+            <div className="err"  style={{display : this.state.show ? "block" : "none"}}>
+                {this.props.err}
             </div>
         )
     }
