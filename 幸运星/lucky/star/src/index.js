@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Login from "./page/Login/Login";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link,HashRouter} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render((
-    <Router>
+    <HashRouter>
         <Route path="/" exact component={App}/>
         <Route path="/Login" component={Login}/>
-    </Router>
+    </HashRouter>
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

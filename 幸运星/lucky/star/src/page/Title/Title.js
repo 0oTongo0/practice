@@ -5,14 +5,13 @@ export default class Title extends Component{
         super(props)
         this.state ={
             err : this.props.err,
-            show:true
+            show : this.props.show
         } 
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps,"next")
         this.setState({
-            show:nextProps.show,
-            err:nextProps.err
+            show: nextProps.show > this.props.show,
+            err:  nextProps.err > this.props.err
         })
         if(nextProps.show){
             time = setTimeout(()=>{
