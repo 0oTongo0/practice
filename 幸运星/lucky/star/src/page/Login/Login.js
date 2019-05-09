@@ -1,26 +1,109 @@
 import React,{Component} from "react";
+import Title from "../Title/Title";
+const data = [
+    {
+        id:1,
+        name:"admin",
+        password:"123456"
+    },
+    {
+        id:2,
+        name:"o0o",
+        password:"123456"
+    }
+]
 export default class Login extends Component{
     constructor(props){
         super(props)
+        this.state={
+            off:"off",  // 是否记住
+            valueName:"",  // 用户名
+            valuePassword:"", // 密码
+            err:"",   // 提示语
+            show:false, // 提示是否出现
+            type:"password", //密码输入框类型
+            flag:true   //默认密码框
+        }
+    }
+
+    // 用户名
+    Name (e){
+        this.setState(
+            {
+                valueName : e.target.value
+            }
+        )
+    }
+    
+    // 密码
+    Password (e){
+        this.setState(
+            {
+                valuePassword : e.target.value
+            }
+        )
+    }
+
+    // 是否显示密码
+    eye(e){
+        this.setState({
+            flag:!this.state.flag,
+            type:!this.state.flag ? "password" : "text"
+        })
+    }
+
+    // 禁止提交
+    formsub(e){
+        e.preventDefault()
+    }
+    
+    // 判断
+    sub(){
+        // let y =  data.map((item,index)=>{
+        //     return item
+        // })
+        // console.log(y,"yyy");
+      
+        if(this.state.valueName === "" || this.state.valueName === null){
+            this.setState({
+                show:true,
+                err:"用户名不能为空"
+            },function(){
+                console.log("父",this.state.show)
+            })
+            console.log("sub")
+        }else if(this.state.valuePassword === "" || this.state.valuePassword === null){
+            this.setState({
+                show:true,
+                err:"密码不能为空"
+            })
+        }else{
+            this.setState({
+                show:false,
+                err:""
+            })
+        }
     }
     render(){
         return(
             <section className="login">
-                <form action="">
+                <form onSubmit={this.formsub.bind(this)}>
                     <h2>
                         log
                     </h2>
                     <div  className="input-box">
-                        <input type="text" autocomplete="off" autoFocus  placeholder="用户名" />
+                        <input type="text" autoComplete={this.off} autoFocus value={this.state.valueName}  placeholder="用户名" onChange={this.Name.bind(this)}/>
                     </div>
                     <div  className="input-box">
-                        <input type="password" autocomplete="off" placeholder="密码"/>
+                        <input type={this.state.type} autoComplete={this.off}  value={this.state.valuePassword} placeholder="密码" onChange={this.Password.bind(this)}/>
+                        <a className={this.state.flag ? "password-hide" : "password-show"} onTouchStart={this.eye.bind(this)}></a>
                     </div>
                     <div className="button-box">
                         <button>注册</button>
-                        <button>登录</button>
+                        <button onTouchStart={this.sub.bind(this)}>登录</button>
                     </div>
                 </form>
+                <Title  err={this.state.err}  show={this.state.show} />
             </section>
         )
     }

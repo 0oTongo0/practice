@@ -140,6 +140,22 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
   position: relative;
   overflow: hidden;
 }
+.login > form .input-box a{
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  top: 0;
+  right: 0;
+  transition: all 0.2s;
+}
+.login > form .input-box .password-hide{
+  background: url('img/b.png') no-repeat;
+  background-size: contain;
+}
+.login > form .input-box .password-show{
+  background: url('img/z.png') no-repeat;
+  background-size: contain;
+}
 .login > form .input-box input{
   border: none;
   background: transparent;
@@ -182,4 +198,36 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
   padding: 0 40px;
   font-size: 14px;
   border-radius: 4px;
+}
+
+
+/* 提示 */
+.err{
+  position: fixed;
+  padding: 6px 20px;
+  background: #00794c;
+  font-size: 14px;
+  color: #fff;
+  top: -30px;
+  height: 30px;
+  opacity: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  box-sizing: border-box;
+  animation: err .3s  linear forwards;
+}
+@keyframes err{
+  0%{
+      top: -30px;
+      opacity: 0;
+  }
+  50%{
+      top: 0px;
+      opacity: 0.2;
+  }
+  100%{
+      top: 30px;
+      opacity: 1;
+  }
 }
