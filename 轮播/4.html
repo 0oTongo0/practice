@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 350px;
+			height: 350px;	
+			border: 1px solid red;
+			position: relative;
+			margin: 100px;
+			cursor: move;
+		}
+		.pop{
+			width: 175px;
+			height:175px;
+			background: rgba(0,0,0,.5);
+			position: absolute;
+			display: none;
+		}
+		.small{
+			height: 100%;
+			background: url('img/sm.jpg');
+		}
+		.max-box{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #ccc;
+			position: absolute;
+			overflow: hidden;
+			right: -200%;
+			top: 0;
+		}
+		.img{
+/* 			width: 400px;
+			height: 400px;
+			background: linear-gradient(90deg,aqua 50%,hotpink 50%, hotpink);
+			background-size: 100% 50%;
+			display: none; */
+			display: none;
+		}
+		.lg{
+			width: 400px;
+			height: 100px;
+			margin: 50px;
+			background: linear-gradient(135deg, transparent 51%,red 50%),linear-gradient(225deg, transparent 50%,red 51%);
+			background-size:100px 100px;
+			background-position: 0,100px 0;
+			/* background-repeat: no-repeat; */
+			border: 1px solid #ccc;
+		}
+	</style>
+	<body>	
+		<div id="box">
+			<div class="small">
+				<span class="pop"></span>
+			</div>
+			<div class="max-box">
+				<img src="img/max.jpg"  class="img">
+			</div>
+		</div>
+		<!-- <div class="lg"></div> -->
+	</body>
+	<script type="text/javascript">
+			var box = document.querySelector("#box");
+			var small = box.querySelector(".small");
+			var pop = box.querySelector(".pop");
+			var bg_box = box.querySelector(".max-box");
+			var img = box.querySelector("img");
+			small.onmouseover = function(){
+				pop.style.display = "block";
+				img.style.display = "block";
+				console.log("出来吧")
+			}
+			small.onmouseout = function(){
+				pop.style.display = "none";
+				img.style.display = "none";
+			}
+			small.onmousemove = function(e){
+				var x = e.clientX - pop.offsetWidth/2 - box.offsetLeft;
+				var y = e.clientY - pop.offsetHeight/2 - box.offsetLeft;
+				x = x <=0 ? x = 0 : x;
+				y = y <=0 ? y = 0 : y;
+				x = x >= small.offsetWidth - pop.offsetWidth ? small.offsetWidth - pop.offsetWidth : x;
+				y = y >= small.offsetHeight - pop.offsetHeight ? small.offsetHeight - pop.offsetHeight : y;
+				pop.style.top = y + "px";
+				pop.style.left = x + "px";
+				var bx = img.offsetWidth - bg_box.offsetWidth;
+				var by = img.offsetHeight - bg_box.offsetHeight;
+				var x1 = x * bx/(small.offsetWidth - pop.offsetWidth);
+				var y1 = y * by/(small.offsetHeight - pop.offsetHeight)
+				console.log("x1===" + x1 + "y1===" + y1);
+				img.style.marginLeft = -x1 + "px";
+				img.style.marginTop = -y1 + "px"; 
+			}
+	</script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.max{
+			width: 300px;
+			height: 200px;
+			padding: 6px;
+			margin: 50px auto;
+			border: 1px solid #ccc;
+			position: relative;
+			overflow: hidden;
+		}
+		li{
+			list-style: none;
+		}
+		.img-box{
+			display: flex;
+			position: absolute;
+		}
+		.img-box li{
+			flex: 1 0 300px;
+		}
+		.buts{
+			position: absolute;
+			bottom: 10px;
+			right: 20px;
+			display: flex;
+			align-items: center;
+		}
+		.buts li{
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+		.buts li.on{
+			background: aqua;
+			border-color: aqua;
+		}
+		.buts li + li{
+			margin-left: 6px;
+		}
+		.but-box{
+			width: 300px;
+			margin: 0 auto;
+		}
+	</style>
+	<body>
+		<div class="max">
+			<ul class="img-box">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<ol class="buts">
+			</ol>
+		</div>
+		<div class="but-box">
+			<input type="button" value="左" class="left">
+			<input type="button" value="右" class="right">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var max = document.querySelector(".max");
+		var maxW = max.offsetWidth;
+		console.log(maxW)
+		var imgs = max.querySelector(".img-box");
+		var list = imgs.children;
+		var buts = max.querySelector(".buts");
+		var ol_li = buts.children;
+		var r = document.querySelector(".right");
+		var l1 = document.querySelector(".left")
+		var index = 0;
+		// 创建 圆点
+		for(var i=0; i<list.length; i++){
+			var l = document.createElement("li");
+			l.setAttribute("data-index",i)
+			buts.appendChild(l);
+			l.onmouseover = seover
+		}
+		// 第一添加默认值
+		ol_li[0].className = "on"
+		// 进入 圆点
+		function seover(){
+			index = this.getAttribute("data-index");
+			for(var i=0; i<ol_li.length; i++){
+				ol_li[i].removeAttribute("class");
+			}
+			this.className = "on";
+			console.log(index);
+			am(imgs,(-index * maxW));
+		}
+		imgs.appendChild(list[0].cloneNode(true))
+
+		r.onclick = function(){
+			if(index == 3){
+				index = 0;
+				imgs.style.left = 0 + "px";
+			}
+			index ++;
+			am(imgs,(-index * maxW));
+			for(var i=0; i<ol_li.length; i++){
+				ol_li[i].removeAttribute("class");
+			}
+			console.log(index);
+			if(index == 3){
+				ol_li[0].className = "on";
+			}else{
+				ol_li[index].className = "on";
+			}
+			
+		}
+		
+		l1.onclick = function(){
+			if(index == 0){
+				index = 3;
+				imgs.style.left =  maxW * (-index) + "px";
+			}
+			index --;
+			am(imgs,(-index * maxW));
+			for(var i=0; i<ol_li.length; i++){
+				ol_li[i].removeAttribute("class");
+			}
+			console.log(index);
+			if(index == 3){
+				ol_li[ol_li.length].className = "on";
+			}else{
+				ol_li[index].className = "on";
+			}
+		}
+				
+		// 上次 的动画函数
+		function am(elm,juli){
+			console.log(juli,"目标值")
+			var time = setInterval(function(){
+				var boxw = elm.offsetLeft;
+				var step = 9;
+				step = boxw < juli ? step : -step
+				boxw += step
+// 				console.log(boxw,"boxw");
+// 				console.log(step,"step")
+				if(Math.abs(juli - boxw) > Math.abs(step)){
+					elm.style.left = boxw + "px";
+				}else{
+					clearInterval(time);
+					elm.style.left = juli + "px";
+				}
+			},20)
+		}
+	</script>
+</html>

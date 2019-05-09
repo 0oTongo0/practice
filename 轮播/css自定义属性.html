@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		:root{
+			--foo:aqua;
+			--red:red;
+			--bg:hotpink;
+			--h:80;
+			--bef:10;
+			--af:100%;
+			--w:200px;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: var(--w);
+			color: var(--fo,#ccc);
+			text-decoration: underline;
+			text-decoration-color: var(--red);
+			height: calc(var(--h) * 1px);
+			background: linear-gradient(45deg,var(--bg) calc(var(--bef) * 1%), var(--foo) var(--af));
+		}
+		.box:after{
+			content: '--foo : ' var(--foo);
+		}
+		.ul{
+			list-style: none;
+			display: flex;
+			height: 40px;
+			width: 400px;
+			align-items: center;
+			--w:200px;
+		}
+		.ul li{
+			height: 100%;
+			flex: 1;
+			align-self: center;
+			color: rgb(0,0,0);
+		}
+		.fs{
+			color: aqua;
+		}
+		.fs span{
+			color: #FBBC00;
+			border: 1px solid currentcolor;
+		}
+	</style>
+	<body >
+		<div class="box">CSS自定义属性</div>
+		<ul class="ul">
+			<li>1a</li>
+			<li>2a</li>
+			<li>3a</li>
+			<li>4a</li>
+			<li>5a</li>
+		</ul>
+		<div class="fs">
+			<span>颜色</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		  document.body.style.setProperty("--w","600px");
+		  var declaration = document.styleSheets[0].cssRules[0].style;
+		  var propvalue = declaration.getPropertyValue("--foo");
+		setInterval(function(){
+			var r = Math.floor(Math.random()*256);
+			var g = Math.floor(Math.random()*256);
+			var b = Math.floor(Math.random()*256);
+			var bfb = parseInt(Math.random()*50 + 1)
+			var rgb = 'rgb('+r+','+g+','+b+')'
+			document.body.style.setProperty("--bg",rgb);
+			document.body.style.setProperty("--bef",bfb);
+		},1000)
+		
+		console.log(propvalue);
+		var  ul = document.querySelector(".ul");
+		var stt = window.getComputedStyle(ul);
+		console.log(stt.height)
+	</script>
+</html>

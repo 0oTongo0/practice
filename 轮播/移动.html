@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 375px;
+			overflow: hidden;
+			height: 100px;
+			position: relative;
+		}
+		li{
+			min-width: 375px;
+			height: 100px;
+			list-style: none;
+		}
+		li:nth-child(1){
+			background: aqua;
+		}
+		li:nth-child(2){
+			background: hotpink;
+		}
+		li:nth-child(3){
+			background: #ccc;
+		}
+		li:nth-child(4){
+			background: chartreuse;
+		}
+		.uu{
+			display: flex;
+			position: absolute;
+			transition: all .2s;
+		}
+	</style>
+	<body>
+		<nav class="box">
+			<ul class="uu">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		let box = document.querySelector(".box");
+		let uu = document.querySelector(".uu");
+		let list = uu.children;
+		let l_w = list[0].offsetWidth;
+		let index = 0;
+		let add = ()=>{
+			uu.style.transition = "all .2s";
+		}
+		let rome = ()=>{
+			uu.style.transition = "none";
+		}
+		let set = (a)=>{
+			uu.style.transform = `translateX(${-a*l_w}px) `
+		}
+		let tiem = setInterval(()=>{
+			index ++;
+			add();
+			set(index);
+		},1000)
+		uu.addEventListener("transitionend",()=>{
+			if(index >= list.length){
+				index = 0;
+				rome();
+				set(index);
+			}
+		})
+		let start = 0;
+		let end = 0;
+		let m = 0;
+		box.addEventListener("touchstart",(e)=>{
+			clearInterval(tiem);
+			console.log(e,"开始");
+			start = e.touches[0].clientX;
+			console.log(start,"start");
+		})
+		box.addEventListener("touchmove",(e)=>{
+			console.log(e.changedTouches[0].clientX,"进行");
+			end = e.touches[0].clientX;
+			// console.log(x)
+			m = end - start;
+			rome();
+			uu.style.transform = `translateX(${(-index*l_w)+m}px)`
+		})
+		box.addEventListener("touchend",(e)=>{
+			console.log(e,"结束");
+			if(Math.abs(m) < 375/3){
+				add();
+				set(index);
+			}else{
+				if(m > 0){
+					index --;
+					add();
+					set(index);
+				}else{
+					index ++;
+					add();
+					set(index);
+				}
+			}
+		})
+	</script>
+</html>

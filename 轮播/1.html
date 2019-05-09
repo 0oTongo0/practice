@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			position: initial;
+		}
+		.box{
+			border: 1px solid #ccc;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			z-index: -1;
+		}
+		.bot{
+			position: absolute;
+			top: 170px;
+		}
+		.tab{
+			width: 300px;
+			/* 设置宽度不起作用 ↓ */
+			/* display: table-row; */
+		}
+		.tab div{
+			width: 50%;
+			display: table-cell;
+			background: #ccc;
+		}
+	</style>
+	<body>
+		<input type="button" class="bef" value="前">
+		<input type="button" class="aft" value="后">
+		<div class="box"></div>
+		<ul class="bot">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var bef = document.getElementsByClassName("bef")[0];
+		var aft = document.querySelector(".aft");
+		var box = document.querySelector(".box");
+		//ul
+		var bot = document.querySelector(".bot");
+		var li = bot.children;
+		var boxw = ""
+		bef.onclick = function(){
+			am(box,400)
+		}
+
+		aft.onclick = function(){
+			am(box,800)
+		}
+		
+		function am(elm,juli){
+			var time = setInterval(function(){
+				var boxw = elm.offsetLeft;
+				var step = 9;
+				step = boxw < juli ? step : -step
+				boxw += step
+				console.log(boxw,"boxw");
+				console.log(step,"step")
+				if(Math.abs(juli - boxw) > Math.abs(step)){
+					elm.style.left = boxw + "px";
+				}else{
+					clearInterval(time);
+					elm.style.left = juli + "px";
+				}
+			},20)
+		}
+		
+		for(var i=0; i<li.length; i++){
+			li[i].onclick = function(){
+				for(var i=0; i<li.length; i++){
+					li[i].style.color = "";
+				}
+				this.style.color = "red";
+			}
+		}
+	</script>
+</html>
