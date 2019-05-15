@@ -13,6 +13,11 @@
 				width: 800px;
 				height: 800px;
 			}
+			.p{
+				margin: -6px;
+				padding: 36px 10px;
+				border-bottom: 10px solid #fff;
+			}
 		</style>
 	</head>
 	<body>
@@ -33,6 +38,25 @@
                         axisPointer: {
                             animation: false
                         },
+						padding:0,
+						position: function (pos, params, dom, rect, size) {
+							  // 鼠标在左侧时 tooltip 显示到右侧，鼠标在右侧时 tooltip 显示到左侧。
+							  var obj = {top: 30};
+							  obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
+							  return obj;
+						},
+						formatter: function (params) {
+							console.log()
+						  var a = "";
+						  var n =  params.map((item) =>{
+							   var data = item.data
+							    return `<p class="p">
+											<span>${item.seriesName}:</span>
+											<span>${data}</span>
+										</p>`
+						   })
+						   return a = n.join("")
+						}
                     },
                     color: ['#fbad0b', '#0696ff','#4ecb73'],
                     axisPointer: {
@@ -191,20 +215,20 @@
                     ],
                     series: [
                         {
-                            name: '新增收入',
+                            name: 'a',
                             type: 'line',
                             data: [60,30,80,40,50,30],
                         },
                         {
-                            name: 'ARPU值',
+                            name: 'b',
                             type: 'line',
                             xAxisIndex: 1,
                             yAxisIndex: 1,
-                            data: [60,30,80,40,50,30],
+                            data: [60,30,80,40,50,20],
 
                         },
                         {
-                            name: '新增用户',
+                            name: 'c',
                             type: 'line',
                             xAxisIndex: 2,
                             barWidth: '20',
@@ -215,7 +239,7 @@
                             //         opacity: 0.51
                             //     }
                             // },
-                            data: [60,30,80,40,50,30],
+                            data: [60,30,80,40,50,10],
                         }
                     ]
                 };
