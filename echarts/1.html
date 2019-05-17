@@ -45,18 +45,18 @@
 							  obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 5;
 							  return obj;
 						},
-						formatter: function (params) {
-							console.log()
-						  var a = "";
-						  var n =  params.map((item) =>{
-							   var data = item.data
-							    return `<p class="p">
-											<span>${item.seriesName}:</span>
-											<span>${data}</span>
-										</p>`
-						   })
-						   return a = n.join("")
-						}
+// 						formatter: function (params) {
+// 							console.log()
+// 						  var a = "";
+// 						  var n =  params.map((item) =>{
+// 							   var data = item.data
+// 							    return `<p class="p">
+// 											<span>${item.seriesName}:</span>
+// 											<span>${data}</span>
+// 										</p>`
+// 						   })
+// 						   return a = n.join("")
+// 						}
                     },
                     color: ['#fbad0b', '#0696ff','#4ecb73'],
                     axisPointer: {
@@ -227,6 +227,26 @@
                             data: [60,30,80,40,50,20],
 
                         },
+						{
+							name: 'new',
+							type: 'line',
+							 smooth: true,
+							 symbol: 'circle',
+							 symbolSize: 4,
+							 xAxisIndex: 1,
+							 yAxisIndex: 1,
+							 lineStyle: {
+								normal: {
+									width: 1
+								}
+							},
+							data: [130, 182, 191, 234],
+							itemStyle: {
+							normal: {
+									 color: '#1bc85e'
+								}
+							}  
+						},
                         {
                             name: 'c',
                             type: 'line',
