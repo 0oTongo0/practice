@@ -11,9 +11,11 @@ html {
   width: 1.875rem;
   height: 1.875rem;
   border: 0.375rem solid transparent;
-  -webkit-border-image: -webkit-linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
-  -o-border-image: -o-linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
-  border-image: linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round; }
+  -webkit-border-image: -webkit-gradient(linear, left top, right top, from(#e96443), to(#904e95)) 10 1 round;
+  -webkit-border-image: -webkit-linear-gradient(left, #e96443, #904e95) 10 1 round;
+  -o-border-image: -o-linear-gradient(left, #e96443, #904e95) 10 1 round;
+  border-image: -webkit-gradient(linear, left top, right top, from(#e96443), to(#904e95)) 10 1 round;
+  border-image: linear-gradient(to right, #e96443, #904e95) 10 1 round; }
 
 .fc {
   color: #1f97fd; }
@@ -177,7 +179,8 @@ html {
         .resume-center .experience ul li a {
           color: #fff; }
         .resume-center .experience ul li p {
-          padding-bottom: 0.375rem; }
+          padding-bottom: 0.375rem;
+          line-height: 1.5; }
   .resume-center .programme-skill {
     width: 20%;
     border-left: 0.3125rem solid #0b0f28;

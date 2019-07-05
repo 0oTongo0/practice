@@ -16,7 +16,7 @@ html {
 	width: 1.875rem;
 	height: 1.875rem;
 	border: 0.375rem solid transparent;
-	border-image: linear-gradient(45deg, #2196F3, #4CAF50) 10 10 round;
+	border-image: linear-gradient(to right, #e96443, #904e95) 10 1 round;
 }
 // 字体
 .fc{
@@ -24,7 +24,7 @@ html {
 }
 
 .resume{
-	height: 100%;
+	height: 100% ;
 	display: flex;
 	padding: 0 1.875rem;
 	flex-direction: column;
@@ -175,6 +175,7 @@ html {
 				}
 				p{
 					padding-bottom: 0.375rem;
+					line-height: 1.5;
 				}
 			}
 		}
