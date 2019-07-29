@@ -1,0 +1,367 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+}
+li{
+	list-style: none;
+}
+input[type="date"]{
+	position: absolute;
+	opacity: 0;
+	z-index: 6;
+	width: 100%;
+}
+.order-max{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background: url(../img/bg.jpg) no-repeat top center/ 100% 100%;
+}
+.order-header{
+	min-height: 56px;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	&::before{
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 46px;
+		top: 0px;
+		box-shadow: inset 0 -5px 20px #270f4b;
+		z-index: 0;
+	}
+	.header-l{
+		display: flex;
+		z-index: 1;
+		&>div{
+			width: 300px;
+			height: 46px;
+			line-height: 46px;
+			color: #9c67ff;
+			box-shadow: inset 0 0 20px #270f4b;
+			text-align: center;
+			cursor: pointer;
+			&:hover{
+				color: #fff;
+			}
+		}
+		.active{
+			background: #7038db;
+			color: #fff;
+			box-shadow:none;
+		}
+	}
+	.header-r{
+		color: #fff;
+		height: 46px;
+		display: flex;
+		align-items: center;
+		padding-right: 20px;
+		z-index: 3;
+		.time{
+			span{
+				color: #9b65ff;
+			}
+		}
+		.input-sele{
+			margin-left: 20px;
+			position: relative;
+			.sele{
+				&>p{
+					padding: 0 26px;
+					height: 24px;
+					line-height: 24px;
+					border-radius: 24px;
+					color: #fff;
+					background: #7038db;
+					font-size: 14px;
+					cursor: pointer;	
+					position: relative;
+					cursor: pointer;
+					&::before{
+						content: "";
+						border: 6px solid transparent;
+						border-top-color: #fff;
+						border-bottom: none;
+						position: absolute;
+						top: 50%;
+						right: 6px;
+						margin-top: -3px;
+					}
+				}
+
+			}
+		}
+	}
+	.header-title{
+		position: absolute;
+		width: 1320px;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		line-height: 56px;
+		background: url(../img/bg-title.png) no-repeat top center/ contain;
+		text-shadow: 0px 4px 0px #15062d;
+		z-index: 1;
+		clip-path: polygon(0 0, 412px 20px, 512px 100%, 818px 100%,909px 20px, 100% 0);
+	}
+}
+
+.border-rd{
+	border: 1px solid #604ba6;
+	border-radius: 12px;
+	overflow: hidden;
+}
+.bg_lg_blue{
+	height: 30px;
+	line-height: 30px;
+	background: linear-gradient(to right, rgba(54, 128, 195, 0.5), rgba(61, 79, 160, 0.5));
+	color: #96beff;
+	font-size: 14px;
+	padding-left: 20px;
+	span{
+		color: #fff;
+		font-size: 16px;
+	}
+}
+.bg_lg_green{
+	height: 30px;
+	line-height: 30px;
+	background: linear-gradient(to right, rgba(65, 140, 88, .5), rgba(19, 135, 117, .5));
+	color: #8fffff;	
+	font-size: 14px;
+	padding-left: 20px;
+	span{
+		color: #fff;
+		font-size: 16px;
+	}
+}
+.bg_lg_purple{
+	height: 30px;
+	line-height: 30px;
+	background: linear-gradient(to right, rgba(123, 37, 220, .5), rgba(70, 30, 140, .5));
+	color: #d79dff;	
+	font-size: 14px;
+	padding-left: 20px;
+	span{
+		color: #fff;
+		font-size: 16px;
+	}
+}
+.flex1{
+	flex: 1 1 0% !important;
+}
+.flex1_5{
+	flex: 1.5 !important;
+}
+.flex22{
+	flex: 0 0 22% !important;
+}
+.flex600{
+	flex: 0 1 600px !important;
+}
+.flex300{
+	flex: 0 1 300px !important;
+}
+.flex_column{
+	display: flex;
+	flex-direction: column;
+}
+.order-center{
+	flex: 1;
+	padding: 0 20px 20px;
+	display: flex;
+	flex-direction: column;
+	&>div{
+		flex: 1;
+		display: flex;
+		margin-bottom: 20px;
+	}
+	&>div:last-child{
+		margin-bottom: 0;
+	}
+	&>div > div + div{
+			margin-left: 20px;
+	}
+	.section-t{
+		
+	}
+}
+
+
+
+// 本月订单
+.month-order{
+	display: flex;
+	// align-items: center;
+	flex: 1;
+	padding: 30px 0 30px 30px;
+	&>div{
+		flex: 1;
+		// height: 100%;
+	}
+	.month-order-data{
+		color: #94b2fb;
+		font-size: 14px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		&::after{
+			content: "";
+			position: absolute;
+			width: 52px;
+			height: 14px;
+			background: url(../img/fenge.png) no-repeat center/contain; 
+			right: -62px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		&>div{
+			display: flex;
+			flex-direction: column;
+			padding-left: 20px;
+			height: 50%;
+		}
+		&>div:first-child{
+			padding-bottom: 20px;
+			border-bottom: 1px solid #39296a;
+		}
+		&>div:last-child{
+			padding-top: 20px;
+		}
+		.fc_fff{
+			color: #fff;
+			font-size: 20px;
+		}
+		.data{
+			font-size: 30px;
+			padding-top: 24px;
+			small{
+				font-size: 16px;
+			}
+		}
+		.fc_blue{
+			color: #81caff;
+		}
+		.fc_red{
+			color: #ffa1c7;
+		}
+	}
+	// 图标
+	.month-order-map{
+		position: relative;
+		.circle{
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			box-shadow: inset 0px 0px 11px #5e27ca; 
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 18%;
+			text-align: center;
+			overflow: hidden;
+			.circle-text{
+				line-height: 160px;
+				color: #fff;
+				font-size: 50px;
+				position: relative;
+			}
+			.circle-bg{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				// top: 50%;
+				// overflow: hidden;
+				// animation: water 2s infinite linear;
+				.water1{
+					position: absolute;
+					width: 200%;
+					height: 200%;
+					border-radius: 33%;
+					background: #6621a2;
+					left: -35%;
+					opacity: 0.7;
+					animation: water 10s infinite linear;
+				}
+				.water2{
+					position: absolute;
+					width: 200%;
+					height: 200%;
+					border-radius: 40%;
+					background: #6621a2;	
+					left: -35%;
+					opacity: 0.7;
+					animation: water 9s infinite linear;
+
+				}
+			}
+		}
+		#order-msg{
+			width: 220px;
+			height: 220px;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 11%;
+			position: absolute;
+		}
+	}
+	// 日期
+	.month-order-time{
+		border-left: 1px solid #39296a;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 14px;
+		.time-bg{
+			width: 204px;
+			height: 204px;
+			background: url(../img/tianshu.png) no-repeat center/ contain;
+			position: relative;
+		}
+		.time-text{
+			color: #ffa2c7;
+			text-shadow: -1px 4px 4px #a7008e, -1px -4px 4px #a7008e, 4px 1px 4px #a7008e, -4px 1px 4px #a7008e;
+			font-size: 60px;
+			position: absolute;
+			top: 45%;
+			left: 30%;
+			letter-spacing: 10px;
+		}
+	}
+}
+
+.reach-sell{
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1;
+	li{
+		flex: 0 0 33.33%;
+		height: 50%;
+	}
+}
+
+@keyframes water{
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(-360deg);
+	}
+}
+
+.white-space{
+	white-space: nowrap;
+}

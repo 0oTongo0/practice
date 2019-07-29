@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/echarts.common.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/echarts-gl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts-3d.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<article class="order-max">
+			<header class="order-header">
+				<div class="header-l">
+					<div class="active">集团视角</div>
+					<div>Bu</div>
+				</div>
+				<div class="header-r">
+					<div class="time">
+						2019
+						<span>年</span>
+						7
+						<span>月</span>
+					</div>
+					<div class="input-sele">
+						<input type="date" name="" id="" value="" />
+						<div class="sele">
+							<p>选择</p>
+						</div>
+					</div>
+				</div>
+				<h1 class="header-title">
+					订单管理看板
+				</h1>
+			</header>
+			<section class="order-center">
+				<!-- top -->
+				<div class="section-t flex1">
+					<div class="border-rd flex_column flex600">
+						<div class="bg_lg_blue">
+							<span>订单</span>
+							趋势分析 （集团）
+						</div>
+						<div class="flex1" id="order_trend"></div>
+					</div>
+					<div class="border-rd flex_column flex1_5">
+						<div class="bg_lg_blue">
+							本月<span>订单</span>信息
+						</div>
+						<div class="month-order">
+							<div class="month-order-data flex22">
+								<div>
+									<div class="white-space">本月目标<span class="fc_fff">目标</span>销售额</div>
+									<p class="data fc_blue">500<small>w</small></p>
+								</div>
+								<div>
+									<div class="white-space">本月目标<span class="fc_fff">实际</span>销售额</div>
+									<p class="data fc_red">500<small>w</small></p>
+								</div>
+							</div>
+							<!-- 圆表 -->
+							<div class="month-order-map flex1_5">
+								<div class="circle">
+									<!-- 背景 -->
+									<div class="circle-bg" style="bottom: -65%">
+										<div class="water1"></div>
+										<div class="water2"></div>
+									</div>
+									<span class="circle-text">65%</span>
+								</div>
+								<div class="order-msg" id="order-msg"></div>
+							</div>
+							<!-- 日期 -->
+							<div class="month-order-time">
+								<p>本月剩余天数 (天)</p>
+								<div class="time-bg">
+									<span class="time-text">
+										08
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="border-rd flex_column flex1">
+						<div class="bg_lg_blue">
+							集团各<span>执行单</span>汇总
+						</div>
+						<div class="flex1" id="perform"></div>
+					</div>
+				</div>
+				<!-- center -->
+				<div class="section-c flex1">
+					<div class="border-rd flex_column flex600">
+						<div class="bg_lg_blue">
+							集团各 Bu <span>销售额</span> 达成情况 （当月）
+						</div>
+						<ul class="reach-sell">
+							<li id="list"></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+					<div class="border-rd flex_column flex300">
+						<div class="bg_lg_blue">
+							当月<span>销售额</span>贡献
+						</div>
+						<div class="flex1" id="month_sell"></div>
+					</div>
+					<div class="border-rd flex_column flex300">
+						<div class="bg_lg_green">
+							当月<span>重要客户销售额</span>贡献占比
+						</div>
+						<div class="flex1" id="sale"></div>
+					</div>
+					<div class="border-rd flex_column flex1">
+						<div class="bg_lg_green">
+							<span>重要客户销售额</span>贡献趋势
+						</div>
+						<div class="flex1" id="sale-tendency"></div>
+					</div>
+				</div>
+				<!-- footer -->
+				<div class="section-f flex1">
+					<div class="border-rd flex_column flex600">
+						<div class="bg_lg_purple">
+							<span>应收账款</span>变化趋势 （集团）
+						</div>
+						<div class="flex1" id="receivable-credit"></div>
+					</div>
+					<div class="border-rd flex_column flex300">
+						<div class="bg_lg_purple">
+							当月<span>应收账款</span>占比 （Bu）
+						</div>
+						<div class="flex1" id="account_bu"></div>
+					</div>
+					<div class="border-rd flex_column flex300">
+						<div class="bg_lg_purple">
+							当月<span>应收账款</span>占比 （客户）
+						</div>
+						<div class="flex1" id="account"></div>
+					</div>
+					<div class="border-rd flex_column flex1_5">
+						<div class="bg_lg_purple">
+							<span>应收账款</span>变化趋势 （集团各 Bu）
+						</div>
+						<div class="flex1" id="account_tendency"></div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</body>
+</html>
+<script type="text/javascript">
+	// 订单趋势分析
+	var order_trend = echarts.init(document.getElementById('order_trend'));
+        option = {
+			title: {
+				text: '实际销售额 / 销售目标额 （万元）',
+				x: '2%',
+				y: '6%',        
+				textStyle: {
+					fontWeight: 'normal',
+					fontSize: 14,
+					color:'#fff',           
+				},  
+			},   
+            tooltip: {},
+            xAxis3D: {
+				name:"",
+                type: 'category',
+                data: ['1月', '2月','3月', '4月','5月', '6月','7月','8月','9月','10月','11月','12月'],
+                axisLine:{
+                    lineStyle:{
+                        color:'#fff',
+                        width:0
+                    }
+                },
+				interval:-1,
+				axisTick: {
+					show:false
+				},
+				splitLine: {
+					show: false
+				},	
+				axisLabel:{
+					interval:0
+				}
+            },
+            yAxis3D: {
+				name:"",
+                type: 'category',
+                data: ['1','2'],
+                axisLine:{
+                    lineStyle:{
+                        color:'#241d3c',
+                        width:0
+                    }
+                },
+				splitLine: {
+					show: false
+				},
+            },
+            zAxis3D: {
+				name:"",
+                type: 'value',
+                axisLine:{
+                    lineStyle:{
+                        color:'#fff',
+                        width:0
+                    }
+                },
+				axisTick:{
+                    lineStyle:{
+                        color:'#241d3c',
+                        width:1
+                    }
+				},
+				splitLine: {
+                    lineStyle:{
+                        color:'#241d3c',
+                        width:1
+                    }
+				},
+            },
+            grid3D: {
+                boxWidth: 300,
+                boxDepth: 20,
+                axisPointer: {
+                    show: false
+                },
+                light: {
+                    main: {
+                        intensity: 1.2
+                    },
+                    ambient: {
+                        intensity: 0.3
+                    }
+                },
+                viewControl: {
+                    alpha: 0,
+                    beta: 0,
+                    minAlpha: 0,
+                    minBeta: 0,
+                }
+            },
+            series: [{
+                type: 'bar3D',
+                name:'实际销售额',
+                barSize: 12,
+                data: [
+					// x   y  z
+                    [0, 0, 1800],
+                    [1, 0, 10000],
+                    [2, 0, 6000],
+					[3, 0, 6000],
+					[4, 0, 5000],
+					[5, 0, 8000],
+					[6, 0, 7000],
+					[7, 0, 12000],
+					[8, 0, 2000],
+					[9, 0, 4000],
+					[10, 0, 1200],
+					[11, 0, 4000],
+                ],
+                // stack: 'stack',
+                shading: 'lambert',
+				itemStyle: {
+					color:'#2da2ff',
+				},
+				emphasis: {
+					label: {
+						textStyle: {
+							fontSize: 16,
+							color: '#f34232'
+						}
+					},
+					itemStyle: {
+						color: '#54e6ff'
+					}
+				}
+            }, {
+                type: 'bar3D',
+                name:'销售额目标',
+                barSize: 12,
+                data: [
+                    [0, 1, 12000],
+                    [1, 1, 60000],
+                    [2, 1, 12000],
+					[3, 1, 6000],
+					[4, 1, 8000],
+					[5, 1, 7000],
+					[6, 1, 8000],
+					[7, 1, 10000],
+					[8, 1, 8000],
+					[9, 1, 7000],
+					[10, 1, 6000],
+					[11, 1, 10000],
+                ],
+                // stack: 'stack',
+                shading: 'lambert',
+				itemStyle:{
+					color:"#1d2848",
+					opacity:0.4
+				},
+				emphasis: {
+					label: {
+						textStyle: {
+							fontSize: 16,
+							color: '#54e6ff'
+						}
+					},
+					itemStyle: {
+						color: '#1d2848'
+					}
+				}
+            }]
+        };
+	order_trend.setOption(option);
+	
+	// 订单信息
+	var order_msg = echarts.init(document.getElementById('order-msg'));
+	option2 = {
+		tooltip: {
+			show: true,
+			formatter: "{b} : {c}(w)"
+		},
+		series: [{
+				name: 'Line 4',
+				type: 'pie',
+				clockWise: true,
+				hoverAnimation: false,
+				radius: ['100%', '88%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				data: [{
+						value: 50,
+						name: '实际',
+						itemStyle:{
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#1038fa'
+							}, {
+								offset: 1,
+								color: '#e32a87'
+							}], false),
+						}
+					}, {
+						value: 40,
+						name: '无',
+						tooltip: {
+							show: false
+						},
+						itemStyle:{
+							normal: {
+								color: 'rgba(255, 255, 255, 0)',
+								label: {
+									show: false
+								},
+								labelLine: {
+									show: false
+								}
+							},
+						}
+					}
+				]
+			}
+		]
+	};
+	order_msg.setOption(option2);
+	
+	
+	// 执行单汇总
+	var perform = echarts.init(document.getElementById('perform'));
+	option3 = {
+		color: ['#7a38cd', '#2e52cd', '#008eca', '#118f3e', "#c68d22"],
+		tooltip: {
+			show: true,
+			formatter: "{b} : {c}(w)"
+		},
+		legend: {
+			top: "20%",
+			left: "70%",
+			data: ['执行单', '实际PO', '已出货', '已开票', '已收款'],
+			itemGap: 20,
+			textStyle: {
+				color: '#fff',
+				align: 'right',
+				x: 'right',
+				textAlign: 'right'
+			},
+			itemWidth: 40,
+			itemHeight:10,
+			orient:'vertical'
+		},
+		grid: {
+			top: '5%',
+			bottom: '58%',
+			left: "34%",
+			containLabel: false
+		},
+		yAxis: [{
+			type: 'category',
+			inverse: true,
+			axisLine: {
+				show: false
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				interval: 0,
+				inside: true,
+				textStyle: {
+					color: "#fff",
+					fontSize: 14,
+				},
+				show: true
+			},
+			data: ['20w','30w','40w','50w','60w'],
+			z:99
+			
+		}],
+		xAxis: [{
+			show: false
+		}],
+		series: [{
+				name: 'Line 4',
+				type: 'pie',
+				clockWise: true,
+				hoverAnimation: false,
+				radius: ['90%', '80%'],
+				center: ['35%', '50%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				data: [{
+						value: 7645434,
+						name: '执行单'
+					}, {
+						value: 3612343,
+						name: '总数',
+						tooltip: {
+							show: false
+						},
+						itemStyle:{
+							normal: {
+								color: '#1c1f4a',
+								label: {
+									show: false
+								},
+								labelLine: {
+									show: false
+								}
+							},
+						}
+					}
+				]
+			}, {
+				name: 'Line 3',
+				type: 'pie',
+				clockWise: true,
+				radius: ['65%', '75%'],
+				center: ['35%', '50%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				hoverAnimation: false,
+
+				data: [{
+					value: 2632321,
+					name: '实际PO'
+				}, {
+					value: 2212343,
+					name: '总数',
+					tooltip: {
+						show: false
+					},
+					itemStyle:{
+						normal: {
+							color: '#1c1f4a',
+							label: {
+								show: false
+							},
+							labelLine: {
+								show: false
+							}
+						},
+					}
+				}]
+			}, {
+				name: 'Line 2',
+				type: 'pie',
+				clockWise: true,
+				hoverAnimation: false,
+				radius: ['50%', '60%'],
+				center: ['35%', '50%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				data: [{
+					value: 1823323,
+					name: '已出货'
+				}, {
+					value: 1812343,
+					name: '总数',
+					tooltip: {
+						show: false
+					},
+					itemStyle:{
+						normal: {
+							color: '#1c1f4a',
+							label: {
+								show: false
+							},
+							labelLine: {
+								show: false
+							}
+						},
+					}
+				}]
+			},
+			{
+				name: 'Line 1',
+				type: 'pie',
+				clockWise: true,
+				radius: ['35%', '45%'],
+				center: ['35%', '50%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+						value: 1342221,
+						name: '已开票'
+					}, {
+						value: 1912343,
+						name: '总数',
+						tooltip: {
+							show: false
+						},
+						itemStyle: {
+							normal: {
+								color: '#1c1f4a',
+								label: {
+									show: false
+								},
+								labelLine: {
+									show: false
+								}
+							},
+						}
+					}
+				]
+			},
+			{
+				name: 'Line 0',
+				type: 'pie',
+				clockWise: true,
+				radius: ['20%', '30%'],
+				center: ['35%', '50%'],
+				itemStyle: {
+					normal: {
+						label: {
+							show: false
+						},
+						labelLine: {
+							show: false
+						},
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+						value: 1342221,
+						name: '已收款'
+					}, {
+						value: 1912343,
+						name: '总数',
+						tooltip: {
+							show: false
+						},
+						itemStyle: {
+							normal: {
+								color: '#1c1f4a',
+								label: {
+									show: false
+								},
+								labelLine: {
+									show: false
+								}
+							},
+						}
+					}
+				]
+			}
+		]
+	};
+	perform.setOption(option3);
+
+
+	//当月销售额贡献
+	var month_sell = echarts.init(document.getElementById('month_sell'));
+	option9 = {     
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)",
+		},
+		series: [{
+			name: '销售额占比',
+			type: 'pie',
+			"hoverAnimation": false,
+			radius: ['60%', '35%'],
+			center: ['50%', '55%'],
+			color:["#1cb354","#dcde33","#ee8f21","#7a38cd","#2e55ce","#008eca"],
+			data: [{
+					value: 2000,
+					name: 'Bu1'
+				},
+				{
+					value: 800,
+					name: 'Bu2',
+				},
+				{
+					value: 50,
+					name: 'Bu3',
+				},
+				{
+					value: 50,
+					name: 'Bu4',
+				},
+				{
+					value: 50,
+					name: 'Bu5',
+				},
+				{
+					value: 50,
+					name: 'Bu6',
+				}
+			],
+			label: {
+					normal: {
+						formatter: '{b}\n{d}%',
+						color:"#fff",
+						position: 'left',
+						fontSize:14,
+					},
+				},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			},
+			// 提示线的颜色
+			labelLine: {
+				normal: {
+					lineStyle: {
+						color:"rgba(255,255,255,0.87)"
+					},
+					length:35
+				},
+			},
+		}]
+	};
+	month_sell.setOption(option9);
+	
+	
+	// 当月重要客户销售额贡献占比
+	var sale = echarts.init(document.getElementById('sale'));
+	option4 = {     
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)",
+		},
+		series: [{
+			name: '销售额占比',
+			type: 'pie',
+			"hoverAnimation": false,
+			radius: ['60%', '35%'],
+			center: ['50%', '55%'],
+			color:["#ff23b9","#ff6a49","#f9ca3c","#98d134","#6212e3","#a51cde"],
+			data: [{
+					value: 2000,
+					name: '客户一'
+				},
+				{
+					value: 800,
+					name: '客户二',
+				},
+				{
+					value: 50,
+					name: '客户三',
+				},
+				{
+					value: 50,
+					name: '客户四',
+				},
+				{
+					value: 50,
+					name: '客户五',
+				},
+				{
+					value: 50,
+					name: '客户六',
+				}
+			],
+			label: {
+					normal: {
+						formatter: '{b}\n{d}%',
+						color:"#fff",
+						position: 'left',
+						fontSize:14,
+					},
+				},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			},
+			// 提示线的颜色
+			labelLine: {
+				normal: {
+					lineStyle: {
+						color:"rgba(255,255,255,0.87)"
+					},
+					length:35
+				},
+			},
+		}]
+	};
+    sale.setOption(option4);
+
+	// 重要客户销售额贡献趋势
+	var sale_tendency = echarts.init(document.getElementById('sale-tendency'));
+	option5 = {
+			title: {
+				text: '销售额 (万元)',
+				x: '2%',
+				y: '3%',        
+				textStyle: {
+					fontWeight: 'normal',
+					fontSize: 14,
+					color:'#fff',           
+				},  
+			},   
+			legend: {
+				left: 'center',
+				y: '10%',   
+				data:['客户一','客户二','客户三','客户四','客户五','客户六'],
+				textStyle:{
+					color:"#fff",
+					fontSize:14
+				},
+				itemWidth: 20,
+				itemHeight:10,
+				itemGap :8       
+			},
+			tooltip : {
+				trigger: 'axis'
+			},
+			grid: {
+				left: '2%',
+				right: '2%',
+				bottom: '4%',
+				containLabel: true
+			},
+			xAxis : [
+				{	
+					type : 'category',
+					data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+					axisPointer: {
+						show: true,
+						type: 'shadow'
+					},
+					axisLine:{
+						lineStyle:{  
+							color:'#fff',
+							width:0
+						 }              
+					 },
+					axisTick: {
+						show: false
+					},             
+				}
+			],
+			yAxis : [
+				{
+					type : 'value',
+					scale: true,
+					min:0,
+					boundaryGap:false,
+					axisLine:{  
+						show: false,
+					 lineStyle:{  
+						 color:'#fff',  
+						 width:0
+						 }  
+					},
+					axisTick: {
+						show: false
+					},
+					splitLine: {  
+						lineStyle: {  
+								 color: ['#282252'],
+							 }  
+						},  
+				}
+			],
+			series: [{
+				name: '客户一',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [1220, 132, 101, 134,182, 191, 234,120, 132, 182, 191, 234,120, 132,201,191, 254,181],
+				itemStyle: {
+				normal: {
+						 color: '#00a0e9'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(0, 160, 223, 0.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(0, 160, 223, 0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户二',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [53, 24,24,182, 191, 234,53, 24,24, 191, 234,120, 132,201,191],
+				itemStyle: {
+				normal: {
+						 color: '#2ced80'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(44, 237, 128,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(44, 237, 128,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户三',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [531, 214,24,182, 1911, 231,531, 241,241, 191, 234,120, 132,201,191],
+				itemStyle: {
+				normal: {
+						 color: '#dbd939'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(219, 217, 57,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(219, 217, 57,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户四',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [31, 14,24,182, 91, 231,51, 241,241, 191, 234,120, 132,201,19],
+				itemStyle: {
+				normal: {
+						 color: '#e78141'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(231, 129, 65,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(231, 129, 65,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户五',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [131, 114,124,182, 291, 231,512, 2141,241, 2191, 234,120, 132,201,19],
+				itemStyle: {
+				normal: {
+						 color: '#e78141'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(246, 101, 166,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(246, 101, 166,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户六',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [231, 214,224,282, 291, 231,512, 2141,241, 2191, 234,120, 132,201,219],
+				itemStyle: {
+				normal: {
+						 color: '#8870f8'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(136, 112, 248,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(136, 112, 248,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			}
+		]
+	};
+	sale_tendency.setOption(option5);
+	
+	//应收账款变化趋势
+	var receivable_credit = echarts.init(document.getElementById('receivable-credit'));
+	option6 = {
+			title: {
+				text: '应收账款 (万元)',
+				x: '2%',
+				y: '6%',        
+				textStyle: {
+					fontWeight: 'normal',
+					fontSize: 14,
+					color:'#fff',           
+				},  
+			},   
+			tooltip : {
+				trigger: 'axis'
+			},
+			grid: {
+				left: '2%',
+				right: '2%',
+				bottom: '4%',
+				containLabel: true
+			},
+			xAxis : [
+				{	
+					type : 'category',
+					data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+					axisPointer: {
+						show: true,
+						type: 'shadow'
+					},
+					axisLine:{
+						lineStyle:{  
+							color:'#fff',
+							width:0
+						 }              
+					 },
+					axisTick: {
+						show: false
+					},             
+				}
+			],
+			yAxis : [
+				{
+					type : 'value',
+					scale: true,
+					min:0,
+					boundaryGap:false,
+					axisLine:{  
+						show: false,
+					 lineStyle:{  
+						 color:'#fff',  
+						 width:0
+						 }  
+					},
+					axisTick: {
+						show: false
+					},
+					splitLine: {  
+						lineStyle: {  
+								 color: ['#282252'],
+							 }  
+						},  
+				}
+			],
+			series: {
+				name: '账款',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				label: {
+					normal: {
+						show: true,
+						position: 'top',
+						textStyle: {
+							color: '#a1f1f8'
+						}
+					}
+				},
+				data: [1220, 132, 101, 134,182, 191, 234,120, 132, 182, 191, 234,120, 132,201,191, 254,181],
+				itemStyle: {
+					normal: {
+							 color: '#a1f1f8'
+						},
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(161, 241, 248, 0.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(161, 241, 248, 0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+	}
+	receivable_credit.setOption(option6);
+	
+	
+	// 当月应收账款占比(Bu)
+	var account_bu = echarts.init(document.getElementById('account_bu'));
+	option10 = {     
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)",
+		},
+		series: [{
+			name: '当月应收账款占比',
+			type: 'pie',
+			"hoverAnimation": false,
+			radius: ['60%', '35%'],
+			center: ['50%', '55%'],
+			color:["#1cb354","#dcde33","#ee8f21","#7a38cd","#2e55ce","#008eca"],
+			data: [{
+					value: 10,
+					name: 'Bu1'
+				},
+				{
+					value: 20,
+					name: 'Bu2',
+				},
+				{
+					value: 10,
+					name: 'Bu3',
+				},
+				{
+					value: 20,
+					name: 'Bu4',
+				},
+				{
+					value: 10,
+					name: 'Bu5',
+				},
+				{
+					value: 20,
+					name: 'Bu6',
+				}
+			],
+			label: {
+					normal: {
+						formatter: '{b}\n{d}%',
+						color:"#fff",
+						position: 'left',
+						fontSize:14,
+					},
+				},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			},
+			// 提示线的颜色
+			labelLine: {
+				normal: {
+					lineStyle: {
+						color:"rgba(255,255,255,0.87)"
+					},
+					length:35
+				},
+			},
+		}]
+	};
+	account_bu.setOption(option10);
+	
+	
+	// 当月应收账款占比
+	var account = echarts.init(document.getElementById('account'));
+	option7 = {     
+		tooltip: {
+			trigger: 'item',
+			formatter: "{a} <br/>{b}: {c} ({d}%)",
+		},
+		series: [{
+			name: '销售额占比',
+			type: 'pie',
+			"hoverAnimation": false,
+			radius: ['60%', '35%'],
+			center: ['50%', '55%'],
+			color:["#ff23b9","#ff6a49","#f9ca3c","#98d134","#6212e3","#a51cde"],
+			data: [{
+					value: 2000,
+					name: '客户一'
+				},
+				{
+					value: 800,
+					name: '客户二',
+				},
+				{
+					value: 50,
+					name: '客户三',
+				},
+				{
+					value: 50,
+					name: '客户四',
+				},
+				{
+					value: 50,
+					name: '客户五',
+				},
+				{
+					value: 50,
+					name: '客户六',
+				}
+			],
+			label: {
+					normal: {
+						formatter: '{b}\n{d}%',
+						color:"#fff",
+						position: 'left',
+						fontSize:14,
+					},
+				},
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			},
+			// 提示线的颜色
+			labelLine: {
+				normal: {
+					lineStyle: {
+						color:"rgba(255,255,255,0.87)"
+					},
+					length:35
+				},
+			},
+		}]
+	};
+	account.setOption(option7);
+	
+	// 应收账款账款变化趋势
+	var account_tendency = echarts.init(document.getElementById('account_tendency'));
+	option8 = {
+			title: {
+				text: '销售额 (万元)',
+				x: '2%',
+				y: '3%',        
+				textStyle: {
+					fontWeight: 'normal',
+					fontSize: 14,
+					color:'#fff',           
+				},  
+			},   
+			legend: {
+				left: 'center',
+				y: '9%',   
+				data:['客户一','客户二','客户三','客户四','客户五','客户六'],
+				textStyle:{
+					color:"#fff",
+					fontSize:14
+				},
+				itemWidth: 20,
+				itemHeight:10,
+				itemGap :8          
+			},
+			tooltip : {
+				trigger: 'axis'
+			},
+			grid: {
+				left: '2%',
+				right: '2%',
+				bottom: '4%',
+				containLabel: true
+			},
+			xAxis : [
+				{	
+					type : 'category',
+					data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+					axisPointer: {
+						show: true,
+						type: 'shadow'
+					},
+					axisLine:{
+						lineStyle:{  
+							color:'#fff',
+							width:0
+						 }              
+					 },
+					axisTick: {
+						show: false
+					},             
+				}
+			],
+			yAxis : [
+				{
+					type : 'value',
+					scale: true,
+					min:0,
+					boundaryGap:false,
+					axisLine:{  
+						show: false,
+					 lineStyle:{  
+						 color:'#fff',  
+						 width:0
+						 }  
+					},
+					axisTick: {
+						show: false
+					},
+					splitLine: {  
+						lineStyle: {  
+								 color: ['#282252'],
+							 }  
+						},  
+				}
+			],
+			series: [{
+				name: '客户一',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [1220, 132, 101, 134,182, 191, 234,120, 132, 182, 191, 234,120, 132,201,191, 254,181],
+				itemStyle: {
+				normal: {
+						 color: '#00a0e9'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(0, 160, 223, 0.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(0, 160, 223, 0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户二',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [53, 24,24,182, 191, 234,53, 24,24, 191, 234,120, 132,201,191],
+				itemStyle: {
+				normal: {
+						 color: '#2ced80'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(44, 237, 128,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(44, 237, 128,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户三',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [531, 214,24,182, 1911, 231,531, 241,241, 191, 234,120, 132,201,191],
+				itemStyle: {
+				normal: {
+						 color: '#dbd939'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(219, 217, 57,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(219, 217, 57,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户四',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [31, 14,24,182, 91, 231,51, 241,241, 191, 234,120, 132,201,19],
+				itemStyle: {
+				normal: {
+						 color: '#e78141'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(231, 129, 65,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(231, 129, 65,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户五',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [131, 114,124,182, 291, 231,512, 2141,241, 2191, 234,120, 132,201,19],
+				itemStyle: {
+				normal: {
+						 color: '#e78141'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(246, 101, 166,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(246, 101, 166,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			},
+			{
+				name: '客户六',
+				type: 'line',
+				smooth: true,
+				symbolSize: 4,
+				  symbol: 'circle',
+				  lineStyle: {
+					normal: {
+						width: 1
+					}
+				},
+				data: [231, 214,224,282, 291, 231,512, 2141,241, 2191, 234,120, 132,201,219],
+				itemStyle: {
+				normal: {
+						 color: '#8870f8'
+					}
+				},
+				areaStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+							offset: 0,
+							color: 'rgba(136, 112, 248,.2)'
+						}, {
+							offset: 1,
+							color: 'rgba(136, 112, 248,0)'
+						}], false),
+						shadowColor: 'rgba(0, 0, 0, 0.1)',
+						shadowBlur: 10
+					}
+				},
+			}
+		]
+	};
+	account_tendency.setOption(option8);
+	
+	
+	// 集团各 Bu 销售额 达成情况 （当月）
+    var hc = {
+			chart: {
+				type: 'pie',
+				options3d: {
+					enabled: true,
+					alpha: 40,
+					beta: 0
+				},
+				backgroundColor: 'rgba(0,0,0,0)'
+			},
+			title: {
+				text: 'bu1',
+				verticalAlign:'bottom',
+				style:{
+					color:'#fff',
+					fontSize:12
+				}
+			},
+			colors: ['#11a8f7', '#42e3d1'],
+			tooltip: {
+				shared: true,
+				useHTML: true,
+				headerFormat: '<small>{point.key}</small><table>',
+				pointFormat: '{series.name}:' + '<b>{point.y}W</b>',
+				footerFormat: '</table>',
+				valueDecimals: 2,
+			},
+			plotOptions: {
+				pie: {
+					size:60, 
+					allowPointSelect: true,
+					cursor: 'pointer',
+					depth: 20,
+					dataLabels: {
+						enabled: true,
+						format: '{point.name}'
+					}
+				}
+			},
+			credits:{
+				enabled: false
+			},
+			exporting: { enabled: false },
+			series: [{
+				type: 'pie',
+				name: '销售额 ',
+				data: [
+					{
+						name: '预计销售额',
+						y: 2,
+						sliced: true,
+						selected: true
+					},
+					{
+						name: '实际销售额',
+						y: 10,
+					},
+				]
+			}]
+        };
+    var chart = Highcharts.chart('list', hc);
+		
+window.addEventListener("resize",function(){
+	order_trend.resize();
+	order_msg.resize();
+	perform.resize();
+	sale.resize();
+	sale_tendency.resize();
+	receivable_credit.resize();
+	account.resize();
+	account_tendency.resize();
+	month_sell.resize();
+	account_bu.resize();
+});
+
+</script>
