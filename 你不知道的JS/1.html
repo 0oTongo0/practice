@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			display: flex;
+		}
+		.left p{
+			border-bottom: 1px solid;
+		}
+		.right img{
+			display: block;
+			width: 50px;
+			height: 50px;
+			object-fit: contion;
+		}
+	</style>
+	<body>
+		<input type="text" name="" id="txt" />
+		<input type="button" name="" id="but" value="确定"/>
+		<div class="box">
+			<div class="left">
+			</div>
+			<div class="right">	
+			</div>
+		</div>
+		<div class="mp3">
+		
+		</div>
+	</body>
+	<script type="text/javascript">
+		var  t = document.querySelector("#txt");
+		var  but = document.querySelector("#but");
+		var  box = document.querySelector(".box");
+		var  l = document.querySelector(".left");
+		var  r = document.querySelector(".right");
+		var mp3 = document.querySelector(".mp3");
+		var v;
+		but.onclick = throttle(function(){
+			v = t.value;
+			var  xhr = new XMLHttpRequest;
+			xhr.open('POST', 'https://api.apiopen.top/searchMusic?name='+v);
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if(this.readyState != 4) return;
+				var data = JSON.parse(this.responseText);
+				data.result.map(function(item){
+					var sp = document.createElement('p');
+					sp.innerHTML = item.author;
+					var imgs = document.createElement('img');
+					imgs.src = item.pic;
+					var videos = document.createElement('video');
+					videos.src = item.url;
+					console.log(item.url)
+					mp3.appendChild(videos)
+					r.appendChild(imgs)
+					l.appendChild(sp)
+					console.log(item)
+				})
+			}
+		},1000)
+		
+		function throttle(f,w){
+			var time;
+			return function(){
+				context = this;
+				arg = arguments;
+				if(!time){
+					time = setTimeout(function(){
+						time = null;
+						f.apply(context,arg)
+					},w)
+				}
+			}
+		}
+		
+		var arr = [1,2,2,1,];
+		
+		for(var [a,b] of arr.entries()){
+			console.log(a,b)
+		}
+		
+		
+		for(var i=0; i<=5; i++){
+			(function(a){
+				setTimeout(function(){
+					console.log(a)
+				},a*1000)
+			})(i)
+		}
+	</script>
+</html>

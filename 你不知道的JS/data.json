@@ -1,0 +1,381 @@
+
+{
+
+    "lines": [
+        {
+            "lineId": "1",
+            "lineAlias": "A01线",
+            "machines": [
+            {"name": "CAL", "imgUrl": "http://119.23.105.159//beifu/JJAhz3dqZxPaFnRGyZ3bHrS0AwOyve6y.png"},
+            {"name": "RF", "imgUrl": "http://119.23.105.159//beifu/uP5YQudWmcqUdUaeqjz5wqyEOBiv05US.png"},
+            {"name": "wifibt", "imgUrl": "http://119.23.105.159//beifu/n7nf2hysQqzkSkB4k13eW6N0XZEPClI0.png"},
+            {"name": "jsmant", "imgUrl": "http://119.23.105.159//beifu/M1ugGinS1TglXt79XYYLD4RQX3PmEChS.png"},
+            {"name": "audio", "imgUrl": "http://119.23.105.159//beifu/CfILgdIa6zx21eZeOYtE10a6Wlc5yJZL.png"},
+            {"name": "camera", "imgUrl": "http://119.23.105.159//beifu/rBXQEKZEfmSOm1jTnFYbrC7U57dffcd7.png"}
+            ]
+        },
+
+        {
+            "lineId": "2",
+            "lineAlias": "A02线",
+            "machines": [
+            {"name": "RF", "imgUrl": "http://119.23.105.159//beifu/uP5YQudWmcqUdUaeqjz5wqyEOBiv05US.png"},
+            {"name": "audio", "imgUrl": "http://119.23.105.159//beifu/CfILgdIa6zx21eZeOYtE10a6Wlc5yJZL.png"},
+            {"name": "CAL", "imgUrl": "http://119.23.105.159//beifu/JJAhz3dqZxPaFnRGyZ3bHrS0AwOyve6y.png"},
+            {"name": "camera", "imgUrl": "http://119.23.105.159//beifu/rBXQEKZEfmSOm1jTnFYbrC7U57dffcd7.png"},
+            {"name": "wifibt", "imgUrl": "http://119.23.105.159//beifu/n7nf2hysQqzkSkB4k13eW6N0XZEPClI0.png"},
+            {"name": "jsmant", "imgUrl": "http://119.23.105.159//beifu/M1ugGinS1TglXt79XYYLD4RQX3PmEChS.png"}
+            ]
+        }
+        
+    ],
+
+    "reTestRateTop5_line1": [
+        {"machine": "ANT01", "testItem": "1号", "reTestFailRate": 10, "sort": 1 },
+        {"machine": "ANT012", "testItem": "12号", "reTestFailRate": 8, "sort": 2 },
+        {"machine": "CAM01", "testItem": "1号", "reTestFailRate": 6, "sort": 3 },
+        {"machine": "CAM012", "testItem": "12号", "reTestFailRate": 5, "sort": 4 },
+        {"machine": "CAM013", "testItem": "13号", "reTestFailRate": 4, "sort": 5 }
+    ], 
+
+    "reTestRateTop5_line2": [
+        {"machine": "CAL03", "testItem": "3号", "reTestFailRate": 9, "sort": 1 },
+        {"machine": "CAL04", "testItem": "4号", "reTestFailRate": 7, "sort": 2 },
+        {"machine": "RF02", "testItem": "2号", "reTestFailRate": 6, "sort": 3 },
+        {"machine": "RF011", "testItem": "11号", "reTestFailRate": 3, "sort": 4 },
+        {"machine": "RF09", "testItem": "9号", "reTestFailRate": 2, "sort": 5 }
+    ], 
+
+    "productData_line1": {
+        "inputQty": 8000,
+        "finalPass": 7980,
+        "finalFail": 20,
+        "firstPassRate": "96.00%",
+        "reTestFailRate": "0.05%"
+    },
+
+    "productData_line2": {
+        "inputQty": 9000,
+        "finalPass": 8995,
+        "finalFail": 5,
+        "firstPassRate": "99.89%",
+        "reTestFailRate": "0.05%"
+    },
+
+    "productDataDetail_line1": [
+        {"station": "CAL", "inputQty": 53, "firstPass": 53, 
+        "firstFail": 0, "retestPass": 0, "finalPass": 53, "finalFail": 0, 
+        "firstRate": "100.00%", "retestRate": "0.00%", "finalRate": "100.00%", "finalFailRate": "0.00%", 
+        "allInputQty": 59},
+        {"station": "RF", "inputQty": 7200, "firstPass": 7190, 
+        "firstFail": 10, "retestPass": 8, "finalPass": 7198, "finalFail": 2, 
+        "firstRate": "99.86%", "retestRate": "0.11%", "finalRate": "99.97%", "finalFailRate": "0.03%", 
+        "allInputQty": 7319},
+        {"station": "wifibt", "inputQty": 7201, "firstPass": 7201, 
+        "firstFail": 0, "retestPass": 0, "finalPass": 7201, "finalFail": 0, 
+        "firstRate": "100.00%", "retestRate": "0.00%", "finalRate": "100.00%", "finalFailRate": "0.00%", 
+        "allInputQty": 7607},
+        {"station": "jsmant", "inputQty": 7203, "firstPass": 7169, 
+        "firstFail": 34, "retestPass": 32, "finalPass": 7201, "finalFail": 2, 
+        "firstRate": "99.53%", "retestRate": "0.44%", "finalRate": "99.97%", "finalFailRate": "0.03%", 
+        "allInputQty": 7691},
+        {"station": "audio", "inputQty": 7207, "firstPass": 7203, 
+        "firstFail": 4, "retestPass": 4, "finalPass": 7207, "finalFail": 0, 
+        "firstRate": "99.94%", "retestRate": "0.06%", "finalRate": "100.00%", "finalFailRate": "0.00%", 
+        "allInputQty": 7889},
+        {"station": "camera", "inputQty": 8000, "firstPass": 7993, 
+        "firstFail": 7, "retestPass": 3, "finalPass": 7996, "finalFail": 4, 
+        "firstRate": "99.91%", "retestRate": "0.03%", "finalRate": "99.95%", "finalFailRate": "0.05%", 
+        "allInputQty": 8200}
+    ],
+
+
+    "productDataDetail_line2": [
+        {"station": "RF", "inputQty": 53, "firstPass": 53, 
+        "firstFail": 0, "retestPass": 0, "finalPass": 53, "finalFail": 0, 
+        "firstRate": "100.00%", "retestRate": "0.00%", "finalRate": "100.00%", "finalFailRate": "0.00%", 
+        "allInputQty": 59},
+        {"station": "audio", "inputQty": 7200, "firstPass": 7190, 
+        "firstFail": 10, "retestPass": 8, "finalPass": 7198, "finalFail": 2, 
+        "firstRate": "99.86%", "retestRate": "0.11%", "finalRate": "99.97%", "finalFailRate": "0.03%", 
+        "allInputQty": 7319},
+        {"station": "CAL", "inputQty": 7201, "firstPass": 7201, 
+        "firstFail": 0, "retestPass": 0, "finalPass": 7201, "finalFail": 0, 
+        "firstRate": "100.00%", "retestRate": "0.00%", "finalRate": "100.00%", "finalFailRate": "0.00%", 
+        "allInputQty": 7607},
+        {"station": "camera", "inputQty": 7203, "firstPass": 7169, 
+        "firstFail": 34, "retestPass": 32, "finalPass": 7201, "finalFail": 2, 
+        "firstRate": "99.53%", "retestRate": "0.44%", "finalRate": "99.97%", "finalFailRate": "0.03%", 
+        "allInputQty": 7691},
+        {"station": "wifibt", "inputQty": 7138, "firstPass": 7007, 
+        "firstFail": 131, "retestPass": 120, "finalPass": 7127, "finalFail": 11, 
+        "firstRate": "98.16%", "retestRate": "1.68%", "finalRate": "99.84%", "finalFailRate": "0.16%", 
+        "allInputQty": 7778},
+        {"station": "jsmant", "inputQty": 9000, "firstPass": 8990, 
+        "firstFail": 10, "retestPass": 5, "finalPass": 8995, "finalFail": 5, 
+        "firstRate": "99.89%", "retestRate": "0.06%", "finalRate": "99.94%", "finalFailRate": "0.06%", 
+        "allInputQty": 9300}
+    ],
+
+    "exceptionTop10_line1": {
+        "xAxis": ["ANT01", "ANT012", "CAM01", "CAM012", "CAM013", "AUD04", "AUD06", "CAL05", "CAL06", "CAL011"],
+        "yAxis": [20, 18, 16, 15, 15, 14, 12, 11, 10, 5]
+    },
+
+    "exceptionTop10_line2": {
+        "xAxis": ["WIF02", "WIF04", "WIF010", "WIF01", "RF01", "RF08", "RF02", "AUD02", "AUD01", "AUD08"],
+        "yAxis": [18, 16, 13, 13, 12, 11, 9, 6, 5, 2]
+    },
+
+
+    "stationLeaders_line1": [
+        {
+            "station": "CAL", 
+            "leaders": [ 
+                {"name": "赵云", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "黄忠", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "关羽", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "RF", 
+            "leaders": [ 
+                {"name": "曹操", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "于禁", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "许褚", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "WIF", 
+            "leaders": [ 
+                {"name": "孙权", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "太史慈", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "鲁肃", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "ANT", 
+            "leaders": [ 
+                {"name": "白起", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "王翦", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "蒙恬", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "AUD", 
+            "leaders": [ 
+                {"name": "项羽", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "龙且", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "季布", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "CAM", 
+            "leaders": [ 
+                {"name": "刘邦", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "韩信", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "萧何", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        }
+    ],
+
+    "stationLeaders_line2": [
+        {
+            "station": "RF", 
+            "leaders": [ 
+                {"name": "李世民", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "秦琼", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "长孙无忌", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "AUD", 
+            "leaders": [ 
+                {"name": "杨广", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "宇文成都", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "鱼俱罗", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "CAL", 
+            "leaders": [ 
+                {"name": "岳飞", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "狄青", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "韩世忠", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "CAM", 
+            "leaders": [ 
+                {"name": "朱元璋", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "刘伯温", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "汤和", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "WIF", 
+            "leaders": [ 
+                {"name": "毛爷爷", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "邓爷爷", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "周总理", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        },
+        {
+            "station": "ANT", 
+            "leaders": [ 
+                {"name": "女娲", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "盘古", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"},
+                {"name": "伏羲", "avatar": "http://iacloud.ceway.com.cn/o/img/boy-avatar.d41e8a8d.png"}
+            ]
+        }
+    ],
+
+
+    "stationErrors_line1": [
+        {"station": "ANT01", "errorRate": 6},
+        {"station": "ANT02", "errorRate": 6},
+        {"station": "ANT03", "errorRate": 4},
+        {"station": "ANT04", "errorRate": 4},
+        {"station": "ANT05", "errorRate": 6},
+        {"station": "CRM01", "errorRate": 4},
+        {"station": "CRM02", "errorRate": 4},
+        {"station": "CRM03", "errorRate": 5},
+        {"station": "CRM04", "errorRate": 4},
+        {"station": "CRM05", "errorRate": 4}
+    ],
+
+    "stationErrors_line2": [
+        {"station": "AUD03", "errorRate": 8},
+        {"station": "AUD02", "errorRate": 3},
+        {"station": "ANT013", "errorRate": 5},
+        {"station": "WIF06", "errorRate": 3},
+        {"station": "WIF09", "errorRate": 6},
+        {"station": "CAL01", "errorRate": 5},
+        {"station": "CAL02", "errorRate": 4},
+        {"station": "RF03", "errorRate": 5},
+        {"station": "RF08", "errorRate": 6},
+        {"station": "RF01", "errorRate": 4}
+    ],
+    "avgAnalysis_line1": [
+        {
+            "machine": "ANT01",
+            "testItem": "1号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.05, 0.05, 0.04, 0.03]
+        },
+        {
+            "machine": "ANT012",
+            "testItem": "12号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.05, 0.05, 0.04, 0.04]
+        },
+        {
+            "machine": "CAM01",
+            "testItem": "1号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.05, 0.04, 0.04, 0.03]
+        },
+        {
+            "machine": "CAM012",
+            "testItem": "12号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.04, 0.04, 0.04, 0.03]
+        },
+        {
+            "machine": "CAM013",
+            "testItem": "13号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.04, 0.03, 0.03, 0.01]
+        }
+    ],
+
+
+    "avgAnalysis_line2": [
+        {
+            "machine": "CAL03",
+            "testItem": "3号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.05, 0.04, 0.04, 0.03]
+        },
+        {
+            "machine": "CAL04",
+            "testItem": "4号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.06, 0.05, 0.04, 0.04]
+        },
+        {
+            "machine": "RF02",
+            "testItem": "2号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.05, 0.03, 0.03, 0.03]
+        },
+        {
+            "machine": "RF011",
+            "testItem": "11号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.04, 0.04, 0.03, 0.03]
+        },
+        {
+            "machine": "RF09",
+            "testItem": "9号",
+            "xAxis": [50, 100, 150, 200],
+            "yAxis": [0.04, 0.03, 0.03, 0.02]
+        }
+    ],
+
+    "cpkAnalysis_line1": [
+        {
+            "machine": "ANT01",
+            "testItem": "1号",
+            "cpkData": [101, 120, 132, 168, 182, 171, 154, 120]
+        },
+        {
+            "machine": "ANT012",
+            "testItem": "12号",
+            "cpkData": [113, 119, 132, 158, 162, 141, 134, 120]
+        },
+        {
+            "machine": "CAM01",
+            "testItem": "1号",
+            "cpkData": [131, 140, 152, 168, 162, 161, 154, 110]
+        },
+        {
+            "machine": "CAM012",
+            "testItem": "12号",
+            "cpkData": [111, 130, 132, 168, 192, 161, 154, 110]
+        },
+        {
+            "machine": "CAM013",
+            "testItem": "13号",
+            "cpkData": [151, 150, 162, 168, 172, 171, 154, 140]
+        }
+    ],
+
+    "cpkAnalysis_line2": [
+        {
+            "machine": "CAL03",
+            "testItem": "3号",
+            "cpkData": [111, 120, 132, 168, 172, 171, 154, 120]
+        },
+        {
+            "machine": "CAL04",
+            "testItem": "4号",
+            "cpkData": [113, 129, 132, 158, 152, 141, 134, 120]
+        },
+        {
+            "machine": "RF02",
+            "testItem": "2号",
+            "cpkData": [131, 142, 152, 158, 162, 161, 144, 110]
+        },
+        {
+            "machine": "RF011",
+            "testItem": "11号",
+            "cpkData": [121, 130, 132, 148, 172, 161, 154, 130]
+        },
+        {
+            "machine": "RF09",
+            "testItem": "9号",
+            "cpkData": [131, 150, 162, 168, 172, 161, 154, 120]
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			text-align: center;
+			display: flex;
+			height: 100vh;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			padding: 0 20px;
+		}
+
+		.nav {
+			display: inline-flex;
+			position: relative;
+			overflow: hidden;
+			max-width: 100%;
+			background-color: #fff;
+			padding: 0 20px;
+			border-radius: 40px;
+			box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
+		}
+
+		.nav-item {
+			color: #83818c;
+			padding: 20px;
+			text-decoration: none;
+			transition: .3s;
+			margin: 0 6px;
+			z-index: 1;
+			font-family: 'DM Sans', sans-serif;
+			font-weight: 500;
+			position: relative;
+
+			
+		}
+		.nav-item:before {
+				content: "";
+				position: absolute;
+				bottom: -6px;
+				left: 0;
+				width: 100%;
+				height: 5px;
+				background-color: #dfe2ea;
+				border-radius: 8px 8px 0 0;
+				opacity: 0;
+				transition: .3s;
+			}
+		.nav-item:not(.is-active):hover:before {
+			opacity: 1;
+			bottom: 0;
+		}
+
+
+		.nav-item:not(.is-active):hover {
+			color: #333;
+		}
+
+		.nav-indicator {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 4px;
+			transition: .4s;
+			height: 5px;
+			z-index: 1;
+			border-radius: 8px 8px 0 0;
+		}
+	</style>
+	<body>
+		<nav class="nav">
+			<a href="#" class="nav-item is-active" active-color="orange">Home</a>
+			<a href="#" class="nav-item" active-color="green">About</a>
+			<a href="#" class="nav-item" active-color="blue">Testimonials</a>
+			<a href="#" class="nav-item" active-color="red">Blog</a>
+			<a href="#" class="nav-item" active-color="rebeccapurple">Contact</a>
+			<span class="nav-indicator"></span>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		// 		function foo(num){
+		// 			console.log("foo====" + num + "\n" + this);
+		// 			this.count++;
+		// 		}
+		// 		foo.count = 0;
+		// 		var i;
+		// 		for(i=0; i<10; i++){
+		// 			if(i > 5){
+		// 				foo(i);
+		// 			}
+		// 		}
+		// 		console.log(foo.count)
+		// 		
+
+		// 		function foo(){
+		// 			var a = 2;
+		// 			this.bar();
+		// 		}
+		// 		
+		// 		function bar(){
+		// 			console.log(this.a);
+		// 		}
+		// 		foo();
+
+
+
+		// 		 function baz(){
+		// 			 console.log("baz===",this)
+		// 			 bar();
+		// 		 }
+		// 		 
+		// 		 function bar(){
+		// 			 console.log("bar===",this);
+		// 			foo();
+		// 		 }
+		// 		 function foo(){
+		// 			 console.log("foo===",this)
+		// 		 }
+		// 		 baz();
+
+
+		function foo() {
+			console.log(this.a);
+		}
+
+		var obj = {
+			a: 2,
+			foo: foo
+		};
+
+		var bar = obj.foo;
+		var a = "大佬";
+		bar();
+		obj.foo()
+	</script>
+</html>
