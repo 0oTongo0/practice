@@ -16,10 +16,10 @@ export default class Banner extends Component{
   }
   componentDidMount(){
     new Swiper(this.swiperID,{
-        // loop: true,  //循环
-        // autoplay: {   //滑动后继续播放（不写官方默认暂停）
-        //     disableOnInteraction: false,
-        // },
+        loop: true,  //循环
+        autoplay: {   //滑动后继续播放（不写官方默认暂停）
+            disableOnInteraction: false,
+        },
         pagination:{
            el:this.paginateID,
         }

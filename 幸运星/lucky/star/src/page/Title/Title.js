@@ -9,9 +9,10 @@ export default class Title extends Component{
         } 
     }
     componentWillReceiveProps(nextProps){
+        console.log(nextProps)
         this.setState({
-            show: nextProps.show > this.props.show,
-            err:  nextProps.err > this.props.err
+            show: nextProps.show,
+            err:  nextProps.err
         })
         if(nextProps.show){
             time = setTimeout(()=>{
@@ -23,9 +24,20 @@ export default class Title extends Component{
             },2000)
         }
     }
+    componentDidMount(){
+        if(this.props.show){
+            time = setTimeout(()=>{
+                this.setState({
+                    show:false
+                },function(){
+                    clearTimeout(time);
+                })
+            },2000)
+        }
+    }
     render(){
         return(
-            <div className="err"  style={{display : this.state.show ? "block" : "none"}}>
+            <div className="err"  style={{display : this.props.show ? "block" : "none"}}>
                 {this.props.err}
             </div>
         )

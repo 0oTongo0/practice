@@ -11,7 +11,8 @@ const data = [
         name:"o0o",
         password:"123456"
     }
-]
+];
+let time;
 export default class Login extends Component{
     constructor(props){
         super(props)
@@ -22,7 +23,8 @@ export default class Login extends Component{
             err:"",   // 提示语
             show:false, // 提示是否出现
             type:"password", //密码输入框类型
-            flag:true   //默认密码框
+            flag:true,   //默认密码框
+            bool:true,
         }
     }
 
@@ -58,26 +60,33 @@ export default class Login extends Component{
     }
     
     // 判断
-    sub(){
+    sub (){  
+        this.setState({
+            bool: false,
+         })
         let y =  data.map((item,index)=>{
             return item
-        })
-        // console.log(y,"yyy");
-      
+        })  
         if(this.state.valueName === "" || this.state.valueName === null){
             this.setState({
                 show:true,
-                err:"用户名不能为空"
-            },function(){
-                console.log("父",this.state.show)
+                err:"用户名不能为空",
+                bool: true,
             })
-            console.log("sub")
         }else if(this.state.valuePassword === "" || this.state.valuePassword === null){
             this.setState({
                 show:true,
-                err:"密码不能为空"
+                err:"密码不能为空",
+                bool: true,
             })
-        }else{
+        }else if(this.state.valuePassword === "123456" && this.state.valueName === "admin"){
+            this.setState({
+                show:true,
+                err:"大佬好",
+                 bool: true,
+            })
+        }
+        else{
             this.setState({
                 show:false,
                 err:""
@@ -89,13 +98,15 @@ export default class Login extends Component{
             <section className="login">
                 <form onSubmit={this.formsub.bind(this)}>
                     <h2>
-                        log
+                        幸运星
                     </h2>
                     <div  className="input-box">
                         <input type="text" autoComplete={this.off} autoFocus value={this.state.valueName}  placeholder="用户名" onChange={this.Name.bind(this)}/>
+                        <i></i>
                     </div>
                     <div  className="input-box">
                         <input type={this.state.type} autoComplete={this.off}  value={this.state.valuePassword} placeholder="密码" onChange={this.Password.bind(this)}/>
+                        <i></i>
                         <a className={this.state.flag ? "password-hide" : "password-show"} onTouchStart={this.eye.bind(this)}></a>
                     </div>
                     <div className="button-box">

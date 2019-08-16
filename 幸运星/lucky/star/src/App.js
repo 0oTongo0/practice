@@ -1,23 +1,20 @@
 import React,{Component} from 'react';
-import Banner from "./page/Banner/Banner";
-import Head from "./page/Head/Head";
-import Footer from "./page/Footer/Footer";
-import Center from "./page/Center/Center";
-import Login from "./page/Login/Login"
+import Todlsit from "./page/todlist/Todlsit"
 import { Route } from 'react-router-dom'
+import 'antd/dist/antd.css'
+import { Provider } from 'react-redux'
+import store from './page/store/index'
 // import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 export default class App extends Component{
-    constructor(props){
-        super(props)
-    }
     render(){
         return(
-            <article className="y-max">
-               <Head/>
-               <Banner/>
-               <Center/>
-               <Footer/>
-            </article>
+
+                <div>
+                    <Provider store={store}>
+                        <Route path="/" exact component={Todlsit}/>
+                    </Provider>
+                </div>
+     
         )
     }
 }
