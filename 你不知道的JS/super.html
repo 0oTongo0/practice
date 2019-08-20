@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		ul .li  ~ .li{
+			color: red;
+		}
+		ol{
+			width: 100px;
+			height: 300px;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+		}
+		ol li:first-child{
+			align-self: flex-end;
+		}
+		ol li:nth-child(2){
+			align-self: center;
+		}
+	</style>
+	<body>
+		
+		<ul>
+			<li class="li">1</li>
+			<p>222</p>
+			<p  class="li">2</p>
+			<li class="li">3</li>
+		</ul>
+		<hr>
+		<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ol>
+	</body>
+	<script type="text/javascript">
+		class Pa {
+			constructor(x,y) {
+			    this.x = x;
+				this.y = y
+			}
+			str(){
+				return '(' + this.x + ', ' + this.y + ')';
+			}
+		} 
+		var b = new Pa(1,2);
+		console.log(b)
+		
+		class Ch extends Pa{
+			constructor(...a){
+				super(...a)
+				console.log(this)
+			}
+		}
+		var c = new Ch(2,3);
+		console.log(c.str())
+		
+		
+		
+		var cle = {
+			a : "大佬",
+			b : "牛逼"
+		}
+// 		for(var key in cle){
+// 			delete cle[key]
+// 		}
+		Object.freeze(cle);
+		cle.a = "00"
+		console.log(cle)
+	</script>
+</html>

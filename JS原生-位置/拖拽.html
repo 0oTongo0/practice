@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#drag{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: aqua;
+			cursor: move;
+			/* margin: 10px; */
+			padding: 10px;
+		}
+	</style>
+	<body>
+		<div id="drag">拖拽</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var drag = document.querySelector("#drag");
+			drag.onmousedown = function(e){
+				 var x = e.clientX - this.offsetLeft; // 获取鼠标在元素位置
+				 var y = e.clientY - this.offsetTop;
+				document.onmousemove = function(e){
+					var dx = e.clientX - x;
+					var dy = e.clientY - y;
+					if(dx < 0){
+						dx = 0;
+					}else if(dx > window.innerWidth - drag.offsetWidth){
+						dx = window.innerWidth - drag.offsetWidth;
+					}
+					if(dy < 0){
+						dy = 0;
+					}else if(dy > window.innerHeight - drag.offsetHeight){
+						dy = window.innerHeight - drag.offsetHeight;
+					}
+					console.log(dx + "=============" + dy)
+				   
+					drag.style.left = dx + "px";
+					drag.style.top = dy + "px";
+			    }
+			    document.onmouseup = function(e){
+					this.onmousedown = null;
+					this.onmousemove = null; 
+				}
+			}
+		}
+		
+		
+		
+		
+	</script>
+</html>

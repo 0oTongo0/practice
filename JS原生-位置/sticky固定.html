@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box{
+			height: 3000px;
+			padding-bottom: 100px;
+		}
+		.header{
+			height: 50px;
+			background: aqua;
+			margin-top: 10px;
+/* 			position: sticky;
+			top: 0; */
+		}
+		.fx{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin-top: 0;
+		}
+		body{
+			position: relative;
+		}
+		.indicator {
+			position: absolute;
+			top: 0; right: 0; left: 0; bottom: 0;
+			background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+			background-size: 100% calc(100% - 100vh);
+			z-index: 1;
+			pointer-events: none;
+			mix-blend-mode: darken;
+		}
+		.indicator::after {
+			content: '';
+			position: fixed;
+			top: 5px; bottom: 0; right: 0; left: 0;
+			background: #fff;
+			z-index: 1;
+		}
+		.box2{
+			height: 100px;
+			background: linear-gradient(to right, white 50%, black 50%);
+			text-align: center;
+			line-height: 100px;
+		}
+		.difference{
+			mix-blend-mode:difference;
+			color: #fff;
+		}
+		.but{
+			width: 50px;
+			height: 50px;
+			background: hotpink;
+		}
+		.but:hover{
+			filter: hue-rotate(20deg);
+		}
+		.text{
+			width: 200px;
+			text-align: justify;
+			/* hyphens: auto; */
+		}
+		dt,dd{
+			display: inline;
+		}
+		dd + dt::before{
+			content: "\A";
+			white-space: pre;
+		}
+		.cursor{
+			width: 50px;
+			height: 50px;
+			border: 1px solid;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<div class="indicator"></div>
+		<div class="box"> 
+			<div class="header">111111</div>
+		</div>
+		<div class="box2">
+			<div class="difference">mix-blend-mode:difference</div>
+		</div>
+		<div class="but" draggable="true">
+		</div>
+		<div class="text">
+			问答法噶暗杀大师法 index-1 法师的萨达萨达是的个发广告没看见卡拉胶贷款利率
+			let 不允许在相同作用内，重复声明同一个变量
+		</div>
+		<hr>
+		<dl>
+			<dt>姓名：</dt>
+			<dd>大佬</dd>
+			<dd>大佬01</dd>
+			<dt>姓名：</dt>
+			<dd>大佬2</dd>
+		</dl>
+		<div class="cursor"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		var header = document.querySelector(".header");
+		window.addEventListener("scroll",function(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			if(scrollTop > header.offsetHeight){
+				header.className = "header fx";
+			}else{
+				header.className = "header";
+			}
+		})
+		
+		var obj = {
+			name:"大佬",
+			age:18
+		}
+		console.log(obj.valueOf())
+		
+		var arr = ["a","b","c"];
+		console.log(arr.slice(1,2),"slice")
+		arr.splice(0,1,"aaa")
+		console.log(arr)
+		
+		function fa(num){
+			if(num <= 1){
+				return 1
+			}else{
+				return num * arguments.callee(num-1); 
+			}
+		}
+		fa(4)
+		
+		
+		
+	</script>
+</html>

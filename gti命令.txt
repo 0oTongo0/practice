@@ -16,4 +16,7 @@ git branch  ==查看当前分支
 git merge dev  ==在master 合并dev
 git merge --no-f -m "注释" dev  ==在master 合并dev
 git branch -d dev  ==删除dev分支
-                                                                                                                                                                                                                                                                                                  
+                             
+
+> .gitignore 创建提交规定   
+echo "a.txt" 或者 “文件名/” >> .gitignore 把“a.xtx” 内容添加到 .gitignore //                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

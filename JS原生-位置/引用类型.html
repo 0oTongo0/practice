@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.box{
+			width: 50px;
+			background: #00FFFF;
+		}
+		.a{
+			height: 0;
+			padding-bottom: 100%;
+		}
+		.box2{
+			width: 10vw;
+			height: 10vw;
+			background: aliceblue;
+			margin-top: 10px;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="a">我的我单位的的</div>
+		</div>
+		<div class="box2"></div>
+	</body>
+	<script type="text/javascript">
+		function displayInfo(args){
+			var output = "";
+			if(typeof args.name == "string"){
+				output += "Name:" + args.name + "\n";
+			}
+			if(typeof args.age == "number"){
+				output += "Age:" + args.age + "\n";
+			}
+			console.log(output);
+		}
+		displayInfo({
+			name : "大佬",
+			age:18
+		})
+		
+		displayInfo({
+			name : "大佬2",
+			age:18
+		})
+		
+		
+		var name = "the  window";
+		var obj = {
+			name : "内部",
+			getname : function(){
+				return function(){
+					return this.name
+				}
+			}
+		}
+		console.log(obj.getname()())
+		
+		var  color = "blue";
+		function chang(){
+			if(color === "blue"){
+				color = "red";
+			}else{
+				color = "aaaa"
+			}
+		}
+		chang();
+		console.log(color)
+		
+		
+		
+		var length = 10;
+		var fn1 = () => console.log(this.length,"f1")
+		var fn2 = function(){
+			console.log(this.length,"f2")
+		}
+		var arr = [fn1,fn2];
+		fn1()
+		fn2()
+		arr[0]();
+		arr[1]();
+		
+		var a = {n:1};
+		var b = a;
+		a.x = {n:2};
+		a = {n:2};
+		console.log(a,b)
+		
+		var arr2 = [5,6,4,7,145,6,4,1,2,454];
+		var a = arr2.sort(function(value1,value2){
+			if (value1 > value2) {
+				return 1;
+			}else if (value1 == value2) {
+				return 0;
+			} else {
+				return -1;
+			}
+		})
+		console.log(a)
+	</script>
+</html>

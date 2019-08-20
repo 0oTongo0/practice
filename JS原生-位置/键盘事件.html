@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dd">点我</div>
+	</body>
+	<script type="text/javascript">
+		var dd = document.querySelector("#dd");
+		dd.addEventListener("click",function(e){
+			if(e.shiftKey){
+				console.log("s")
+			}
+			if(e.ctrlKey){
+				console.log("c")
+			}
+			if(e.altKey){
+				console.log("a")
+			}
+		})
+		
+		document.addEventListener("mousewheel",function(e){
+			console.log(e.wheelDelta + "======" + e.detail)
+		})
+		window.addEventListener("DOMMouseScroll",function(e){
+			console.log(e + "======" + e.detail)
+		})
+	</script>
+</html>

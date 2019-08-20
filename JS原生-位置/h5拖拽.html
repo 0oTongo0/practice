@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#source{
+			/* position: absolute; */
+			width: 100px;
+			height: 100px;
+			background: aqua;
+			cursor: move;
+			/* margin: 10px; */
+			padding: 10px;
+		}
+		#target{
+			width: 300px;
+			height: 300px;
+			border: 1px solid;
+			margin: 50px;
+		}
+	</style>
+	<body>
+		<div id="source" draggable="true">拖拽</div>
+		<div id="target"></div>
+	</body>
+	<script type="text/javascript">
+		var source = document.querySelector("#source");
+		var target = document.querySelector("#target");
+		source.ondragstart = function(e){
+			console.log(e,"开始");
+			e.dataTransfer.setData("text",e.target.id)
+		}
+		source.ondrag = function(){
+			console.log("进行中")
+		}
+		source.ondragend = function(){
+			console.log('结束')
+		}
+		
+		target.ondragenter  = function(e){
+			console.log("进入",e);
+		}
+		target.ondragover = function(e){
+			console.log("在目标元素中拖拽",e)
+			event.preventDefault();
+		}
+		target.ondragleave  = function(e){
+			console.log("离开目标元素",e)
+		}
+		target.ondrop  = function(e){
+			console.log('拖放',e)
+			var data = e.dataTransfer.getData("text");
+			console.log(data,"000000000000")
+			e.target.appendChild(document.getElementById(data))
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	function nine (num) {
+		for(var i = 1; i <= num; i++){
+			var str = '';
+			 for(var k = 1; k <= num; k++){
+				if(i >= k){
+					str += k + 'x' + i + '=' + i*k + ' ';
+				}
+			}
+			console.log(str)
+		}
+	}
+	nine(9)
+	
+	
+	</script>
+</html>

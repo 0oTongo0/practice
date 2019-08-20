@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+			background: repeating-linear-gradient(180deg,aqua 0px,aqua 4px,#fff 4px, #fff 8px);
+		}
+		div{
+				font-size: 16px;
+				font-family: simsun;
+				/* margin: 12px; */
+		}
+		div:after{
+			content: "\21c4";
+		}
+	</style>
+	<body>
+	</body>
+		<div>
+			看看多大
+		</div>
+	<script>
+		var adder = {
+			base : 1,
+			addThruCall : function f(a){
+				var f = function(v){
+					return v + this.base;
+				};
+				var b = {
+					base : 2
+				};
+				return f.call(b,a);
+			}
+		}
+		console.log(adder.addThruCall(1))
+		var str = `换行\t怎么样`;
+		var d = document.querySelector("div");
+		d.innerText = str
+		
+		let foo = "000Q000";
+		function bar(func = () => foo){
+			let foo = "000A000";
+			console.log(func());
+		}
+		bar()
+		
+		function num(a){
+			var num = a;
+			return function(x){
+				return x + num
+			}
+		}
+		var aa = num(5);
+		console.log(aa(2))
+	</script>
+</html>

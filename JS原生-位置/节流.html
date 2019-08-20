@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+            height: 200px; 
+			line-height: 200px; 
+			text-align: center; 
+			color: #fff; 
+			background-color: #444; 
+			font-size: 30px;
+        }
+		.box{
+			display: flex;
+		}
+		.l{
+			width: 50px;
+			word-break: break-all;
+		}
+		.r{
+			border-left: 1px solid;
+			flex: 1;
+		}
+		.bo2{
+			width: 100px;
+			text-align: center;
+		}
+		.bo2>div{
+			display: inline-block;
+			text-align: left;
+			word-break: break-all;
+		}
+	</style>
+	<body>
+		<div id="container">0</div>
+		<div class="box">
+			<div class="l">dadawdda</div>
+			<div class="r">2</div>
+		</div>
+		<div class="bo2">
+			<div>
+				大师的撒
+				dsadasdadadadad
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var count = 1;
+		var container = document.getElementById("container")
+		function getUserAction(e){
+			container.innerHTML = count ++;
+			
+		}
+// 		function throttle(f,w){
+// 			var context,arg;
+// 			var previous = 0;
+// 			return function(){
+// 				var now = +new Date();
+// 				context = this;
+// 				arg = arguments;
+// 				console.log(arg,"aa")
+// 				if(now - previous > w){
+// 					f.apply(context,arg);
+// 					previous = now;
+// 				}
+// 			}
+// 		}
+
+		function throttle(f,w){
+			var time;
+			var previous = 0;
+			return function(){
+				context = this;
+				arg = arguments;
+				if(!time){
+					time = setTimeout(function(){
+						time = null;
+						f.apply(context,arg)
+					},w)
+				}
+			}
+		}
+
+		container.onmousemove = throttle(getUserAction,3000);
+
+// 		function Person(name = "3号"){
+// 			this.name = name
+// 		}
+// 		Person.prototype.name = "大佬一号";
+// 		var person = new Person();
+// 		console.log(person.name)
+		
+		
+		function foo(){
+			function bar(a){
+				var i = 3;
+				console.log(a + i);
+			}
+			for(var i=0; i<10; i++){
+				bar(i * 2);
+			}
+		}
+		foo()
+		
+		
+		var undefined = true;
+		(function(undefined){
+			var a;
+			if(a == undefined){
+				console.log("a")
+			}
+		})()
+		
+		
+		var foo = true;
+		if(foo){
+			var bar = foo*2;
+			console.log(bar)
+		}
+	</script>
+</html>
