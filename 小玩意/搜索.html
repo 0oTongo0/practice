@@ -124,11 +124,15 @@
 			 y.style.left = e.clientX + "px";
 			 y.style.top = e.clientY - document.querySelector('.y').offsetHeight + "px";
 			 y.style.display = "block";
+			 y.addEventListener('animationend', function () {
+			     y.parentNode.removeChild(y);
+			 });
 		}
-		setInterval(function(){
-			 if(document.querySelector('.y')){
-				 document.body.removeChild(document.querySelector('.y'))
-			 }
-		},2000)
+// 		setInterval(function(){
+// 			 if(document.querySelector('.y')){
+// 				 document.body.removeChild(document.querySelector('.y'))
+// 			 }
+// 		},2000)
+
 	</script>
 </html>
