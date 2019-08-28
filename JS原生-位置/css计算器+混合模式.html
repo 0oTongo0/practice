@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.name{
+			counter-reset: jsq;
+		}
+		li:before{
+			counter-increment: jsq;
+			content: counters(jsq,'.');
+		}
+		.box{
+			width: 100px;
+			height: 200px;
+			position: relative;
+		}
+		.red{
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgb(0, 226, 110);
+			position: absolute;
+			z-index: -1;
+		}
+		.gree{
+			width: 100%;
+			height: 100%;
+			top: 0;
+			position: absolute;
+			background: rgb(255, 255, 255);
+			/* difference 相减*/
+			mix-blend-mode: difference;
+		}
+		.aa{
+			width: 100px;
+			height: 100px;
+			background: rgb(226,226,6);
+			margin-top: 10px;
+		}
+		.max{
+			position: relative;
+			margin: 10px auto;
+			width: 800px;
+			height: 200px;
+			background: #fff;
+			filter: contrast(30);
+		}
+		.max span{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			left: 50%;
+			top: 30%;
+			background: hotpink;
+			border-radius: 50%;
+			filter: blur(5px);
+		}
+		.max span:first-child{
+			transform: translateX(0px);
+			animation: dd 2s ease-in infinite alternate;
+		}
+		.max span:last-child{
+			transform: translateX(0px);
+			animation: ww 2s ease-in infinite alternate;
+		}
+		@keyframes dd{
+			0%{
+				transform: translate(0);
+			}
+			100%{
+				transform: translateX(-100px);
+			}
+		}
+		
+		@keyframes ww{
+			0%{
+				transform: translate(0);
+				
+			}
+			100%{
+				transform: translateX(100px);
+			}
+		}
+	</style>
+	<body>
+		<ul class="name">
+			<li>大佬
+				<ul class="name">
+					<li>下一级</li>
+				</ul>
+			</li>
+			<li>大佬2号
+				<ul class="name">
+					<li>下一级</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="box">
+			<p>1111111</p>
+			<div class="red">
+			</div>
+			<div class="gree"></div>
+		</div>
+		<div class="aa" draggable="true"> 
+			
+		</div>
+		<div class="max">
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var name = "我的";
+		var name2 = name;
+		name2 = "你的";
+		console.log(name2)
+	</script>
+</html>

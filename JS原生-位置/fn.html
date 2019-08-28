@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function addTem(b){
+			b += 10
+			return b;
+		}
+		var b = 20;
+		var s = addTem(b);
+		console.log(b,"b");
+		console.log(s,"s");
+		
+		
+		
+		var c = ["a","b","c"];
+		c.length = c.length - 1;
+		console.log(c[2]);
+		if(Array.isArray(c)){
+			console.log("yes")
+		}
+		
+		
+		var a = ["a","b","c"];
+		console.log(a.toString() + "===类型===" + typeof a.toString())
+		console.log(a.valueOf() + "===类型===" + typeof a.valueOf())
+	</script>
+</html>

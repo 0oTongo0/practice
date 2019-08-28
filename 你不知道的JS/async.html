@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+	<body>
+	</body>
+	<script type="text/javascript">
+// 		function timeout(ms){
+// 			return new Promise((res,reject) =>{
+// 				console.log(res + '==========' + reject);
+// 				setTimeout(res,ms)
+// 			})
+// 		}
+// 		async function as(value,ms){
+// 			await timeout(ms);
+// 			console.log(value);
+// 		}
+// 		as("大佬",3000)
+
+// function timeout(ms){
+// 	return new Promise((res,rej) =>{
+// 		setTimeout(res,ms,'111111111');
+// 	})
+// }
+// timeout(3000).then((value) =>{
+// 	console.log(value)
+// })
+
+
+
+function logimg(url){
+	return new Promise((res,rej) => {
+		const image = new Image();
+		image.onload = function(){
+			res(image);
+		};
+		image.onerror = function(){
+			rej(new Error("出错"))
+		};
+		image.src = url;
+		document.body.appendChild(image)
+	})
+}
+logimg('http://img1.imgtn.bdimg.com/it/u=1563980539,1672265910&fm=26&gp=0.jpg')
+
+
+const getJSON = function(url){
+	// debugger;
+	const promise = new Promise((res,rej) => {
+		const handle = function(){
+			if(this.readyState !== 4) return;
+			if(this.status === 200){
+				console.log(this,"=================");
+				res(this.responseText);
+			}else{
+				rej(new Error(this.statusText))
+			}
+		}
+		const xhr = new XMLHttpRequest;
+		xhr.open("GET",url);
+		xhr.send();
+		
+		xhr.onreadystatechange = handle;
+	})
+	return promise;
+} 
+	getJSON("https://api.apiopen.top/searchMusic?name='大都会'").then((res) =>{
+		console.log(res)
+	},(err) =>{
+		console.log(err)
+	})
+	
+	const p1 = new Promise((res,rej) =>{
+		setTimeout(() => rej(new Error("0.0.0")),3000);
+	});
+	const p2 = new Promise((res,rej) =>{
+		setTimeout(() => res(p1),1000);
+	});
+	p2.then(res => console.log(res))
+	.catch(err => console.log(err))
+</script>
+</html>

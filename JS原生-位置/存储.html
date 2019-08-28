@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		sessionStorage.setItem("name","dalao");
+		for(var i=0,len = sessionStorage.length; i<len; i++){
+			var key = sessionStorage.key(i);
+			var value = sessionStorage.getItem(key);
+			console.log(key + "=====" +value)
+		}
+		
+		
+		var request,detabase;
+		request = indexedDB.open("admin2");
+		request.onerror = function(event){
+			console.log("打开失败")
+		}
+		request.onsuccess = function(event){
+			detabase = request.result;
+			console.log("打开成功")
+		}
+	</script>
+</html>

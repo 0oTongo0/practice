@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			height: 1000px;
+		}
+		img{
+			display: block;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+		<div>
+			<img src="" data="imgs/sm.jpg">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var imgs = document.querySelectorAll('img');                                             																// 有问题↓  总体高度
+	    document.addEventListener("scroll",function(e){
+			var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+			console.log("可视区域", clientHeight);
+			var scrollTop= window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+			console.log("卷曲区域", scrollTop);
+			for(var i=0; i<imgs.length; i++){
+				var y = clientHeight + scrollTop - imgs[i].offsetTop;
+				console.log(y + "===============" + imgs[i].offsetTop + "----------------" + (clientHeight + scrollTop ))
+				if(y > 0 && y < clientHeight + imgs[i].height){
+					imgs[i].src = imgs[i].getAttribute('data')
+				}
+			}
+		})
+	</script>
+</html>

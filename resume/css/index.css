@@ -6,18 +6,6 @@ html, body {
 html {
   font-size: 16px; }
 
-::-webkit-scrollbar {
-  width: 4px;
-  background-color: #F5F5F5; }
-
-::-webkit-scrollbar-thumb {
-  background: -webkit-gradient(linear, left bottom, left top, from(#00c3ff), to(#ffff1c));
-  background: -webkit-linear-gradient(bottom, #00c3ff, #ffff1c);
-  background: linear-gradient(to top, #00c3ff, #ffff1c); }
-
-::-webkit-scrollbar-track {
-  background-color: #fff; }
-
 .bf_af, .resume-center > div:before, .resume-center > div:after {
   position: absolute;
   width: 1.875rem;
@@ -276,3 +264,21 @@ html {
         position: static; }
       .resume .resume-center .experience ul li p {
         color: rgba(255, 255, 255, 0.84); } }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(16, 22, 56, 0.82); }
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(16, 22, 56, 0.82);
+  /* border: 1px solid #ccc; */ }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #484b5b;
+  /* border: 1px solid #aaa; */ }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff; }

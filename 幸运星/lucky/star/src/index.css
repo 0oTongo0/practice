@@ -18,6 +18,9 @@ html,body,#root{
   height: 100%;
   overflow: hidden;
 }
+#root>div{
+  height: 100%;
+}
 input:-webkit-autofill {
   -webkit-box-shadow : 0 0 0px 1000px #2e2e2e inset !important;
   -webkit-text-fill-color: #FFFFFF !important;
@@ -134,7 +137,9 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
     text-align: center;
     line-height: 100px;
     margin: 0 auto 30px; 
-    border: 1px solid #00794c;
+    /* border: 1px solid #00794c; */
+    text-indent: -9999px;
+    background: url('img/logo.png') no-repeat center/contain;
 }
 .login > form .input-box{
   margin-bottom: 32px;
@@ -170,7 +175,17 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
 .login > form .input-box input::-webkit-input-placeholder{
   color: #fff;
 }
-.login > form .input-box::before{
+/* .login > form .input-box::before{
+  content: "";
+  width: 0%;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #47cf73;
+  right: 0;
+  transition: all 0.3s;
+} */
+.login > form .input-box i{
   content: "";
   width: 0%;
   position: absolute;
@@ -180,7 +195,12 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
   right: 0;
   transition: all 0.3s;
 }
-.login > form .input-box:focus-within::before{
+/* .login > form .input-box:focus-within::before{
+  width: 100%;
+  left: 0;
+  transition: all 0.3s;
+} */
+.login > form input:focus ~ i{
   width: 100%;
   left: 0;
   transition: all 0.3s;
@@ -205,18 +225,20 @@ input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*
 /* 提示 */
 .err{
   position: fixed;
-  padding: 6px 20px;
+  padding: 0 20px;
   background: #00794c;
   font-size: 14px;
   color: #fff;
   top: -30px;
   height: 30px;
+  line-height: 30px;
   opacity: 0;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 30px;
   box-sizing: border-box;
   animation: err .3s  linear forwards;
+  letter-spacing: 2px;
 }
 @keyframes err{
   0%{

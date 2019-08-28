@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea>顶顶1顶2顶3顶4顶6顶5顶顶顶顶顶顶顶顶</textarea>
+	</body>
+	<script type="text/javascript">
+		var t = document.querySelector("textarea");
+		t.addEventListener("select",function(){
+			console.log(t.value.substring(t.selectionStart,t.selectionEnd))
+		})
+	</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.img{
+			display: block;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			animation: 2s dd reverse infinite;
+		}
+		@keyframes dd{
+			0%{
+				clip-path: circle(100% at 50% 50%);
+			}
+			25%{
+				clip-path: circle(20% at 50% 50%);
+			}
+			50%{
+				clip-path: circle(10% at 20% 40%);
+			}
+			75%{
+				clip-path: circle(10% at 30% 20%);
+			}
+			100%{
+				clip-path: circle(20% at 50% 50%);
+			}
+		}
+	</style>
+	<body>
+		<img srcset="
+		imgs/1.jpg 2x,
+		imgs/sm.jpg 3x,
+		
+        "
+sizes=" (max-width: 360px) 200px,(max-width: 480px) 300px,400px" 
+		class="img"
+		>
+			
+	</body>
+</html>

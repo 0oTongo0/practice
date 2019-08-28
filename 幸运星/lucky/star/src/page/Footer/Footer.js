@@ -4,7 +4,7 @@ var userList = [
     {
       id: 1,
       text: '首页',
-      link: "/home"
+      link: "/"
     }, {
       id: 2,
       text: '查看',

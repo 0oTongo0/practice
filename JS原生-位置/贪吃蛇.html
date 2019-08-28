@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.map{
+			width: 600px;
+			height: 600px;
+			position: relative;
+			background: #F4F4F4;
+		}
+	</style>
+	<body>
+		<div class="map"></div>
+	</body>
+	<script type="text/javascript">
+		var map = document.querySelector(".map");
+		// map.offsetWidth
+		(function(){
+			function Foot(w,h,c,x,y){
+				this.width = w || 20;
+				this.height = h || 20;
+				this.color = c || "aqua";
+				this.x = x;
+				this.y = y;
+			}
+			var elm = [];
+			Foot.prototype.init = function(map){
+				rm()
+				var div = document.createElement("div");
+				map.appendChild(div)
+				this.x = parseInt(Math.random() * (map.offsetWidth/this.width)) * this.width;
+				this.y = parseInt(Math.random() * (map.offsetHeight/this.height)) * this.height;
+				div.style.position = "absolute";
+				div.style.width = this.width + "px";
+				div.style.height = this.height + "px";
+				div.style.backgroundColor = this.color;
+				div.style.left = this.x + "px";
+				div.style.top = this.y + "px";
+				elm.push(div)
+				console.log(this.x + "==x====y==" + this.y + "多少个e=====" + elm.length);
+			}
+			function rm(){
+				for(var i=0; i<elm.length; i++){
+					map.removeChild(elm[i])
+					elm.splice(i,1);
+				}
+			}
+			window.Foot = Foot;
+		})()
+		
+		
+		(function(){
+			function Sn(w,h,x,y){
+				this.width = w || 20;
+				this.height = h || 20;	
+				this.body = [
+					{x:3,y:2,color:"hotpink"},
+					{x:2,y:2,color:"gold"},
+					{x:1,y:2,color:"gold"},
+				]
+			}
+			var elm = [];
+			Sn.prototype.init = function(map){
+				var i = this.body.length - 1;
+				for(i;i>0;i--){
+					var div = document.createElement("div");
+					map.appendChild(div)
+					div.style.position = "absolute";
+					div.style.width = this.width + "px";
+					div.style.height = this.height + "px";
+					div.style.backgroundColor = this.body[i].color;
+					div.style.left = this.body[i].x * this.width + "px";
+					div.style.top = this.body[i].y * this.height + "px";
+					elm.push(div)
+				}
+			}
+			window.Sn = Sn;
+			})()
+		
+		
+		// ()()
+		var f = new Foot();
+		f.init(map);
+		
+// 		var s = new Sn();
+// 		s.init(map);
+
+
+		// console.log(navigator.userAgent)
+	</script>
+</html>

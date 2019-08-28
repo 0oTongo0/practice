@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#container{
+            height: 200px; 
+			line-height: 200px; 
+			text-align: center; 
+			color: #fff; 
+			background-color: #444; 
+			font-size: 30px;
+        }
+	</style>
+	<body>
+		<div id="container">0</div>
+	</body>
+	<script type="text/javascript">
+		var count = 1;
+		var container = document.getElementById("container")
+		function getUserAction(e){
+			container.innerHTML = count ++;
+		}
+		function debounce(f,w){
+			var time;
+			return function(){
+				console.log(this);
+				var context = this;
+				var arg = arguments;
+				clearTimeout(time);
+				time = setTimeout(function(){
+					f.apply(context,arg)
+				},w); 
+			}
+		}
+		container.onmousemove = debounce(getUserAction,1000);
+	</script>
+</html>

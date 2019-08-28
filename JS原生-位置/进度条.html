@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			.uu{
+				margin: 50px;
+				position: relative;
+				display: flex;
+				align-items: center;
+				width: 400px;
+				height: 60px;
+				cursor: pointer;
+				/* overflow: hidden; */
+			}
+			.uu li{
+				flex: 1;
+				height: 1px;
+				background: #212933;
+				position: relative;
+			}
+/* 			.uu li:last-child{
+				max-width: 0;
+			} */
+			.uu li:last-of-type{
+				max-width: 0;
+			}
+			.uu li:last-of-type::before{
+				left: -4px;
+			}
+			.uu li::before{
+				content: "";
+				width: 6px;
+				height: 6px;
+				background: #414959;
+				position: absolute;
+				left: 0px;
+				top: 50%;
+				transform: translateY(-50%);
+				background-size: contain;
+				border-radius: 50%;
+				box-sizing: border-box;
+				z-index: 2;
+			}
+/* 			.uu li.active{
+				background: #2eb8f7;
+			} */
+			.uu li.active::before{
+				background: #fff;
+				width: 8px;
+				height: 8px;
+				border: 2px solid #2eb8f7;
+				
+			}
+			.uu .icon{
+				left: 0;
+				right: 0;
+				height: 1px;
+				position: absolute;
+				background-image: linear-gradient(#2eb8f7,#2eb8f7);
+				background-position: 0;
+				background-repeat: no-repeat;
+				z-index: 0;
+				background-size: 0 0;
+			}
+			.uu .text{
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding:0 4px;
+				height: 20px;
+				line-height: 20px;
+				background: #ccc;
+				text-align: center;
+				color: red;
+				border-radius: 4px;
+				display: none;
+				transform: translateX(-50%);
+				font-size: 12px;
+			}
+			.uu .text::after{
+				content: "";
+				border: 6px solid transparent;
+				border-bottom-width: 0;
+				border-top-color: #ccc;
+				position: absolute;
+				bottom: -4px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			section{
+				height: 400px;
+				background: #CCCCCC;
+			}
+			aside{
+				float: left;
+				width: 300px;
+				background: #00FFFF;
+			}
+			main{
+				overflow: auto;
+				background: #666666;
+			}
+			.fc{
+				-webkit-text-fill-color:transparent; 
+				-webkit-background-clip: text;
+				background-image:linear-gradient(to right, red, orange); 	
+				background-size: 200% 100%;
+				animation: col 5s infinite linear;
+			}
+			@keyframes col{
+				0%{
+					background-position: 0% 0%;
+				}
+				100%{
+					background-position: -100% 0%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="uu">
+			<!-- 添加active -->
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<i class="icon"></i>
+			<span class="text">11</span>
+		</ul>
+		<section>
+			<aside>
+				<div>左</div>
+				<div>左</div>
+				<div>左</div>
+			</aside>
+			<main>
+				右
+			</main>
+		</section>
+		<div class="fc">
+			孜自治州字字字字字字字
+		</div>
+	</body>
+	<script type="text/javascript">
+		var icon = document.querySelector(".icon");
+		var uu = document.querySelector(".uu");
+		var text = document.querySelector(".text");
+		var list = uu.querySelectorAll("li");
+		var x = uu.offsetLeft;
+		var w = uu.offsetWidth;	
+		uu.addEventListener("mouseover",function(e){
+			var size = parseInt((e.clientX - x) / w * 100);
+			text.style.display = "block";
+			text.innerText = size + "%";
+		})
+		uu.addEventListener("mousemove",function(e){
+			var size = parseInt((e.clientX - x) / w * 100);
+			text.style.left = size + "%";
+			icon.style.backgroundSize = `${size}% 1px`;		
+			console.log((e.clientX - x) +" ================"+ w + "----------------"+ e.clientX);
+			text.innerText = size + "%";
+			if(size >= 0){
+				list[0].classList = "active"
+			}
+			if(size >= 25){
+				list[1].classList = "active"
+			} else if(size < 25){
+				list[1].classList = ""
+			}
+			if(size >= 50){
+				list[2].classList = "active"
+			} else if(size < 50){
+				list[2].classList = ""
+			}
+			if(size >= 75){
+				list[3].classList = "active"
+			}else if(size < 75){
+				list[3].classList = ""
+			}
+			if(size >= 100){
+				list[4].classList = "active"
+			}else if(size < 100){
+				list[4].classList = ""
+			}
+		})
+		uu.addEventListener("mouseout",function(e){
+			var size = parseInt((e.clientX - x) / w * 100);
+			text.style.display = "none";
+			text.innerText = size + "%";
+		})
+		
+		
+		
+
+	</script>
+</html>

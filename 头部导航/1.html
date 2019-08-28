@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html,body{
+			height: 100%;
+		}
+		a[href]{
+			text-decoration: none;
+		}
+		li{
+			list-style: none;
+		}
+		.hide{
+			display: none !important;
+		}
+		.show{
+			display: block !important;
+		}
+		.nav-box{
+			position: relative;
+			background: transparent;
+			z-index: 3;
+		}
+		.nav-log{
+			display: block;
+			width: 100px;
+		}
+		.nav-top,.nav-fot{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 0 auto;
+			max-width: 1248px;
+			padding: 0 24px;
+			height: 72px;
+		}
+		.nav-top{
+			display: none;
+		}
+		.nav-top h1,.nav-fot h1{
+			cursor: pointer;
+			padding-left: 26px;
+		}
+		.navbar{
+			height: 72px;
+			width: 72px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+		.navbar span{
+			border-radius: 2px;
+			display: inline-block;
+			height: 2px;
+			position: relative;
+			transition: 0.2s ease-in-out;
+			width: 24px;
+			background: #00112C;
+		}
+		.navbar span::before,.navbar span::after{
+			background: #00112C;
+			border-radius: 2px;
+			content: '';
+			display: inline-block;
+			height: 2px;
+			left: 0;
+			position: absolute;
+			transform-origin: 2px center;
+			transition: 0.2s ease-in-out;
+			width: 100%;
+		}
+		.navbar span::before{
+			top: 6px;
+		}
+		.navbar span::after{
+			top: -6px;
+		}
+		.navbar-active span{
+			background: #fff;
+		}
+		.navbar-active span::before{
+			transform: rotate(45deg);
+			top: 0;
+			transform-origin: 50% 50%;
+		}
+		.navbar-active span::after{
+			transform: rotate(-45deg);
+			top: 0;
+			transform-origin: 50% 50%;
+		}
+		.nav-log-l{
+			display: flex;
+			align-items: center;
+		}
+		.nav-fot h1{
+			margin-right: 20px;
+		}
+		.nav-fot-ceter{
+			margin: 0 auto 0 0;
+			display: flex;
+		}
+		.nav-fot-ceter>li{
+			margin-right: 32px;
+			height: 72px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+		.nav-fot-ceter>li::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 3px;
+			background: #0ABF53;
+			opacity: 0;
+			transition: all .2s;
+		}
+		.nav-fot-ceter>li:hover::before{
+			opacity: 1;
+		}
+		.nav-fot-ceter>li>a{
+			padding: 12px 0;
+			position: relative;
+			cursor: pointer;
+			color: inherit;
+		}
+		.nav-fot-ceter>li>a i{
+			border-style: solid;
+			border-width: 2px 2px 0 0;
+			display: inline-block;
+			height: 8px;
+			position: absolute;
+			transform: rotate(135deg);
+			transition: transform .3s;
+			vertical-align: top;
+			width: 8px;
+			right: -14px;
+			top: 50%;
+			margin-top: -3px;
+			color: inherit;
+		}
+		.nav-fot-right{
+			display: flex;
+			align-items: center;
+		}
+		.nav-fot-right li{
+			margin-left: 26px;
+			padding: 20px 0;
+			cursor: pointer;
+		}
+		.nav-fot-right li .icon-search{
+			display: inline-block;
+			vertical-align: middle;
+			background: url(img/search.png) no-repeat center/ contain;
+			width: 14px;
+			height: 14px;
+		}
+		.nav-fot-right li .but{
+			color: #fff;
+			background-color: #0ABF53;
+			border-color: #0ABF53;
+			padding: 12px;
+			border-radius: 4px;
+		}
+		.list-box{
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 72px;
+			display: none;
+		}
+		.nav-fot-list{
+			width: 1248px;
+			margin: 0 auto;
+			background: #fff;
+			display: flex;
+			font-size: 14px;
+			border-radius:  0 0 4px 4px;
+			overflow: hidden;
+		}
+		.list-box .list-l{
+			flex: 0 0 25%;
+		}
+		.list-box .list-l>div{
+			padding: 48px;
+		}
+		.list-box .list-l>div h3{
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 34px;
+			margin-bottom: 12px;
+			color: #333;
+		}
+		.list-box .list-r{
+			flex: 1;
+			display: flex;
+		}
+		.list-box .list-r>div{
+			flex: 0 0 33.333%;
+			padding: 48px;
+			padding-left: 0;
+			color: #333;
+		}
+		.list-box .list-r>div:last-child{
+			padding-left: 48px;
+			background: #f3f6f9;
+		}
+		.list-box .list-r>div h4{
+			line-height: 34px;
+			font-size: 16px;
+		}
+		.list-box .list-r>div li{
+			margin-bottom: 12px;
+		}
+		.list-box .list-r>div a{
+			color: #0ABF53;
+			font-weight: 500;
+			font-size: 16px;
+		}
+		.list-box .list-r>div a:hover{
+			text-decoration: underline;
+		}
+		.body-active::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #00112C;
+			opacity: .8;
+			z-index: 2;
+		}
+		.body-active .navbar-active span{
+			background: transparent;
+		}
+		.body-active .navbar span::before,.body-active .navbar span::after{
+			background: #fff;
+		}
+		.body-active .nav-fot-ceter, .body-active .nav-fot-right{
+			background: #fff;
+		}
+		@media (max-width: 1247.98px){
+			.nav-fot{
+				display: none;
+			}
+			.nav-top{
+				display: flex;
+			}
+			.nav-fot{
+				width: 50%;
+				position: absolute;
+				right: 0;
+				padding: 0;
+				height: calc(100vh - 72px);
+				border-radius: 3px 0 0 0;
+				background: #fff;
+				flex-direction: column;
+				justify-content: flex-start;
+				overflow: hidden;
+			}
+			.nav-fot-ceter{
+				width: 100%;
+				margin: 0;
+				flex-direction: column;
+			}
+			.nav-fot-ceter>li{
+				margin-right: 0px;
+			}
+			.list-box{
+				width: 50%;
+				right: 0;
+				left: auto;
+				padding-left: 30px;
+				bottom: 0;
+				overflow: auto;
+				background: #fff;
+				z-index: 2;
+			}
+			.nav-fot-right{
+				width: 100%;
+				flex-direction: column;
+			}
+			.nav-fot-ceter>li>a{
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				padding: 0 30px;
+			}
+			.nav-fot-ceter>li>a i{
+				right: 30px;
+				transform: rotate(45deg);
+			}
+			.nav-fot-ceter>li:hover::before{
+				opacity: 0;
+			}
+			.nav-fot-list{
+				width: 100%;
+				flex-direction: column;
+			}
+			.list-box .list-r{
+				display: flex;
+				flex-direction: column;
+			}
+			.list-box .list-l>div{
+				padding-left: 0;
+				color: #333;
+			}
+			.nav-fot-right li{
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				padding: 20px 30px;
+				margin-left: 0;
+			}
+			.nav-fot h1{
+				display: none;
+			}
+			.list-box .list-r>div:last-child{
+				padding: 0;
+				background: #fff;
+			}
+			.list-box .list-r>div{
+				padding: 0;
+			}
+		}
+	</style>
+	<body>
+		<nav class="nav-box">
+			<!-- 隐藏 hide 出现 show -->
+			<div class="nav-top">
+				<h1>
+					<img src="img/log.png" class="nav-log">
+				</h1>
+				<!-- 点击添加 navbar-active-->
+				<div class="navbar">
+					<span></span>
+				</div>
+			</div>
+			<div class="nav-fot">
+				<h1>
+					<img src="img/log.png" class="nav-log">
+				</h1>
+				<ul class="nav-fot-ceter">
+					<li class="list">
+						<a>
+							我们的方案
+							<i></i>
+						</a>
+						<div class="list-box">
+							<div class="nav-fot-list">
+								<div class="list-l">
+									<div>
+										<h3>我们的方案</h3>
+										<p>单一支付平台，可在任何设备上随时随地接受付款</p>
+									</div>
+								</div>
+								<div class="list-r">
+									<div>
+										<h4>制品</h4>
+										<ul>
+											<li>
+												<a href="">在线支付</a>
+												<p>在线接收付款所需的一切</p>
+											</li>
+											<li>
+												<a href="">销售点</a>
+												<p>店内支付和终端</p>
+											</li>
+											<li>
+												<a href="">交易市场</a>
+												<p>灵活的市场支付解决方案</p>
+											</li>
+											<li>
+												<a href="">统一商务</a>
+												<p>在任何渠道上创造最佳客户体验</p>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4>特征</h4>
+										<ul>
+											<li>
+												<a href="">全球收购</a>
+												<p>世界各地的本地支付连接</p>
+											</li>
+											<li>
+												<a href="">支付方式</a>
+												<p>在世界任何地方提供关键支付方式</p>
+											</li>
+											<li>
+												<a href="">风险管理</a>
+												<p>使用数据保护您的业务</p>
+											</li>
+											<li>
+												<a href="">收入优化</a>
+												<p>优化付款以获得更多收入</p>
+											</li>
+											<li>
+												<a href="">客户见解</a>
+												<p>来自所有渠道和位置的数据丰富的见解</p>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4>我们如何工作</h4>
+										<ul>
+											<li>
+												<a href="">你和我们一起旅行</a>
+												<p>与我们的团队和技术合作是什么感觉</p>
+											</li>
+											<li>
+												<a href="">伙伴生态系统</a>
+												<p>Adyen支持的平台和集成商</p>
+											</li>
+											<li>
+												<a href="">价钱</a>
+												<p>所有企业的透明定价</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="list">
+						<a>
+							顾客
+						</a>
+					</li>
+					<li class="list">
+						<a>
+							关于我们
+							<i></i>
+						</a>
+						<div class="list-box">
+							<div class="nav-fot-list">
+								<div class="list-l">
+									<div>
+										<h3>关于我们</h3>
+										<p>我们从头开始构建支付平台，以帮助快速增长的业务</p>
+									</div>
+								</div>
+								<div class="list-r">
+									<div>
+										<h4>探索</h4>
+										<ul>
+											<li>
+												<a href="">我们的故事</a>
+												<p>发现我们是谁</p>
+											</li>
+											<li>
+												<a href="">销售点</a>
+												<p>店内支付和终端</p>
+											</li>
+											<li>
+												<a href="">新闻和媒体</a>
+												<p>新闻，公司信息和资源</p>
+											</li>
+											<li>
+												<a href="">投资者关系</a>
+												<p>新闻和资源</p>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4>&nbsp;</h4>
+										<ul>
+											<li>
+												<a href="">招聘</a>
+												<p>加入我们的团队</p>
+											</li>
+											<li>
+												<a href="">联系我们</a>
+												<p>我们在这里提供帮助</p>
+											</li>
+										</ul>
+									</div>
+									<div>
+										<h4>资源</h4>
+										<ul>
+											<li>
+												<a href="">知识中心</a>
+												<p>免费资源和培训</p>
+											</li>
+											<li>
+												<a href="">博客</a>
+												<p>付款博客获取新闻和见解</p>
+											</li>
+											<li>
+												<a href="">通讯</a>
+												<p>将付款新闻发送到您的收件箱</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="list">
+						<a>
+							文档
+							<i></i>
+						</a>
+					</li>
+				</ul>
+				<ol class="nav-fot-right">
+					<li>
+						<i class="icon-search"></i>
+					</li>
+					<li>
+						联系我们
+					</li>
+					<li>
+						登录
+					</li>
+					<li>
+						<a class="but">
+							创建测试账户
+						</a>
+					</li>
+				</ol>
+			</div>
+		</nav>
+		<div>11111111111111</div>
+	</body>
+	<script type="text/javascript">
+		var navbar = document.querySelector(".navbar");
+		var list = document.getElementsByClassName("list");
+		var nav_fot = document.querySelector('.nav-fot');
+		var body = document.body;
+		var flag = true;
+		console.log(list.length)
+		navbar.addEventListener('click',function(){
+			if(flag){
+				this.classList = "navbar navbar-active";
+				flag = false;
+				nav_fot.style.display = "flex"
+				body.className = "body-active";
+			}else{
+				this.classList = "navbar ";
+				flag = true;
+				nav_fot.style.display = "none";
+				body.className = "";
+			}
+		},false)
+		
+		
+		for(var i=0; i<list.length; i++){
+			list[i].addEventListener('click',function(){
+				this.children[1].style.display = "block";
+			},false)
+		}
+	</script>
+</html>

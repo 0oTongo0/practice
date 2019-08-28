@@ -1,0 +1,255 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  lighting-color: none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0); 
+}
+html{
+  font-size: 16px;
+}
+input,button{
+  outline-color:transparent; 
+}
+html,body,#root{
+  height: 100%;
+  overflow: hidden;
+}
+#root>div{
+  height: 100%;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow : 0 0 0px 1000px #2e2e2e inset !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+li{
+  list-style: none;
+}
+input[type="button"], input[type="submit"], input[type="reset"],textarea {    /*ios圆角问题*/
+  -webkit-appearance: none;
+}
+@media screen and (min-width: 375px) {
+  html {
+      /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+      font-size: calc(100% + 2 * (100vw - 375px) / 39);
+      font-size: calc(16px + 2 * (100vw - 375px) / 39);
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+      /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
+      font-size: calc(112.5% + 4 * (100vw - 414px) / 586);
+      font-size: calc(18px + 4 * (100vw - 414px) / 586);
+  }
+}
+@media screen and (min-width: 600px) {
+  html {
+      /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
+      font-size: calc(125% + 4 * (100vw - 600px) / 400);
+      font-size: calc(20px + 4 * (100vw - 600px) / 400);
+  }
+}
+
+/* 轮播重置 */
+.y-swiper{
+  overflow: hidden;
+  height: 8.75rem;
+  width: 100%;
+}
+.y-swiper img{
+  max-width: 100%;
+  object-fit: cover;
+}
+.y-swiper.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+  bottom: 0;
+  box-shadow:inset 0 -1.25rem 1.125rem -0.875rem rgba(51, 51, 51, 0.5); 
+}
+.y-swiper .swiper-pagination-bullet{
+  background: #fff;
+  opacity: 1;
+}
+.y-swiper .swiper-pagination-bullet-active{
+  width: 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+/* 最大层 */
+.y-max{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 头部 */
+.y-header{
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+
+/* 中间 */
+.center{
+  flex: 1;
+}
+
+
+
+/* 底部 */
+.footer{
+  height: 50px;
+}
+.footer ul{
+  display: flex;
+}
+.footer ul li{
+  flex: 1;
+  text-align: center;
+}
+.footer ul li a{
+  color: #464646;
+}
+.footer ul li a.active{
+  color: red;
+}
+
+
+/* 登录 */
+.login{
+  height: 100%;
+  overflow: hidden;
+  background: #2e2e2e;
+  display: flex;
+}
+.login > form{
+  width: 80%;
+  margin: auto;
+}
+.login > form h2{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    text-align: center;
+    line-height: 100px;
+    margin: 0 auto 30px; 
+    /* border: 1px solid #00794c; */
+    text-indent: -9999px;
+    background: url('img/logo.png') no-repeat center/contain;
+}
+.login > form .input-box{
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.login > form .input-box a{
+  position: absolute;
+  width: 33px;
+  height: 33px;
+  top: 0;
+  right: 0;
+  transition: all 0.2s;
+}
+.login > form .input-box .password-hide{
+  background: url('img/b.png') no-repeat;
+  background-size: contain;
+}
+.login > form .input-box .password-show{
+  background: url('img/z.png') no-repeat;
+  background-size: contain;
+}
+.login > form .input-box input{
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  color: #fff;
+  caret-color:#fff;
+  padding-left: 1px;
+  line-height: 32px;
+}
+.login > form .input-box input::-webkit-input-placeholder{
+  color: #fff;
+}
+/* .login > form .input-box::before{
+  content: "";
+  width: 0%;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #47cf73;
+  right: 0;
+  transition: all 0.3s;
+} */
+.login > form .input-box i{
+  content: "";
+  width: 0%;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #47cf73;
+  right: 0;
+  transition: all 0.3s;
+}
+/* .login > form .input-box:focus-within::before{
+  width: 100%;
+  left: 0;
+  transition: all 0.3s;
+} */
+.login > form input:focus ~ i{
+  width: 100%;
+  left: 0;
+  transition: all 0.3s;
+}
+.login > form  .button-box{
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.login > form  .button-box button{
+  border: none;
+  border: 1px solid #47cf73;
+  color: #fff;
+  height: 36px;
+  background: transparent;
+  padding: 0 40px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+
+/* 提示 */
+.err{
+  position: fixed;
+  padding: 0 20px;
+  background: #00794c;
+  font-size: 14px;
+  color: #fff;
+  top: -30px;
+  height: 30px;
+  line-height: 30px;
+  opacity: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30px;
+  box-sizing: border-box;
+  animation: err .3s  linear forwards;
+  letter-spacing: 2px;
+}
+@keyframes err{
+  0%{
+      top: -30px;
+      opacity: 0;
+  }
+  50%{
+      top: 0px;
+      opacity: 0.2;
+  }
+  100%{
+      top: 30px;
+      opacity: 1;
+  }
+}

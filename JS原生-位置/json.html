@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var book = {
+			title:"名字",
+			authors:["大佬"],
+			edition:3,
+			year:2011,
+			nul: "undefined"
+		}
+		var jsonText = JSON.stringify(book)
+		
+		var bookC = JSON.parse(jsonText)
+		console.log(jsonText,"jsonText")
+		console.log(bookC,"bookC")
+
+	</script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		.text-popup {
+			animation: textPopup 1s;
+			/* color: red; */
+			user-select: none;
+			white-space: nowrap;
+			position: absolute;
+			z-index: 99;
+			width: 20px;
+			height: 20px;
+			background: hotpink;
+			/* border-radius: 50%; */
+		}
+		.text-popup:before{
+			content: "";
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			top: -5px;
+			border-radius: 50%;
+			background: inherit;
+		}
+		.text-popup:after{
+			content: "";
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			top: -5px;
+			right: 0;
+			border-radius: 50%;
+			background: inherit;
+		}
+		@keyframes textPopup {
+			0%, 100% {
+				opacity: 0;
+			}
+			5% {
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(-50px);    
+			}
+		}
+	</style>
+	<body>
+	</body>
+<script>
+var fnTextPopup = function () {
+    // 主逻辑
+    var index = 0;
+    document.documentElement.addEventListener('click', function (event) {
+        var x = event.pageX, y = event.pageY;
+		var r =  parseInt(Math.random()*257);
+		var g =  parseInt(Math.random()*257);
+		var b =  parseInt(Math.random()*257);
+		console.log(r)
+        var eleText = document.createElement('span');
+        eleText.className = 'text-popup';
+        this.appendChild(eleText);
+        // 动画结束后删除自己
+        eleText.addEventListener('animationend', function () {
+            eleText.parentNode.removeChild(eleText);
+        });
+        // 位置
+		eleText.style.backgroundColor = "rgb(" + r + ',' + g + ',' + b + ")";
+        eleText.style.left = (x - eleText.clientWidth / 2) + 'px';
+        eleText.style.top = (y - eleText.clientHeight) + 'px';
+        // index递增
+        index++;
+    });    
+};
+fnTextPopup();
+</script>
+</html>

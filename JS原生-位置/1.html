@@ -17,6 +17,7 @@
 			border: 10px solid #f4f4f4;
 			/* box-sizing: border-box; */
 			position: relative;
+			overflow: auto;
 		}
 		.c{
 			width: 2000px;
@@ -24,39 +25,43 @@
 			padding: 2px;
 			border: 2px solid aqua;
 			margin-left: 10px;
-			position: relative;
+			position: absolute;
 			/* left: 0px; */
+		}
+		@supports not(display:grid){
+			0000000000000
 		}
 	</style>
 	<body>
 		<div class="p">
-			<!-- <div class="c"></div> -->
+			<div class="c" contenteditable="true"></div>
 		</div>
+		<div style="height: 5000px;"></div>
 	</body>
 	<script type="text/javascript">
 		var p = document.querySelector(".p"); 
 		var c = document.querySelector(".c");
-		// console.log(p.clientLeft)   计算border
-		console.log(p.clientWidth)   //内容+padding    当设置box-sizing 减去border
-		// console.log(c.offsetLeft)    //父级margin+padding+border+本身的margin   定位时absolute只有本身marging + left   当父级定位relative  父级padding + 自身margin
+		console.log(p.offsetWidth,"offsetWidth")
+		console.log(p.offsetLeft,"offsetLeft")
+		console.log(p.offsetParent,"offsetParent")
+		// console.log(p.clientLeft ,"clientLeft")   //计算border
+		console.log(c.scrollLeft,"scrollLeft")   //内容+padding    当设置box-sizing 减去border
+		console.log(c.offsetLeft)    //父级margin+padding+border+本身的margin   定位时absolute只有本身marging + left   当父级定位relative  父级padding + 自身margin
 		
-		console.log(p.scrollWidth) // 实际内容长度 算border
-		console.log()
+		console.log(p.scrollTop,"scrollWidth") // 实际内容长度 算padding
 // 		document.onmousemove = function(e){
 // 			console.log(e)
-// 		}
 
-		var x = 1;
-		function foo(x, y){
-			x = 3;
-			// y();
-			console.log(x)
-		}
-		foo();
-		console.log(x)
-		var i = 1;    
-		var a = i++ + ++i + --i + i--;
-		console.log(a)
-		console.log(i)
+// 		}
+		console.log(document.body.clientHeight,"window.clientWidth")
+		
+		window.addEventListener('click',function(e){
+			console.log(e)
+			console.log(this.pageYOffset,"pageYOffset")
+			console.log(document.documentElement.scrollTop,"document.documentElement.scrollTop")
+		})
+		window.addEventListener('scroll',function(e){
+			console.log(document.documentElement.scrollTop ,"1111111111111111111111111111")
+ 		})
 	</script>
 </html>
